@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Ogle-user] Compile issues and failure to display on Mac Mini
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/ogle-user/2006-October/index.html" >
+   <LINK REL="made" HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20Compile%20issues%20and%20failure%20to%20display%20on%20Mac%20Mini&In-Reply-To=%3CE1Ge1KO-0000bB-3f%40tuschin.blackcatnetworks.co.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000049.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Ogle-user] Compile issues and failure to display on Mac Mini</H1>
+    <B>Tim</B> 
+    <A HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20Compile%20issues%20and%20failure%20to%20display%20on%20Mac%20Mini&In-Reply-To=%3CE1Ge1KO-0000bB-3f%40tuschin.blackcatnetworks.co.uk%3E"
+       TITLE="[Ogle-user] Compile issues and failure to display on Mac Mini">tim-ogle at baverstock.org.uk
+       </A><BR>
+    <I>Sun Oct 29 04:27:16 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000049.html">[Ogle-user] This DVD doesn't play
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#50">[ date ]</a>
+              <a href="thread.html#50">[ thread ]</a>
+              <a href="subject.html#50">[ subject ]</a>
+              <a href="author.html#50">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi. 
+
+version of Ogle: 0.9.2
+graphics card: Mac Mini (GMA 950, 64M shared)
+distribution: Mac OS X 10.4.8/Darwin 8.8.1
+complete copy of the ogle output (ogle --debug &gt;&amp; ogle.log) (for versions 
+prior to 0.9.0 don't use --debug) 
+
+root-users-computer:~/Desktop/ogle/ogle-0.9.2 admin$ ../usr/bin/ogle --debug 
+ -u cli /Volumes/ANI_11
+Build: Darwin 8.8.1 Darwin Kernel Version 8.8.1: Mon Sep 25 19:42:00 PDT 
+2006; root:xnu-792.13.8.obj~1/RELEASE_I386 i386 i386 Sun Oct 29 02:47:51 GMT 
+2006 Xv
+Runtime: Darwin 8.8.1 Darwin Kernel Version 8.8.1: Mon Sep 25 19:42:00 PDT 
+2006; root:xnu-792.13.8.obj~1/RELEASE_I386 i386 i386
+Note[ogle_ctrl]: ogle 0.9.2
+Debug[ogle_ctrl]: Started /Users/admin/Desktop/ogle/usr/lib/ogle/ogle_cli 
+with pid 4215
+Debug[ogle_ctrl]: Started /Users/admin/Desktop/ogle/usr/lib/ogle/ogle_nav 
+with pid 4216
+Debug[ogle_ctrl]: Started 
+/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_mpeg_ps with pid 4217
+Debug[ogle_ctrl]: Started /Users/admin/Desktop/ogle/usr/lib/ogle/ogle_vout 
+with pid 4218
+Debug[ogle_vout]: CLK_TCK: 100
+Debug[ogle_nav]: Opening DVD at &quot;/Volumes/ANI_11&quot;
+Debug[ogle_nav]: play_PGC: first_play_pgc
+Note[ogle_nav]: Language 'en' not found, using '&#255;&#255;' instead
+Note[ogle_nav]: Language 'en' not found, using '&#255;&#255;' instead
+Note[ogle_nav]: Language 'en' not found, using '&#255;&#255;' instead
+Debug[ogle_nav]: play_PGC: state.pgcN (1)
+Note[ogle_nav]: Language 'en' not found, using '&#255;&#255;' instead
+Note[ogle_nav]: Language 'en' not found, using '&#255;&#255;' instead
+Debug[ogle_nav]: play_PGC: state.pgcN (2)
+Debug[ogle_nav]: play_PG: state.pgN (1)
+Debug[ogle_nav]: play_Cell: state.cellN (1)
+Debug[ogle_nav]: sending audio demuxstream 0
+Debug[ogle_nav]: oid: bd, ost: 80, nid: bd, nst: a0
+Debug[ogle_nav]: sending subp demuxstream 0
+Debug[ogle_mpeg_ps]: newid private:
+Debug[ogle_mpeg_ps]: oldid private
+*ctrl: get_buffer, shmget failed: Invalid argument
+*demux: fill_buffer, no buffer
+Debug[ogle_ctrl]: child: 4217 exited with 256 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_mpeg_ps)
+Debug[ogle_ctrl]: pid: 4217 exited with status: 1 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_mpeg_ps)
+Debug[ogle_ctrl]: child: 4218 killed 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_vout)
+Debug[ogle_ctrl]: pid: 4218 terminated on signal: 2 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_vout)
+Debug[ogle_ctrl]: child: 4216 killed 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_nav)
+Debug[ogle_ctrl]: pid: 4216 terminated on signal: 2 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_nav)
+Debug[ogle_ctrl]: slaying child: 4215 
+/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_cli
+Debug[ogle_ctrl]: removing shmid: 458752
+Note[ogle_ctrl]: exiting 
+
+
+anything else you think could be relevant of use. 
+
+OK. from the the start. 
+
+I installed the X11 app and the GCC compiler from the Mac install discs. I 
+downloaded all the things specified on the Ogle download page. 
+
+1, libjpeg needed me to copy the config.guess and config.sub files from the 
+Ogle directory before it would let me compile it with --enable-shared. I'm 
+not suprised that libjpeg didn't know about Intel Macs, but it would have 
+been nice if the download page had mentioned needing --enable-shared. 
+
+2. Compiling Ogle first failed because -mcpu=pentiumpro isn't supported by 
+the compiler supplied by Apple: I removed it from the scripts that generated 
+the makefiles. 
+
+3. I now had problems where most of the symbols defined in yuv2rgb_mmx.c 
+were undefined, despute -DHAVE_MMX=1 appearing on the compile line. I 
+reconfigured with --disable-mmx to work around that. 
+
+4. Now ac3dec_wrap.c and ifo_dump.c complained about having program_name 
+declared static, which contradicted some debug header. I removed the 
+'static' keywords from the declarations. 
+
+5. Now it all compiles and links, but I see this from an X11 Xterm (with 
+DISPLAY defined): 
+
+root-users-computer:~/Desktop/ogle/ogle-0.9.2 admin$ ../usr/bin/ogle --debug 
+ -u cli /Volumes/ANI_11
+Build: Darwin 8.8.1 Darwin Kernel Version 8.8.1: Mon Sep 25 19:42:00 PDT 
+2006; root:xnu-792.13.8.obj~1/RELEASE_I386 i386 i386 Sun Oct 29 02:47:51 GMT 
+2006 Xv
+Runtime: Darwin 8.8.1 Darwin Kernel Version 8.8.1: Mon Sep 25 19:42:00 PDT 
+2006; root:xnu-792.13.8.obj~1/RELEASE_I386 i386 i386
+Note[ogle_ctrl]: ogle 0.9.2
+Debug[ogle_ctrl]: Started /Users/admin/Desktop/ogle/usr/lib/ogle/ogle_cli 
+with pid 4215
+Debug[ogle_ctrl]: Started /Users/admin/Desktop/ogle/usr/lib/ogle/ogle_nav 
+with pid 4216
+Debug[ogle_ctrl]: Started 
+/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_mpeg_ps with pid 4217
+Debug[ogle_ctrl]: Started /Users/admin/Desktop/ogle/usr/lib/ogle/ogle_vout 
+with pid 4218
+Debug[ogle_vout]: CLK_TCK: 100
+Debug[ogle_nav]: Opening DVD at &quot;/Volumes/ANI_11&quot;
+Debug[ogle_nav]: play_PGC: first_play_pgc
+Note[ogle_nav]: Language 'en' not found, using '&#255;&#255;' instead
+Note[ogle_nav]: Language 'en' not found, using '&#255;&#255;' instead
+Note[ogle_nav]: Language 'en' not found, using '&#255;&#255;' instead
+Debug[ogle_nav]: play_PGC: state.pgcN (1)
+Note[ogle_nav]: Language 'en' not found, using '&#255;&#255;' instead
+Note[ogle_nav]: Language 'en' not found, using '&#255;&#255;' instead
+Debug[ogle_nav]: play_PGC: state.pgcN (2)
+Debug[ogle_nav]: play_PG: state.pgN (1)
+Debug[ogle_nav]: play_Cell: state.cellN (1)
+Debug[ogle_nav]: sending audio demuxstream 0
+Debug[ogle_nav]: oid: bd, ost: 80, nid: bd, nst: a0
+Debug[ogle_nav]: sending subp demuxstream 0
+Debug[ogle_mpeg_ps]: newid private:
+Debug[ogle_mpeg_ps]: oldid private
+*ctrl: get_buffer, shmget failed: Invalid argument
+*demux: fill_buffer, no buffer
+Debug[ogle_ctrl]: child: 4217 exited with 256 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_mpeg_ps)
+Debug[ogle_ctrl]: pid: 4217 exited with status: 1 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_mpeg_ps)
+Debug[ogle_ctrl]: child: 4218 killed 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_vout)
+Debug[ogle_ctrl]: pid: 4218 terminated on signal: 2 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_vout)
+Debug[ogle_ctrl]: child: 4216 killed 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_nav)
+Debug[ogle_ctrl]: pid: 4216 terminated on signal: 2 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_nav)
+Debug[ogle_ctrl]: slaying child: 4215 
+/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_cli
+Debug[ogle_ctrl]: removing shmid: 458752
+Note[ogle_ctrl]: exiting 
+
+6. Finally, I don't see any audio channels appearing in the configuration 
+summary. 
+
+Any ideas? 
+
+Thanks, 
+
+TIm 
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000049.html">[Ogle-user] This DVD doesn't play
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#50">[ date ]</a>
+              <a href="thread.html#50">[ thread ]</a>
+              <a href="subject.html#50">[ subject ]</a>
+              <a href="author.html#50">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/ogle-user">More information about the Ogle-user
+mailing list</a><br>
+</body></html>

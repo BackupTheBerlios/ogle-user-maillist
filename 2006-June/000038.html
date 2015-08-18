@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Ogle-user] errors reading an encrypted dvd
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/ogle-user/2006-June/index.html" >
+   <LINK REL="made" HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20errors%20reading%20an%20encrypted%20dvd&In-Reply-To=%3C20060609175134.GC11932%40dtek.chalmers.se%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000035.html">
+   <LINK REL="Next"  HREF="000040.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Ogle-user] errors reading an encrypted dvd</H1>
+    <B>Bj|rn Englund</B> 
+    <A HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20errors%20reading%20an%20encrypted%20dvd&In-Reply-To=%3C20060609175134.GC11932%40dtek.chalmers.se%3E"
+       TITLE="[Ogle-user] errors reading an encrypted dvd">d4bjorn at dtek.chalmers.se
+       </A><BR>
+    <I>Fri Jun  9 19:52:02 CEST 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000035.html">[Ogle-user] errors reading an encrypted dvd
+</A></li>
+        <LI>Next message: <A HREF="000040.html">[Ogle-user] errors reading an encrypted dvd
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#38">[ date ]</a>
+              <a href="thread.html#38">[ thread ]</a>
+              <a href="subject.html#38">[ subject ]</a>
+              <a href="author.html#38">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Fri Jun 09 2006, Ivan Uemlianin wrote:
+
+&gt;<i> I running debian etch with libdvdcss.  When I run ogle I get the 
+</I>&gt;<i> following output.  The GUI pops up, and when I select Open disc the 
+</I>&gt;<i> screen window opens but stays black.  At the end I clicked on Exit.
+</I>&gt;<i> 
+</I>This is probably a thing that is fixed in the cvs version.
+So if you are not running the cvs version you can try to do the following.
+Look for a Xv attribute named XV_AUTOPAINT_COLORKEY which probably is 0
+It needs to be set to 1.
+You can set it with:
+xvattr -a XV_AUTOPAINT_COLORKEY -v 1
+Then you should have picture in ogle.
+
+/Bj|rn
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000035.html">[Ogle-user] errors reading an encrypted dvd
+</A></li>
+	<LI>Next message: <A HREF="000040.html">[Ogle-user] errors reading an encrypted dvd
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#38">[ date ]</a>
+              <a href="thread.html#38">[ thread ]</a>
+              <a href="subject.html#38">[ subject ]</a>
+              <a href="author.html#38">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/ogle-user">More information about the Ogle-user
+mailing list</a><br>
+</body></html>

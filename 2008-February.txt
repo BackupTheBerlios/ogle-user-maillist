@@ -1,0 +1,12 @@
+From brame.nolan00 at gmail.com  Sun Feb  3 15:01:16 2008
+From: brame.nolan00 at gmail.com (Nolan Brame)
+Date: Sun, 03 Feb 2008 06:01:16 -0800
+Subject: [Ogle-user] Fatal error: Command failed for target
+	`install-recursive'
+Message-ID: <47A5C92C.90102@gmail.com>
+
+ Fatal error: Command failed for target `install-recursive'
+how do I fix this I was almost there
+
+
+

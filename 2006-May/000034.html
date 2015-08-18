@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Ogle-user] Install problem on FC5
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/ogle-user/2006-May/index.html" >
+   <LINK REL="made" HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20Install%20problem%20on%20FC5&In-Reply-To=%3C200605271403.47432.cave.dnb%40tiscali.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000032.html">
+   <LINK REL="Next"  HREF="000033.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Ogle-user] Install problem on FC5</H1>
+    <B>Nigel Henry</B> 
+    <A HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20Install%20problem%20on%20FC5&In-Reply-To=%3C200605271403.47432.cave.dnb%40tiscali.fr%3E"
+       TITLE="[Ogle-user] Install problem on FC5">cave.dnb at tiscali.fr
+       </A><BR>
+    <I>Sat May 27 14:02:01 CEST 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000032.html">[Ogle-user] Install problem on FC5
+</A></li>
+        <LI>Next message: <A HREF="000033.html">[Ogle-user] Install problem on FC5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#34">[ date ]</a>
+              <a href="thread.html#34">[ thread ]</a>
+              <a href="subject.html#34">[ subject ]</a>
+              <a href="author.html#34">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Saturday 27 May 2006 12:20, benni. wrote:
+&gt;<i> Hey,
+</I>&gt;<i>
+</I>&gt;<i> have you tried using the rpms (or better: the yum repo) from freshrpms?
+</I>&gt;<i>
+</I>&gt;<i> RPMs for Fedora Core 5 (Bordeaux)
+</I>&gt;<i> <A HREF="http://bordeaux.freshrpms.net/">http://bordeaux.freshrpms.net/</A>
+</I>&gt;<i>
+</I>&gt;<i> You can install the yum repository by executing the following command as
+</I>&gt;<i>
+</I>&gt;<i> root:
+</I>&gt;<i>  &gt; rpm -Uvh
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://ftp.freshrpms.net/pub/freshrpms/fedora/linux/5/freshrpms-release/fre">http://ftp.freshrpms.net/pub/freshrpms/fedora/linux/5/freshrpms-release/fre</A>
+</I>&gt;<i>shrpms-release-1.1-1.fc.noarch.rpm
+</I>&gt;<i>
+</I>&gt;<i> after that, you call a
+</I>&gt;<i>
+</I>&gt;<i>  &gt; yum install ogle
+</I>&gt;<i>
+</I>&gt;<i> and you should be good to go, since it solves all the dependany issues.
+</I>&gt;<i>
+</I>&gt;<i> Enjoy,
+</I>&gt;<i> benni.
+</I>&gt;<i> -SDG-
+</I>
+Hi Benni. Thanks for the link to freshrpms for FC5. I may add the repo for 
+freshrpms manually to Yum, as I have all the baseurls for planetccrma already 
+set up there. I will still have to fix the r128 driver problem, but as you 
+say, at least both Yum, And Apt solve the dependency problems.
+
+I don't like dependency hell. It's not so bad when you know which development 
+packages are required, and have easy access to them. The worst problem is 
+with the compile, and make just stops, giving errors that you have no idea 
+about.
+
+Thanks again for the info. Nigel.
+&gt;<i>
+</I>&gt;<i> Nigel Henry wrote:
+</I>&gt;<i> &gt; I have an Mplayer source install on FC1, and FC2 on this machine, and
+</I>&gt;<i> &gt; DVD's play ok. The DVD drive is on an IDE PCI adaptor card. Graphics card
+</I>&gt;<i> &gt; is a Rage 128 PCI card using r128 driver.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; FC5 has proved to be a different kettle of fish. Post install I had to
+</I>&gt;<i> &gt; change the graphics card driver to vesa, otherwise X would not start. The
+</I>&gt;<i> &gt; RPM for Mplayer from the Greysector repo installs, but I get 100% CPU,
+</I>&gt;<i> &gt; with juddery playback, and bursts of sound. The source tarball will not
+</I>&gt;<i> &gt; install, but as the Mplayer folks insist on certain versions of GCC, and
+</I>&gt;<i> &gt; FC5's gcc-4.1.0-3 doesn't equate, this is probably no surprise, and I
+</I>&gt;<i> &gt; havn't bothered to contact them, as they don't want to know if you have
+</I>&gt;<i> &gt; steered away from the parameters they have set.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Next tried Totem, which is installed on FC5. No joy. Went to their site
+</I>&gt;<i> &gt; and installed libdvdcss RPM for FC5, but still no go. Complaints about
+</I>&gt;<i> &gt; missing plugins, although the DVD I was trying to play was showing on the
+</I>&gt;<i> &gt; menu.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; From a post on Linux Questions, someone suggested Ogle, so here I am
+</I>&gt;<i> &gt; trying to install it.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; libdvdcss is already installed, so I have installed, a52dec-0.7.4,
+</I>&gt;<i> &gt; libdvdread-0.9.6, and libmad-0.15.1b. ogle-0.9.2 has a problem.
+</I>&gt;<i> &gt; ogle_gui-0.9.2 installed ok after I installed libglade, and
+</I>&gt;<i> &gt; libglade-devel.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; This is where the ogle install stops. See below.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Making install in libogleao
+</I>&gt;<i> &gt; make[1]: Entering directory
+</I>&gt;<i> &gt; `/home/djmons/Downloads/Ogle/ogle-0.9.2/libogleao' make[2]: Entering
+</I>&gt;<i> &gt; directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/libogleao' make[2]:
+</I>&gt;<i> &gt; Nothing to be done for `install-exec-am'.
+</I>&gt;<i> &gt; make[2]: Nothing to be done for `install-data-am'.
+</I>&gt;<i> &gt; make[2]: Leaving directory
+</I>&gt;<i> &gt; `/home/djmons/Downloads/Ogle/ogle-0.9.2/libogleao' make[1]: Leaving
+</I>&gt;<i> &gt; directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/libogleao' Making
+</I>&gt;<i> &gt; install in ac3
+</I>&gt;<i> &gt; make[1]: Entering directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/ac3'
+</I>&gt;<i> &gt; source='ac3dec_wrap.c' object='ac3dec_wrap.o' libtool=no \
+</I>&gt;<i> &gt; depfile='.deps/ac3dec_wrap.Po' tmpdepfile='.deps/ac3dec_wrap.TPo' \
+</I>&gt;<i> &gt; depmode=gcc3 /bin/sh ../depcomp \
+</I>&gt;<i> &gt; gcc -DPACKAGE_NAME=\&quot;\&quot; -DPACKAGE_TARNAME=\&quot;\&quot; -DPACKAGE_VERSION=\&quot;\&quot;
+</I>&gt;<i> &gt; -DPACKAGE_STRING=\&quot;\&quot; -DPACKAGE_BUGREPORT=\&quot;\&quot; -DPACKAGE=\&quot;ogle\&quot;
+</I>&gt;<i> &gt; -DVERSION=\&quot;0.9.2\&quot; -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1
+</I>&gt;<i> &gt; -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1
+</I>&gt;<i> &gt; -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1
+</I>&gt;<i> &gt; -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -Dinline=__attribute__\
+</I>&gt;<i> &gt; \(\(__always_inline__\)\) -DHAVE_BYTESWAP_H=1 -DHAVE_SYS_PARAM_H=1
+</I>&gt;<i> &gt; -DHAVE_STROPTS_H=1 -DHAVE_XSHM=1 -DHAVE_XV=1 -DHAVE_CLOCK_GETTIME=1
+</I>&gt;<i> &gt; -DHAVE_MADVISE=1 -DLIBOGLEAO_NULL= -DLIBOGLEAO_OSS= -DHAVE_XML=1
+</I>&gt;<i> &gt; -DHAVE_XF86VIDMODE=1 -DHAVE_XINERAMA=1
+</I>&gt;<i> &gt; -DCONFIG_FILE=\&quot;/usr/local/share/ogle/oglerc\&quot; -DHAVE_MMX=1  -I. -I. 
+</I>&gt;<i> &gt; -I.. -I../include -I/usr/local/include -I/usr/local/include
+</I>&gt;<i> &gt; -I/usr/include/libxml2 -fomit-frame-pointer -funroll-loops -g -O2 -Wall
+</I>&gt;<i> &gt; -g -O2 -Wall -march=i586 -mcpu=pentiumpro -c `test -f 'ac3dec_wrap.c' ||
+</I>&gt;<i> &gt; echo './'`ac3dec_wrap.c `-mcpu=' is deprecated. Use `-mtune=' or
+</I>&gt;<i> &gt; '-march=' instead.
+</I>&gt;<i> &gt; ac3dec_wrap.c:51: error: static declaration of &#8216;program_name&#8217; follows
+</I>&gt;<i> &gt; non-static declaration
+</I>&gt;<i> &gt; ../include/debug_print.h:7: error: previous declaration of &#8216;program_name&#8217;
+</I>&gt;<i> &gt; was here
+</I>&gt;<i> &gt; ac3dec_wrap.c: In function &#8216;get_q&#8217;:
+</I>&gt;<i> &gt; ac3dec_wrap.c:278: warning: pointer targets in assignment differ in
+</I>&gt;<i> &gt; signedness make[1]: *** [ac3dec_wrap.o] Error 1
+</I>&gt;<i> &gt; make[1]: Leaving directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/ac3'
+</I>&gt;<i> &gt; make: *** [install-recursive] Error 1
+</I>&gt;<i> &gt; [<A HREF="https://lists.berlios.de/mailman/listinfo/ogle-user">root at localhost</A> ogle-0.9.2]#
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Any suggestions as to what might be the problem is welcome.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Nigel.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; Ogle-user mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/ogle-user">Ogle-user at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="http://lists.berlios.de/mailman/listinfo/ogle-user">http://lists.berlios.de/mailman/listinfo/ogle-user</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; !DSPAM:6,4477786c124375593218060!
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000032.html">[Ogle-user] Install problem on FC5
+</A></li>
+	<LI>Next message: <A HREF="000033.html">[Ogle-user] Install problem on FC5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#34">[ date ]</a>
+              <a href="thread.html#34">[ thread ]</a>
+              <a href="subject.html#34">[ subject ]</a>
+              <a href="author.html#34">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/ogle-user">More information about the Ogle-user
+mailing list</a><br>
+</body></html>

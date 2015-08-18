@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Ogle-user] libdvdread
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/ogle-user/2006-February/index.html" >
+   <LINK REL="made" HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20libdvdread&In-Reply-To=%3C43E3512A.5070803%40istat.it%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000011.html">
+   <LINK REL="Next"  HREF="000013.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Ogle-user] libdvdread</H1>
+    <B>maurizio</B> 
+    <A HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20libdvdread&In-Reply-To=%3C43E3512A.5070803%40istat.it%3E"
+       TITLE="[Ogle-user] libdvdread">firmani at istat.it
+       </A><BR>
+    <I>Fri Feb  3 13:55:01 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000011.html">[Ogle-user] libdvdread
+</A></li>
+        <LI>Next message: <A HREF="000013.html">[Ogle-user] Problem while make
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#12">[ date ]</a>
+              <a href="thread.html#12">[ thread ]</a>
+              <a href="subject.html#12">[ subject ]</a>
+              <a href="author.html#12">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bj|rn Englund ha scritto:
+
+&gt;<i>Fri Feb 03 2006, maurizio wrote:
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;&gt;<i>sorry if I'm off topic. I have a few scratched DVD which I'd like to 
+</I>&gt;&gt;<i>copy but I cannot because libdvdread exit when reach a bad sector.
+</I>&gt;&gt;<i>Is there a way to tell libdvdread to ignore read error?
+</I>&gt;&gt;<i>I know this option is supported in DVDdecrypter but I would like to stay 
+</I>&gt;&gt;<i>on Linux (and avoid to use wine).
+</I>&gt;&gt;<i>    
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>What program are you using that is using libdvdread?
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>I am using qvamps with libdvdread 0.9.4.
+As you said, it should be the program that call the library to manage 
+such a message and ask the user what to do or silently ignore the block 
+error. In fact, I sent an email to the author of vamps, already.
+Actually, I had the same problem with dvdbackup, too. It seems that 
+these programs which make use of libdvdread assume that a dvd copy 
+should have not any block error but, while this assumption is correct 
+for a data dvd is not correct for a movie dvd, in my opinion, because 
+most of the time users will not see the lack of few photograms.
+
+Thanks for the quick answer.
+
+Maurizio
+
+&gt;<i>What function in libdvdread (v0.9.5 ?) is failing and with what return value
+</I>&gt;<i>(and/or error message)?
+</I>&gt;<i>
+</I>&gt;<i>Libdvdread should not exit() when encountering a read error, just return
+</I>&gt;<i>a short read. The program that is calling libdvdread should catch this short
+</I>&gt;<i>read and retry reading or skip the unreadable blocks.
+</I>&gt;<i>
+</I>&gt;<i>I guess we could implement this read retry in libdvdread, but there
+</I>&gt;<i>would be no way to tell the calling program if a block has errors or not
+</I>&gt;<i>with the current interface I think. 
+</I>&gt;<i>
+</I>&gt;<i>/Bj|rn
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000011.html">[Ogle-user] libdvdread
+</A></li>
+	<LI>Next message: <A HREF="000013.html">[Ogle-user] Problem while make
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#12">[ date ]</a>
+              <a href="thread.html#12">[ thread ]</a>
+              <a href="subject.html#12">[ subject ]</a>
+              <a href="author.html#12">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/ogle-user">More information about the Ogle-user
+mailing list</a><br>
+</body></html>

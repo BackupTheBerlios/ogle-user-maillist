@@ -1,0 +1,356 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Ogle-user] [BUG-REPORT] Ogle 0.9.2 - Pressing main menu	navigation key crashes ogle when playing &quot;Hostel&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/ogle-user/2006-November/index.html" >
+   <LINK REL="made" HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20%5BBUG-REPORT%5D%20Ogle%200.9.2%20-%20Pressing%20main%20menu%0A%09navigation%20key%20crashes%20ogle%20when%20playing%20%22Hostel%22&In-Reply-To=%3Cc526a04b0611111246m8daa206o7efe6f356178b9f%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000055.html">
+   <LINK REL="Next"  HREF="000057.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Ogle-user] [BUG-REPORT] Ogle 0.9.2 - Pressing main menu	navigation key crashes ogle when playing &quot;Hostel&quot;</H1>
+    <B>Adam Henley</B> 
+    <A HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20%5BBUG-REPORT%5D%20Ogle%200.9.2%20-%20Pressing%20main%20menu%0A%09navigation%20key%20crashes%20ogle%20when%20playing%20%22Hostel%22&In-Reply-To=%3Cc526a04b0611111246m8daa206o7efe6f356178b9f%40mail.gmail.com%3E"
+       TITLE="[Ogle-user] [BUG-REPORT] Ogle 0.9.2 - Pressing main menu	navigation key crashes ogle when playing &quot;Hostel&quot;">adamazing at gmail.com
+       </A><BR>
+    <I>Sat Nov 11 21:46:05 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000055.html">[Ogle-user] [BUG-REPORT] Ogle 0.9.2 - Pressing main menu	navigation key crashes ogle when playing &quot;Hostel&quot;
+</A></li>
+        <LI>Next message: <A HREF="000057.html">[Ogle-user] [BUG-REPORT] Ogle 0.9.2 - Pressing main menu	navigation key crashes ogle when playing &quot;Hostel&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#56">[ date ]</a>
+              <a href="thread.html#56">[ thread ]</a>
+              <a href="subject.html#56">[ subject ]</a>
+              <a href="author.html#56">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 11/11/06, Adam Henley &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/ogle-user">adamazing at gmail.com</A>&gt; wrote:
+&gt;<i> On 10/11/06, Bj|rn Englund &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/ogle-user">d4bjorn at dtek.chalmers.se</A>&gt; wrote:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; It's possible this bug is fixed in the cvs version of ogle.
+</I>&gt;<i>
+</I>&gt;<i> I'll have a look at that tomorrow.
+</I>&gt;<i>
+</I>Problem persists using cvs version of ogle:
+
+Build: Linux 2.6.18-rc6 #8 Tue Sep 12 17:53:11 UTC 2006 i686 unknown
+Sat Nov 11 19:59:28 UTC 2006 mmx Xv oss alsa
+Runtime: Linux 2.6.18-rc6 #8 Tue Sep 12 17:53:11 UTC 2006 i686 unknown
+gcc options: : GNU C version 3.3.6 (i486-slackware-linux) : compiled
+by GNU C version 3.3.6. : GGC heuristics: --param ggc-min-expand=99
+--param ggc-min-heapsize=129305 : options passed: -D__GNUC__=3
+-D__GNUC_MINOR__=3 -D__GNUC_PATCHLEVEL__=6 : -march=i586
+-mcpu=pentiumpro -auxbase-strip -g -O2 -Wall -fverbose-asm : options
+enabled: -fdefer-pop -foptimize-sibling-calls -fcse-follow-jumps :
+-fcse-skip-blocks -fexpensive-optimizations -fthread-jumps :
+-fstrength-reduce -fpeephole -fforce-mem -ffunction-cse :
+-fkeep-static-consts -fcaller-saves -fpcc-struct-return -fgcse
+-fgcse-lm : -fgcse-sm -floop-optimize -fcrossjumping -fif-conversion
+-fif-conversion2 : -frerun-cse-after-loop -frerun-loop-opt
+-fdelete-null-pointer-checks : -fschedule-insns2 -fsched-interblock
+-fsched-spec -fbranch-count-reg : -freorder-blocks -freorder-functions
+-fcprop-registers -fcommon : -fverbose-asm -fgnu-linker -fregmove
+-foptimize-register-move : -fargument-alias -fstrict-aliasing
+-fmerge-constants : -fzero-initialized-in-bss -fident -fpeephole2
+-fguess-branch-probability : -fmath-errno -ftrapping-math -m80387
+-mhard-float -mno-soft-float : -mieee-fp -mfp-ret-in-387
+-maccumulate-outgoing-args -mcpu=pentiumpro : -march=i586
+cpuinfo:
+processor : 0, vendor_id : AuthenticAMD, cpu family : 15, model : 47,
+model name : AMD Athlon(tm) 64 Processor 3000+, stepping : 2, cpu MHz
+:<i> 1800.106, cache size : 512 KB, fdiv_bug : no, hlt_bug : no, f00f_bug
+</I>:<i> no, coma_bug : no, fpu : yes, fpu_exception : yes, cpuid level : 1,
+</I>wp : yes, flags : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge
+mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx mmxext
+fxsr_opt lm 3dnowext 3dnow pni lahf_lm ts fid vid ttp tm stc, bogomips
+:<i> 3601.25, ,
+</I>
+/dev/dvd -&gt; /dev/hdc
+Valid DVD devices: /dev/hdc
+hdparm v6.1
+DMA is on for /dev/hdc
+
+/dev/hdc:
+ IO_support   =  0 (default 16-bit)
+ unmaskirq    =  0 (off)
+ using_dma    =  1 (on)
+ keepsettings =  0 (off)
+ readonly     =  0 (off)
+ readahead    = 256 (on)
+Note[ogle_ctrl]: ogle 0.9.2-cvs
+WARNING[ogle_ctrl]: ogle_shm_init, shm_open: Function not implemented
+WARNING[ogle_ctrl]: Reverting to SYSV shm
+Debug[ogle_ctrl]: Getting 1168 bytes sysv shm
+Debug[ogle_ctrl]: Started /usr/local/lib/ogle/ogle_cli with pid 23188
+Debug[ogle_ctrl]: Started /usr/local/lib/ogle/ogle_nav with pid 23189
+Debug[ogle_ctrl]: Started /usr/local/lib/ogle/ogle_mpeg_ps with pid 23190
+Debug[ogle_ctrl]: Started /usr/local/lib/ogle/ogle_vout with pid 23191
+Debug[ogle_vout]: CLK_TCK: 100
+Debug[ogle_nav]: Opening DVD at &quot;/dev/dvd&quot;
+libdvdread: Using libdvdcss version 1.2.9 for DVD access
+libdvdcss debug: opening target `/dev/dvd'
+libdvdcss debug: using libc for access
+libdvdcss debug: disc is scrambled
+libdvdcss debug: requesting AGID
+libdvdcss debug: drive authenticated, using variant 0
+libdvdcss debug: authentication established
+libdvdcss debug: GetASF authenticated, ASF=1
+libdvdcss debug: decrypting disc key 66:39:8f:b3:e8
+libdvdcss debug: trying player key 01:af:e3:12:80
+libdvdcss debug: decrypted disc key is 3c:1d:d3:a3:a9
+libdvdcss debug: using CSS key cache dir:
+/home/adam/.dvdcss/HOSTEL_UR-2006051817080200-3c1dd3a3a9/
+Debug[ogle_nav]: play_PGC: first_play_pgc
+Debug[ogle_nav]: play_PGC: state.pgcN (2)
+Debug[ogle_nav]: PGC pre commands didn't do a Jump, Link or Call
+Debug[ogle_nav]: play_PG: state.pgN (1)
+Debug[ogle_nav]: play_Cell: state.cellN (1)
+Debug[ogle_nav]: sent demux dvd nav block range (0,4725)
+Debug[ogle_ctrl]: Getting 7945552 bytes sysv shm
+libdvdread: Using libdvdcss version 1.2.9 for DVD access
+libdvdcss debug: opening target `/dev/dvd'
+libdvdcss debug: using libc for access
+libdvdcss debug: disc is scrambled
+libdvdcss debug: requesting AGID
+libdvdcss debug: drive authenticated, using variant 0
+libdvdcss debug: authentication established
+libdvdcss debug: GetASF authenticated, ASF=1
+libdvdcss debug: decrypting disc key 66:39:8f:b3:e8
+libdvdcss debug: trying player key 01:af:e3:12:80
+libdvdcss debug: decrypted disc key is 3c:1d:d3:a3:a9
+libdvdcss debug: using CSS key cache dir:
+/home/adam/.dvdcss/HOSTEL_UR-2006051817080200-3c1dd3a3a9/
+
+libdvdread: Attempting to retrieve all CSS keys
+libdvdread: This can take a _long_ time, please be patient
+
+libdvdread: Get key for /VIDEO_TS/VIDEO_TS.VOB at 0x0000015d
+libdvdcss debug: title key found in cache 00:00:00:00:00
+libdvdread: Elapsed time 0
+libdvdread: Get key for /VIDEO_TS/VTS_01_0.VOB at 0x0001e72c
+libdvdcss debug: title key found in cache c0:75:9c:a2:09
+libdvdread: Elapsed time 0
+libdvdread: Get key for /VIDEO_TS/VTS_01_1.VOB at 0x0003cc4c
+libdvdcss debug: title key found in cache c0:75:9c:a2:09
+libdvdread: Elapsed time 0
+libdvdread: Get key for /VIDEO_TS/VTS_02_1.VOB at 0x0026e7dd
+libdvdcss debug: title key found in cache d5:ca:6f:01:9d
+libdvdread: Elapsed time 0
+libdvdread: Get key for /VIDEO_TS/VTS_03_1.VOB at 0x00273af7
+libdvdcss debug: title key found in cache cd:7e:37:b9:91
+libdvdread: Elapsed time 0
+libdvdread: Get key for /VIDEO_TS/VTS_04_1.VOB at 0x0034501f
+libdvdcss debug: title key found in cache c8:28:a8:f6:87
+libdvdread: Elapsed time 0
+libdvdread: Get key for /VIDEO_TS/VTS_05_1.VOB at 0x0034dd2c
+libdvdcss debug: title key found in cache cb:dc:c0:57:f9
+libdvdread: Elapsed time 0
+libdvdread: Get key for /VIDEO_TS/VTS_06_1.VOB at 0x003555be
+libdvdcss debug: title key found in cache d4:9f:a9:83:8d
+libdvdread: Elapsed time 0
+libdvdread: Get key for /VIDEO_TS/VTS_07_1.VOB at 0x0035d35e
+libdvdcss debug: title key found in cache ce:97:12:14:f2
+libdvdread: Elapsed time 0
+libdvdread: Get key for /VIDEO_TS/VTS_08_1.VOB at 0x003663da
+libdvdcss debug: title key found in cache c6:d8:91:ff:0f
+libdvdread: Elapsed time 0
+libdvdread: Get key for /VIDEO_TS/VTS_09_1.VOB at 0x0036d825
+libdvdcss debug: title key found in cache ce:a8:12:9c:4e
+libdvdread: Elapsed time 0
+libdvdread: Get key for /VIDEO_TS/VTS_10_1.VOB at 0x00375bc9
+libdvdcss debug: title key found in cache cf:82:44:8a:78
+libdvdread: Elapsed time 0
+libdvdread: Get key for /VIDEO_TS/VTS_11_1.VOB at 0x003917c0
+libdvdcss debug: title key found in cache c0:7e:6e:d0:7c
+libdvdread: Elapsed time 0
+libdvdread: Get key for /VIDEO_TS/VTS_12_1.VOB at 0x00395d6e
+libdvdcss debug: title key found in cache c2:b4:93:ee:99
+libdvdread: Elapsed time 0
+libdvdread: Get key for /VIDEO_TS/VTS_13_1.VOB at 0x0039963c
+libdvdcss debug: title key found in cache c5:c1:36:7a:c9
+libdvdread: Elapsed time 0
+libdvdread: Get key for /VIDEO_TS/VTS_14_0.VOB at 0x0039dbf5
+libdvdcss debug: title key found in cache d1:5e:ee:1f:99
+libdvdread: Elapsed time 0
+libdvdread: Get key for /VIDEO_TS/VTS_14_1.VOB at 0x0039dd0d
+libdvdcss debug: title key found in cache d1:5e:ee:1f:99
+libdvdread: Elapsed time 0
+libdvdread: Get key for /VIDEO_TS/VTS_15_0.VOB at 0x003f9f9e
+libdvdcss debug: title key found in cache cd:1c:11:a4:90
+libdvdread: Elapsed time 0
+libdvdread: Found 14 VTS's
+libdvdread: Elapsed time 0
+Debug[ogle_ctrl]: Getting 836 bytes sysv shm
+Debug[ogle_vout]: hilite 0, 0 -&gt; 0, 0,  1
+Debug[ogle_vout]: col/cont: 0 0 0 0 0 0 0 0
+Debug[ogle_nav]: sending audio demuxstream state enabled
+Debug[ogle_nav]: id: bd, st: 80
+Debug[ogle_nav]: sent demux dvd block range (1,12)
+Debug[ogle_nav]: sent demux dvd nav block range (13,4712)
+Debug[ogle_ctrl]: Started /usr/local/lib/ogle/ogle_mpeg_vs with pid 23192
+Debug[ogle_mpeg_vs]: Using MMX accelerated media functions
+Debug[ogle_ctrl]: Getting 2436 bytes sysv shm
+Debug[ogle_mpeg_vs]: ## req cap
+Debug[ogle_mpeg_vs]: got cap and stream
+Debug[ogle_mpeg_vs]: y_size: 414720, uv_size: 103680, yuv_size: 622080
+Debug[ogle_mpeg_vs]: get ouput buffer
+Debug[ogle_mpeg_vs]: psize: 622592, nr_bufs: 5
+Debug[ogle_mpeg_vs]: pcs: 696, pbs: 3739648
+Debug[ogle_ctrl]: Getting 3740344 bytes sysv shm
+Debug[ogle_ctrl]: got capability video_out
+Debug[ogle_ctrl]: Getting 76 bytes sysv shm
+Debug[ogle_mpeg_vs]: horizontal_size: 720, vertical_size: 576
+Debug[ogle_mpeg_vs]: padded_width: 720, padded_height: 576
+Debug[ogle_mpeg_vs]: frame rate: 25
+Debug[ogle_mpeg_vs]: time offset not valid yet
+Debug[ogle_mpeg_vs]: time offset not valid yet
+Debug[ogle_ctrl]: Started /usr/local/lib/ogle/ogle_audio with pid 23194
+Debug[ogle_ctrl]: Getting 836 bytes sysv shm
+No accelerated IMDCT transform found
+Debug[ogle_audio]: decode_a52: found sync
+Debug[ogle_audio]: Searching &lt;speakers&gt; for:
+Debug[ogle_audio]:  'Left' 'Right'
+Debug[ogle_audio]: or for:
+Debug[ogle_audio]:  'AC3'
+Debug[ogle_audio]: No channel configs found
+Note[ogle_audio]: Using audio driver 'alsa'
+Debug[ogle_audio]: Opening alsa pcm device: default
+Debug[ogle_nav]: sent demux dvd block range (14,14)
+Debug[ogle_nav]: sent demux dvd nav block range (28,4697)
+Debug[ogle_nav]: sent demux dvd block range (29,252)
+Debug[ogle_nav]: sent demux dvd nav block range (281,4444)
+Xscreensaver not running.
+Debug[ogle_vout]: hilite 0, 0 -&gt; 0, 0,  1
+Debug[ogle_vout]: col/cont: 0 0 0 0 0 0 0 0
+Debug[ogle_vout]: hilite 0, 0 -&gt; 0, 0,  1
+Debug[ogle_vout]: col/cont: 0 0 0 0 0 0 0 0
+Debug[ogle_vout]: set_sync_point()
+Note[ogle_vout]: using default config for ':0.0'
+Note[ogle_vout]: Using 'X11' as source for geometry
+Note[ogle_vout]: Xinerama extension not found/active
+Note[ogle_vout]: Using 'XF86VidMode' as source for resolution
+Note[ogle_vout]: Display w: 306, h: 229, hp: 1024, vp: 768
+Note[ogle_vout]: Display sar: 234496/235008 = 0.997821
+Note[ogle_vout]: Found 40 matching visuals, using visual id: 21
+Note[ogle_vout]: Found Xv extension 2.2, checking for suitable adaptors
+Note[ogle_vout]: Xv adaptor &quot;NV17 Video Texture&quot; port 270 image format
+0x32315659 (YV12)
+Debug[ogle_vout]: Xv createimage 720x576
+Debug[ogle_vout]: XvShmCreateImage: 50
+WARNING[ogle_vout]: req_code: 140
+WARNING[ogle_vout]: minor_code: 14
+WARNING[ogle_vout]: error_code: 8
+WARNING[ogle_vout]: XV_COLORKEY not available
+ERROR[ogle_vout]: Couldn't get attribute: XV_COLORKEY
+Debug[ogle_vout]: resize: 1021, 576
+Debug[ogle_vout]: resize: 1021, 576
+##!Debug[ogle_audio]: Min channels: 1
+Debug[ogle_audio]: Max channels: 10000
+Debug[ogle_audio]: Channels: 2
+Debug[ogle_audio]: Wanted buffer time 500000, got 341333
+Debug[ogle_audio]: Buffer size 16384 frames
+Debug[ogle_audio]: Period time: 10666 us
+Debug[ogle_audio]: Period size: 512 frames
+Debug[ogle_audio]: Stream parameters are 48000 Hz, S16_LE, 2 channels,
+sample size: 4
+Note[ogle_audio]: wanted 0 channels, got 2
+Debug[ogle_audio]: channels 2, encoding 1, resolution 16
+Debug[ogle_audio]: byte order 1, rate 48000
+Debug[ogle_audio]: fragments -1, size 4096
+Debug[ogle_audio]: 2 channels decoded:  Left Right
++Note[ogle_audio]: delay resolution better than: 0.004999920, 240
+samples, rate: 48000
+Debug[ogle_vout]: resize: 1016, 573
+Debug[ogle_vout]: hilite 0, 0 -&gt; 0, 0,  1
+Debug[ogle_vout]: col/cont: 0 0 0 0 0 0 0 0
+Debug[ogle_nav]: sent demux dvd block range (282,243)
+Debug[ogle_nav]: sent demux dvd nav block range (525,4200)
+Debug[ogle_nav]: sent demux dvd block range (526,251)
+Debug[ogle_nav]: sent demux dvd nav block range (777,3948)
+Debug[ogle_vout]: hilite 0, 0 -&gt; 0, 0,  1
+Debug[ogle_vout]: col/cont: 0 0 0 0 0 0 0 0
+Debug[ogle_nav]: sent demux dvd block range (778,252)
+Debug[ogle_nav]: sent demux dvd nav block range (1030,3695)
+Debug[ogle_vout]: hilite 0, 0 -&gt; 0, 0,  1
+Debug[ogle_vout]: col/cont: 0 0 0 0 0 0 0 0
+Note[ogle_nav]: Jumping to Menu 2
+Debug[ogle_nav]: play_PGC: state.pgcN (1)
+Debug[ogle_nav]: PGC pre commands didn't do a Jump, Link or Call
+Debug[ogle_nav]: play_PG: state.pgN (1)
+Debug[ogle_nav]: state.pgN (1) == pgc-&gt;nr_of_programs + 1 (1)
+Debug[ogle_nav]: play_PGC_post:
+Debug[ogle_nav]: ** Fell of the end of the pgc, continuing in NextPGC
+ogle_nav: vm.c:1306: play_PGC_post: Assertion `state.pgc-&gt;next_pgc_nr
+!= 0' failed.
+Debug[ogle_ctrl]: child: 23189 killed (/usr/local/lib/ogle/ogle_nav)
+Debug[ogle_ctrl]: pid: 23189 terminated on signal: 6
+(/usr/local/lib/ogle/ogle_nav)
+Debug[ogle_ctrl]: child: 23188 killed (/usr/local/lib/ogle/ogle_cli)
+Debug[ogle_ctrl]: pid: 23188 terminated on signal: 2
+(/usr/local/lib/ogle/ogle_cli)
+Debug[ogle_ctrl]: child: 23191 exited with 0 (/usr/local/lib/ogle/ogle_vout)
+Debug[ogle_ctrl]: pid: 23191 exited with status: 0
+(/usr/local/lib/ogle/ogle_vout)
+Debug[ogle_ctrl]: child: 23190 killed (/usr/local/lib/ogle/ogle_mpeg_ps)
+Debug[ogle_ctrl]: pid: 23190 terminated on signal: 2
+(/usr/local/lib/ogle/ogle_mpeg_ps)
+Debug[ogle_ctrl]: slaying child: 23192 /usr/local/lib/ogle/ogle_mpeg_vs
+Debug[ogle_ctrl]: slaying child: 23194 /usr/local/lib/ogle/ogle_audio
+Debug[ogle_ctrl]: Removing sysv shmid: 36372489
+Debug[ogle_ctrl]: Removing sysv shmid: 36405258
+Debug[ogle_ctrl]: Removing sysv shmid: 36438027
+Debug[ogle_ctrl]: Removing sysv shmid: 36470796
+Debug[ogle_ctrl]: Removing sysv shmid: 36503565
+ERROR[ogle_ctrl]: ogle_sysv_shmrm: Invalid argument
+Debug[ogle_ctrl]: Removing sysv shmid: 36536334
+Debug[ogle_ctrl]: Removing sysv shmid: 36569103
+Note[ogle_ctrl]: exiting
+
+The only difference between cvs and release is that the failed
+assertion moves to line 1306 of vm.c
+
+I notice on the Ogle TODO page[1] there is &quot;fix an issue with entry
+PGC search&quot; under navigation. Is this related?
+
+Let me know if you want me to test anything.
+
+Thanks,
+
+Adam
+
+[1]  <A HREF="http://www.dtek.chalmers.se/groups/dvd/development.shtml">http://www.dtek.chalmers.se/groups/dvd/development.shtml</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000055.html">[Ogle-user] [BUG-REPORT] Ogle 0.9.2 - Pressing main menu	navigation key crashes ogle when playing &quot;Hostel&quot;
+</A></li>
+	<LI>Next message: <A HREF="000057.html">[Ogle-user] [BUG-REPORT] Ogle 0.9.2 - Pressing main menu	navigation key crashes ogle when playing &quot;Hostel&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#56">[ date ]</a>
+              <a href="thread.html#56">[ thread ]</a>
+              <a href="subject.html#56">[ subject ]</a>
+              <a href="author.html#56">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/ogle-user">More information about the Ogle-user
+mailing list</a><br>
+</body></html>

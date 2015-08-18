@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Ogle-user] [BUG-REPORT] Ogle 0.9.2 - Pressing main menu	navigation key crashes ogle when playing &quot;Hostel&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/ogle-user/2006-November/index.html" >
+   <LINK REL="made" HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20%5BBUG-REPORT%5D%20Ogle%200.9.2%20-%20Pressing%20main%20menu%0A%09navigation%20key%20crashes%20ogle%20when%20playing%20%22Hostel%22&In-Reply-To=%3C20061125172635.GC8290%40dtek.chalmers.se%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000056.html">
+   <LINK REL="Next"  HREF="000058.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Ogle-user] [BUG-REPORT] Ogle 0.9.2 - Pressing main menu	navigation key crashes ogle when playing &quot;Hostel&quot;</H1>
+    <B>Bj|rn Englund</B> 
+    <A HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20%5BBUG-REPORT%5D%20Ogle%200.9.2%20-%20Pressing%20main%20menu%0A%09navigation%20key%20crashes%20ogle%20when%20playing%20%22Hostel%22&In-Reply-To=%3C20061125172635.GC8290%40dtek.chalmers.se%3E"
+       TITLE="[Ogle-user] [BUG-REPORT] Ogle 0.9.2 - Pressing main menu	navigation key crashes ogle when playing &quot;Hostel&quot;">d4bjorn at dtek.chalmers.se
+       </A><BR>
+    <I>Sat Nov 25 18:26:35 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000056.html">[Ogle-user] [BUG-REPORT] Ogle 0.9.2 - Pressing main menu	navigation key crashes ogle when playing &quot;Hostel&quot;
+</A></li>
+        <LI>Next message: <A HREF="000058.html">[Ogle-user] [BUG-REPORT] Ogle 0.9.2 - Pressing main menu	navigation key crashes ogle when playing &quot;Hostel&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#57">[ date ]</a>
+              <a href="thread.html#57">[ thread ]</a>
+              <a href="subject.html#57">[ subject ]</a>
+              <a href="author.html#57">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Sat Nov 11 2006, Adam Henley wrote:
+
+&gt;<i> Problem persists using cvs version of ogle:
+</I>&gt;<i> 
+</I>&gt;<i> Debug[ogle_nav]: sent demux dvd block range (778,252)
+</I>&gt;<i> Debug[ogle_nav]: sent demux dvd nav block range (1030,3695)
+</I>&gt;<i> Debug[ogle_vout]: hilite 0, 0 -&gt; 0, 0,  1
+</I>&gt;<i> Debug[ogle_vout]: col/cont: 0 0 0 0 0 0 0 0
+</I>&gt;<i> Note[ogle_nav]: Jumping to Menu 2
+</I>&gt;<i> Debug[ogle_nav]: play_PGC: state.pgcN (1)
+</I>&gt;<i> Debug[ogle_nav]: PGC pre commands didn't do a Jump, Link or Call
+</I>&gt;<i> Debug[ogle_nav]: play_PG: state.pgN (1)
+</I>&gt;<i> Debug[ogle_nav]: state.pgN (1) == pgc-&gt;nr_of_programs + 1 (1)
+</I>&gt;<i> Debug[ogle_nav]: play_PGC_post:
+</I>&gt;<i> Debug[ogle_nav]: ** Fell of the end of the pgc, continuing in NextPGC
+</I>&gt;<i> ogle_nav: vm.c:1306: play_PGC_post: Assertion `state.pgc-&gt;next_pgc_nr
+</I>&gt;<i> != 0' failed.
+</I>
+
+&gt;<i> Let me know if you want me to test anything.
+</I>&gt;<i> 
+</I>
+Could you send me the IFO files and I'll see if I can find what causes this
+problem.
+
+/Bj|rn
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000056.html">[Ogle-user] [BUG-REPORT] Ogle 0.9.2 - Pressing main menu	navigation key crashes ogle when playing &quot;Hostel&quot;
+</A></li>
+	<LI>Next message: <A HREF="000058.html">[Ogle-user] [BUG-REPORT] Ogle 0.9.2 - Pressing main menu	navigation key crashes ogle when playing &quot;Hostel&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#57">[ date ]</a>
+              <a href="thread.html#57">[ thread ]</a>
+              <a href="subject.html#57">[ subject ]</a>
+              <a href="author.html#57">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/ogle-user">More information about the Ogle-user
+mailing list</a><br>
+</body></html>

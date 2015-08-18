@@ -1,0 +1,472 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Ogle-user] Commercial DVD makes libdvdread go nuts
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/ogle-user/2006-April/index.html" >
+   <LINK REL="made" HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20Commercial%20DVD%20makes%20libdvdread%20go%20nuts&In-Reply-To=%3CPine.LNX.4.64.0604091131290.4550%40venus.phys.uu.nl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000025.html">
+   <LINK REL="Next"  HREF="000024.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Ogle-user] Commercial DVD makes libdvdread go nuts</H1>
+    <B>Dik Takken</B> 
+    <A HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20Commercial%20DVD%20makes%20libdvdread%20go%20nuts&In-Reply-To=%3CPine.LNX.4.64.0604091131290.4550%40venus.phys.uu.nl%3E"
+       TITLE="[Ogle-user] Commercial DVD makes libdvdread go nuts">D.H.J.Takken at phys.uu.nl
+       </A><BR>
+    <I>Sun Apr  9 23:28:01 CEST 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000025.html">[Ogle-user] Commercial DVD makes libdvdread go nuts
+</A></li>
+        <LI>Next message: <A HREF="000024.html">[Ogle-user] Commercial DVD makes libdvdread go nuts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#27">[ date ]</a>
+              <a href="thread.html#27">[ thread ]</a>
+              <a href="subject.html#27">[ subject ]</a>
+              <a href="author.html#27">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi,
+
+This weekend, I have been testing my DVD with Ogle, Xine, MPlayer, lsdvd 
+and Transcode. I included the IFO files again, along with the ifo_dump 
+output from Ogle. In short, this is what I found:
+
+* Xine plays OK. Jumping between chapters works.
+* Transcode cannot access individual chapters. tcprobe returns nonsense.
+* MPlayer can only access some of the chapters
+* lsdvd shows hardly any info about the DVD.
+
+I will start with Xine:
+
+Xine sees 2 menus on the DVD. The main menu one has 4 entries:
+
+1: 8 chapters ~60 minutes
+2: 2 chapters ~10 minutes
+3: 3 chapters ~18 minutes
+4: SUBMENU
+
+The submenu has two entries:
+
+1: 1 chapter, ~3 minutes
+2: 6 chapters, ~14 minutes
+
+Jumping between chapters with the Previous/Next Chapter buttons works 
+fine.
+
+Next, MPlayer. First of all, MPlayer fails to find any soundtrack when 
+just playing with
+
+mplayer <A HREF="dvd://1">dvd://1</A>
+
+MPlayer says there is only one title on the DVD, which has 8 chapters. I 
+tried playing each chapter with the -chapter option, which works perfectly 
+on any other DVD. When playing my 'special' DVD ;-) some chapters play OK, 
+while others do not play at all:
+
+1: fails
+2: plays
+3: plays
+4: fails
+5: plays
+6: plays
+7: plays
+8: fails
+
+Here is a snippet of output of MPlayer trying to play each of these 
+chapters, using the -identify option for more details:
+
+Chapter 1:
+
+VIDEO:  MPEG2  720x576  (aspect 2)  25.000 fps  8000.0 kbps (1000.0 
+kbyte/s)
+ID_FILENAME=<A HREF="dvd://1">dvd://1</A>
+ID_VIDEO_FORMAT=0x10000002
+ID_VIDEO_BITRATE=8000000
+ID_VIDEO_WIDTH=720
+ID_VIDEO_HEIGHT=576
+ID_VIDEO_FPS=25.000
+ID_VIDEO_ASPECT=1.3333
+ID_LENGTH=0
+
+Chapter 2:
+
+VIDEO:  MPEG2  720x576  (aspect 2)  25.000 fps  4998.0 kbps (624.8 
+kbyte/s)
+==========================================================================
+Bezig met het openen van de audio decoder: [liba52] AC3 decoding with 
+liba52
+Using SSE optimized IMDCT transform
+AC3: 5.1 (3f+2r+lfe)  48000 Hz  448.0 kbit/s
+Using MMX optimized resampler
+AUDIO: 48000 Hz, 2 ch, s16le, 448.0 kbit/29.17% (ratio: 56000-&gt;192000)
+Selected audio codec: [a52] afm:liba52 (AC3-liba52)
+==========================================================================
+ID_FILENAME=<A HREF="dvd://1">dvd://1</A>
+ID_VIDEO_FORMAT=0x10000002
+ID_VIDEO_BITRATE=4998000
+ID_VIDEO_WIDTH=720
+ID_VIDEO_HEIGHT=576
+ID_VIDEO_FPS=25.000
+ID_VIDEO_ASPECT=1.3333
+ID_AUDIO_CODEC=a52
+ID_AUDIO_FORMAT=8192
+ID_AUDIO_BITRATE=448000
+ID_AUDIO_RATE=48000
+ID_AUDIO_NCH=2
+ID_LENGTH=645
+
+Chapter 3:
+
+VIDEO:  MPEG2  720x576  (aspect 2)  25.000 fps  5023.2 kbps (627.9 
+kbyte/s)
+==========================================================================
+Bezig met het openen van de audio decoder: [liba52] AC3 decoding with 
+liba52
+Using SSE optimized IMDCT transform
+AC3: 5.1 (3f+2r+lfe)  48000 Hz  448.0 kbit/s
+Using MMX optimized resampler
+AUDIO: 48000 Hz, 2 ch, s16le, 448.0 kbit/29.17% (ratio: 56000-&gt;192000)
+Selected audio codec: [a52] afm:liba52 (AC3-liba52)
+==========================================================================
+ID_FILENAME=<A HREF="dvd://1">dvd://1</A>
+ID_VIDEO_FORMAT=0x10000002
+ID_VIDEO_BITRATE=5023200
+ID_VIDEO_WIDTH=720
+ID_VIDEO_HEIGHT=576
+ID_VIDEO_FPS=25.000
+ID_VIDEO_ASPECT=1.3333
+ID_AUDIO_CODEC=a52
+ID_AUDIO_FORMAT=8192
+ID_AUDIO_BITRATE=448000
+ID_AUDIO_RATE=48000
+ID_AUDIO_NCH=2
+ID_LENGTH=1175
+
+Chapter 4:
+
+VIDEO:  MPEG2  720x576  (aspect 2)  25.000 fps  8000.0 kbps (1000.0 
+kbyte/s)
+ID_FILENAME=<A HREF="dvd://1">dvd://1</A>
+ID_VIDEO_FORMAT=0x10000002
+ID_VIDEO_BITRATE=8000000
+ID_VIDEO_WIDTH=720
+ID_VIDEO_HEIGHT=576
+ID_VIDEO_FPS=25.000
+ID_VIDEO_ASPECT=1.3333
+ID_LENGTH=0
+
+Chapter 5:
+
+VIDEO:  MPEG2  720x576  (aspect 2)  25.000 fps  5096.0 kbps (637.0 
+kbyte/s)
+==========================================================================
+Bezig met het openen van de audio decoder: [liba52] AC3 decoding with 
+liba52
+Using SSE optimized IMDCT transform
+AC3: 5.1 (3f+2r+lfe)  48000 Hz  448.0 kbit/s
+Using MMX optimized resampler
+AUDIO: 48000 Hz, 2 ch, s16le, 448.0 kbit/29.17% (ratio: 56000-&gt;192000)
+Selected audio codec: [a52] afm:liba52 (AC3-liba52)
+==========================================================================
+ID_FILENAME=<A HREF="dvd://1">dvd://1</A>
+ID_VIDEO_FORMAT=0x10000002
+ID_VIDEO_BITRATE=5096000
+ID_VIDEO_WIDTH=720
+ID_VIDEO_HEIGHT=576
+ID_VIDEO_FPS=25.000
+ID_VIDEO_ASPECT=1.3333
+ID_AUDIO_CODEC=a52
+ID_AUDIO_FORMAT=8192
+ID_AUDIO_BITRATE=448000
+ID_AUDIO_RATE=48000
+ID_AUDIO_NCH=2
+ID_LENGTH=0
+
+Chapter 6:
+
+VIDEO:  MPEG2  720x576  (aspect 2)  25.000 fps  6000.0 kbps (750.0 
+kbyte/s)
+==========================================================================
+Bezig met het openen van de audio decoder: [liba52] AC3 decoding with 
+liba52
+Using SSE optimized IMDCT transform
+AC3: 5.1 (3f+2r+lfe)  48000 Hz  448.0 kbit/s
+Using MMX optimized resampler
+AUDIO: 48000 Hz, 2 ch, s16le, 448.0 kbit/29.17% (ratio: 56000-&gt;192000)
+Selected audio codec: [a52] afm:liba52 (AC3-liba52)
+==========================================================================
+ID_FILENAME=<A HREF="dvd://1">dvd://1</A>
+ID_VIDEO_FORMAT=0x10000002
+ID_VIDEO_BITRATE=6000000
+ID_VIDEO_WIDTH=720
+ID_VIDEO_HEIGHT=576
+ID_VIDEO_FPS=25.000
+ID_VIDEO_ASPECT=1.3333
+ID_AUDIO_CODEC=a52
+ID_AUDIO_FORMAT=8192
+ID_AUDIO_BITRATE=448000
+ID_AUDIO_RATE=48000
+ID_AUDIO_NCH=2
+ID_LENGTH=0
+
+
+Chapter 7:
+
+VIDEO:  MPEG2  720x576  (aspect 2)  25.000 fps  5023.2 kbps (627.9 
+kbyte/s)
+==========================================================================
+Bezig met het openen van de audio decoder: [liba52] AC3 decoding with 
+liba52
+Using SSE optimized IMDCT transform
+AC3: 5.1 (3f+2r+lfe)  48000 Hz  448.0 kbit/s
+Using MMX optimized resampler
+AUDIO: 48000 Hz, 2 ch, s16le, 448.0 kbit/29.17% (ratio: 56000-&gt;192000)
+Selected audio codec: [a52] afm:liba52 (AC3-liba52)
+==========================================================================
+ID_FILENAME=<A HREF="dvd://1">dvd://1</A>
+ID_VIDEO_FORMAT=0x10000002
+ID_VIDEO_BITRATE=5023200
+ID_VIDEO_WIDTH=720
+ID_VIDEO_HEIGHT=576
+ID_VIDEO_FPS=25.000
+ID_VIDEO_ASPECT=1.3333
+ID_AUDIO_CODEC=a52
+ID_AUDIO_FORMAT=8192
+ID_AUDIO_BITRATE=448000
+ID_AUDIO_RATE=48000
+ID_AUDIO_NCH=2
+ID_LENGTH=3669
+
+Chapter 8:
+
+VIDEO:  MPEG2  720x576  (aspect 2)  25.000 fps  8000.0 kbps (1000.0 
+kbyte/s)
+ID_FILENAME=<A HREF="dvd://1">dvd://1</A>
+ID_VIDEO_FORMAT=0x10000002
+ID_VIDEO_BITRATE=8000000
+ID_VIDEO_WIDTH=720
+ID_VIDEO_HEIGHT=576
+ID_VIDEO_FPS=25.000
+ID_VIDEO_ASPECT=1.3333
+ID_LENGTH=0
+
+Then I tried Transcode. Transcode can see one title, which lasts 6 
+seconds and has 8 chapters:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/ogle-user">dik at takkie</A> ~ $ tcprobe -i /dev/dvd
+[tcprobe] DVD image/device
+(dvd_reader.c) mpeg2 pal 4:3 U0 720x576 video
+(dvd_reader.c) ac3 en drc 48kHz 6Ch
+(dvd_reader.c) subtitle 00=&lt;en&gt;
+(dvd_reader.c) DVD title 1/1: 8 chapter(s), 1 angle(s), title set 1
+(dvd_reader.c) title playback time: 00:00:05.01  6 sec
+(dvd_reader.c) [Chapter 01] 00:00:00.000 , block from 0 to 196964
+(dvd_reader.c) [Chapter 02] 00:00:00.000 , block from 304780 to 444065
+(dvd_reader.c) [Chapter 03] 00:00:00.000 , block from 0 to 0
+(dvd_reader.c) [Chapter 04] 00:00:00.000 , block from 0 to 0
+(dvd_reader.c) [Chapter 05] 00:00:00.000 , block from 834326 to 900439
+(dvd_reader.c) [Chapter 06] 00:00:00.000 , block from 1805328 to 1967066
+(dvd_reader.c) [Chapter 07] 00:00:00.000 , block from 0 to 0
+(dvd_reader.c) [Chapter 08] 00:00:00.000 , block from 0 to 0
+[tcprobe] summary for /dev/dvd, (*) = not default, 0 = not detected
+import frame size: -g 720x576 [720x576]
+      aspect ratio: 4:3 (*)
+        frame rate: -f 25.000 [25.000] frc=3
+       audio track: -a 0 [0] -e 48000,16,2 [48000,16,2] -n 0x2000 [0x2000]
+[tcprobe] V: 150 frames, 6 sec @ 25.000 fps
+[tcprobe] A: 0.09 MB @ 128 kbps
+[tcprobe] CD:  650 MB | V:  649.9 MB @ 908634.8 kbps
+[tcprobe] CD:  700 MB | V:  699.9 MB @ 978539.9 kbps
+[tcprobe] CD: 1300 MB | V: 1299.9 MB @ 1817400.7 kbps
+[tcprobe] CD: 1400 MB | V: 1399.9 MB @ 1957210.8 kbps
+
+Also, when I try to read individual chapters using tccat, it fails. Not 
+surprising, given the above output of tcprobe.
+
+
+Next, lsdvd. This utility does little more than presenting the 
+output of libdvdread in a human readable form. Normally, it displays lots 
+and lots of info about the DVD, but it does not have much to say about 
+this DVD:
+
+Disc Title: UNTITLED1_SCN
+Title: 01, Length: 00:00:05 Chapters: 08, Cells: 01, Audio streams: 01, 
+Subpictures: 01
+         VTS: 01, TTN: 01, FPS: 25.00, Format: PAL, Aspect ratio: 4/3, 
+Width: 720, Height: 576, DF: ?
+         Number of Angles: 1
+         Audio: 1, Language: en - English, Format: ac3, Frequency: 48000, 
+Quantization: drc, Channels: 6, AP: 0, Content: Undefined
+         Chapter: 01, Length: 00:00:05, Start Cell: 01
+         Cell: 01, Length: 00:00:05
+         Subtitle: 01, Language: en - English, Content: Undefined
+
+
+
+Finally, I tried Ogle (version 0.9.2). When I start it, it accesses the 
+DVD player, then shows a black screen. Pressing SPACE kills OGLE. It says:
+
+ogle_nav: vm.c:1241: play_PGC_post: Assertion `state.pgc-&gt;next_pgc_nr != 
+0' failed.
+ctrl: ipc_rmid: Invalid argument
+
+After starting ogle again and pressing ENTER a few times, it appears to 
+start playing. At least, it starts to print framerates to the terminal:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/ogle-user">dik at takkie</A> ~ $ ogle
+Xscreensaver not running.
+No accelerated IMDCT transform found
++display: frame rate: 0.000 fps
+display: frame rate: 25.001 fps
+display: frame rate: 25.001 fps
+display: frame rate: 24.998 fps
+display: frame rate: 25.001 fps
+display: frame rate: 25.001 fps
+
+but the displayed window remains black. Trying to play an ordinary 
+Hollywood title using Ogle also shows black screen and lots of errors:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/ogle-user">dik at takkie</A> ~ $ ogle
+No accelerated IMDCT transform found
+Xscreensaver not running.
++###!!##display: frame rate: 0.000 fps
+ERROR[ogle_audio]: drain failed: Resource temporarily unavailable
+ERROR[ogle_audio]: prepare failed: Device or resource busy
+ERROR[ogle_audio]: Unable to set hw params for playback: File descriptor 
+in bad state
+ERROR[ogle_audio]: Setting of hwparams failed: File descriptor in bad 
+state
+FATAL[ogle_audio]: ogle_ao_init:
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+-ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+-ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+-ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+-ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+-ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+-ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+-ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+-ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+ERROR[ogle_audio]: odelay error: Input/output error
+!!!###!!#!!!!##!!!!!!###!!#!!!!##!!#!!!!##!!!!##!!!!#!!##!!#!!!-###!!!#-!!!!#----!###!!!!!!###!!!!#!!##!!!#--####!!!!##!!-!!#!!--##!!#!!!#!!!#!--!!##!!#!!#!!-#!!#!!--###!!!##!!#!!---!-##!!--#!!#!!!!#!!#!!#!!#!!#-!!#!!#!!#!!#--!!#!!#!!#!-!#!!#-!!#!!#!!#!!#!!#-!!#!!#-!!---#!--!#!!#-!!#-!!#!!#!!#-!!#-!!#!!#!!#!!#!!#!!#!!!!#!!#!!#!!#-!!#!!#-!!#!!#!-!#!!#!!#!!#!!#!!#!!#-----!!#-!!#!!#!!#!!-#!!#!!#!!-#!!#!!!!#!!#!!#!!#!!#!!#!!#!!#----!!--###!!!!-!!###!!#!!#!!display: 
+frame rate: 21.769 fps
+-!!#!!#!!!!-#!-!#!!#!!!!#-!!#-!!#!!#!!#-!!#!!#-!!#!!#!!#!!#--!!#!!#-!!#!!#!-!#!!#-!!#!!#!!#-!!#-!!#!!#!!#!!-!!#!!#!-!#!!#-!!#!!#!!#!!#--!!#--!!#!!#!!#-!!#!!#-!!#!!#-!!#!!#!!#-!!#-!!#!!#!!#!!#!!#!!!!!!--##-!!!!##!!#!!#-!!#!!#!!#!!#--!!#!!#!!#!!#-!!#-!!#!!!!#!-!!!#!!#-!!#-!!!!#!!#!!#-!--!#!!#-!!#!!#!!#!!#-!!-#!!#!!#--!!#!!#!!#!!#!!#!!#!!#!!#!!--#!!!!-#!!!!#!!#!!#-!-!-!!#!!#!-!#!!#!!#!!#!!#--!!#!!#!!#!!#-!!#!!#-!!#--!!#!!#!!#!!--#!!#!!#!!#!-!#!!#-!!#!!#!!#!!#!!#!-!#!!#!!#--!!#--!!#!!#--!!#-!!#!!-!!#!!#!!#!!#!!#!!#-!!#!!#!!#!!#!!#!!#!!#!!#--!!#!!#!!#!!#!-!-!!#!!--#!!#-!!#!!#!!#!!#-!!#-!!#!!-#!!#-!!#!!#!!#!!#-!!#!!#!!#!!-!!#!!#!!#!!#--!!#!!#!!#!!#--!!#!-!#!!#!!#-!!#!!-#!!#!!#!!#--!!#!!#!!#-!!#!!#!!#!!#!!!!#-!!#!!-#--!!#!!#!!#!!#-!!#!-!#!!#!!--#!!#!!#!!#!!#-!!#!!#!!#!!-!--!#!!#!!#!!#!!#!!#!!!!-#!!#!!#!-!#!!-!!#!!#!!#!!#-!!!!#!-!!!#!!#!!#!-!#!!#-!!#-!!!!#!!#--!!#!!#!!#!!#--!!#!!#-!!#!!#-!-!#!!#!!#!!#-!!#-!!#!!#!!#!!-!!#!!!!#-!!!!#-!!!!#-!!#!!#!!#-!!!!#!-!!!#!-!#-!!#!!#!!#!!#!!#--!!#!!-#!!#-!!#!!#-!!#!!#!!-#!!#!!#!!#-!!#!!#!!#!!#--!!#!!#!!!!#--!!--#!!#!-!#!!#-!!#-!!#!!#!!#-!!#!!#!!#!!#!!#!!#!!#!!-!!#!!#!!#!!#!!#!!#!!#!--!#-!!#!!#--!!#!!#-!!#!!#!!#!!#!--!#!!#-!!#!!#-!!#!!#!!#!!#!!#!!#!#-#!-#!!#!!#!!-!!#-!!#!!#!-!#!!#-!!#!!#!!#-!!#--!!#!!#!!#!!#-!!#!!#!!#!!#-!!#!!#!!#-!!#!!#!!#!!#-!!#-!!#!--!#!!#!!#-!!#!!#!!-#!!#--!!#!!-#!!#!!#-!!#!!#!!#!!#!!#!!#!--!#!!#-!!#!!#!!#!!#-!!#!!#!!!!#-!!#!!!!#!!#-!!#!-!#!!!!#!-!#!!!!#!!#--!!#!!#!!#!!#-!!#-!!#!!-#!!#-!!#!!#!!#-!!#-!!#!!-#!!#!!#-!!#!!#!!#!!#!!#!!!!#!!#!--!#!!#!!!!#--!!#!!#!!#!!-#!!#!!!!#!!#--!!#!!#!!#!!#-!!#!!#!-!!!-#-!!#!!#!!#!-!#!!#!!#-!!#!!#-!!#!!#!!!!#!!!-!#!!!!#-!!#!!--#!!#!--!#-!!#!!#-!!!!#!!#!!#!!#!!#-!!#!!#!!#!!#!!#!!!!#!!#!!#--!!#!!#!!#-!!#!!!!#--!!#--!!#!!#!!#!!#!!#!!#!!!!#!!#!!#!!#!!#!!#!!#!!###-----#!-#!!#!!#!!!!#-!!#!!#!--!#!!#-!!#!!#!!#-!!#--!!#!!#!!#!!#-!!#!!#!!#!!#-!!#!!#!!#-!!#!-!#!!#!!!!#--!!#!-!#!!#!!#-!!#!!#!!--#!!#-!!#!!-#!!#!!#!!!!#!!#!!#!!#!!#!!#!!#!!#!!#!!#!!#X 
+connection to :0.0 broken (explicit kill or server shutdown).
+
+
+
+All in all, it seems like some applications do not understand anything 
+about what libdvdread tells them about the DVD, while others (Xine) do. 
+Could this DVD trigger libdvdread to produce any unusual output? Maybe the 
+problem is that the libdvdread output is correct, but so unusual that it 
+triggers bugs in applications that try to interpret it?
+
+Hopefully, this info can shed some light on the problem...
+
+Cheers!
+
+Dik
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: DVD.tar.bz2
+Type: application/x-bzip2
+Size: 109303 bytes
+Desc: 
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/ogle-user/attachments/20060409/1838cd03/attachment.bin">https://lists.berlios.de/pipermail/ogle-user/attachments/20060409/1838cd03/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000025.html">[Ogle-user] Commercial DVD makes libdvdread go nuts
+</A></li>
+	<LI>Next message: <A HREF="000024.html">[Ogle-user] Commercial DVD makes libdvdread go nuts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#27">[ date ]</a>
+              <a href="thread.html#27">[ thread ]</a>
+              <a href="subject.html#27">[ subject ]</a>
+              <a href="author.html#27">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/ogle-user">More information about the Ogle-user
+mailing list</a><br>
+</body></html>

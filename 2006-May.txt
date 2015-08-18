@@ -1,0 +1,388 @@
+From d4bjorn at dtek.chalmers.se  Wed May  3 14:43:39 2006
+From: d4bjorn at dtek.chalmers.se (Bj|rn Englund)
+Date: Wed May  3 14:43:39 2006
+Subject: [Ogle-user] Release libdvdread-0.9.6
+Message-ID: <20060503124132.GA5149@dtek.chalmers.se>
+
+libdvdread-0.9.6 is released
+See http://www.dtek.chalmers.se/~dvd
+http://www.dtek.chalmers.se/~dvd/dist/libdvdread-0.9.6.tar.gz
+
+/Bj|rn
+
+
+From cave.dnb at tiscali.fr  Fri May 26 23:47:00 2006
+From: cave.dnb at tiscali.fr (Nigel Henry)
+Date: Fri May 26 23:47:00 2006
+Subject: [Ogle-user] Install problem on FC5
+Message-ID: <200605262348.23986.cave.dnb@tiscali.fr>
+
+I have an Mplayer source install on FC1, and FC2 on this machine, and DVD's 
+play ok. The DVD drive is on an IDE PCI adaptor card. Graphics card is a Rage 
+128 PCI card using r128 driver.
+
+FC5 has proved to be a different kettle of fish. Post install I had to change 
+the graphics card driver to vesa, otherwise X would not start. The RPM for 
+Mplayer from the Greysector repo installs, but I get 100% CPU, with juddery 
+playback, and bursts of sound. The source tarball will not install, but as 
+the Mplayer folks insist on certain versions of GCC, and FC5's gcc-4.1.0-3 
+doesn't equate, this is probably no surprise, and I havn't bothered to 
+contact them, as they don't want to know if you have steered away from the 
+parameters they have set.
+
+Next tried Totem, which is installed on FC5. No joy. Went to their site and 
+installed libdvdcss RPM for FC5, but still no go. Complaints about missing 
+plugins, although the DVD I was trying to play was showing on the menu.
+
+
+From benni at mediales.net  Sat May 27 12:19:01 2006
+From: benni at mediales.net (benni.)
+Date: Sat May 27 12:19:01 2006
+Subject: [Ogle-user] Install problem on FC5
+In-Reply-To: <200605262348.23986.cave.dnb@tiscali.fr>
+References: <200605262348.23986.cave.dnb@tiscali.fr>
+Message-ID: <44782808.7050107@mediales.net>
+
+Hey,
+
+have you tried using the rpms (or better: the yum repo) from freshrpms?
+
+RPMs for Fedora Core 5 (Bordeaux)
+http://bordeaux.freshrpms.net/
+
+You can install the yum repository by executing the following command as 
+root:
+ > rpm -Uvh 
+http://ftp.freshrpms.net/pub/freshrpms/fedora/linux/5/freshrpms-release/freshrpms-release-1.1-1.fc.noarch.rpm
+
+after that, you call a
+ > yum install ogle
+and you should be good to go, since it solves all the dependany issues.
+
+Enjoy,
+benni.
+-SDG-
+
+Nigel Henry wrote:
+> I have an Mplayer source install on FC1, and FC2 on this machine, and DVD's 
+> play ok. The DVD drive is on an IDE PCI adaptor card. Graphics card is a Rage 
+> 128 PCI card using r128 driver.
+> 
+> FC5 has proved to be a different kettle of fish. Post install I had to change 
+> the graphics card driver to vesa, otherwise X would not start. The RPM for 
+> Mplayer from the Greysector repo installs, but I get 100% CPU, with juddery 
+> playback, and bursts of sound. The source tarball will not install, but as 
+> the Mplayer folks insist on certain versions of GCC, and FC5's gcc-4.1.0-3 
+> doesn't equate, this is probably no surprise, and I havn't bothered to 
+> contact them, as they don't want to know if you have steered away from the 
+> parameters they have set.
+> 
+> Next tried Totem, which is installed on FC5. No joy. Went to their site and 
+> installed libdvdcss RPM for FC5, but still no go. Complaints about missing 
+> plugins, although the DVD I was trying to play was showing on the menu.
+> 
+> From a post on Linux Questions, someone suggested Ogle, so here I am trying to 
+> install it. 
+> 
+> libdvdcss is already installed, so I have installed, a52dec-0.7.4, 
+> libdvdread-0.9.6, and libmad-0.15.1b. ogle-0.9.2 has a problem. 
+> ogle_gui-0.9.2 installed ok after I installed libglade, and libglade-devel.
+> 
+> This is where the ogle install stops. See below.
+> 
+> Making install in libogleao
+> make[1]: Entering directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/libogleao'
+> make[2]: Entering directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/libogleao'
+> make[2]: Nothing to be done for `install-exec-am'.
+> make[2]: Nothing to be done for `install-data-am'.
+> make[2]: Leaving directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/libogleao'
+> make[1]: Leaving directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/libogleao'
+> Making install in ac3
+> make[1]: Entering directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/ac3'
+> source='ac3dec_wrap.c' object='ac3dec_wrap.o' libtool=no \
+> depfile='.deps/ac3dec_wrap.Po' tmpdepfile='.deps/ac3dec_wrap.TPo' \
+> depmode=gcc3 /bin/sh ../depcomp \
+> gcc -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" 
+> -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE=\"ogle\" 
+> -DVERSION=\"0.9.2\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 
+> -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 
+> -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 
+> -Dinline=__attribute__\ \(\(__always_inline__\)\) -DHAVE_BYTESWAP_H=1 
+> -DHAVE_SYS_PARAM_H=1 -DHAVE_STROPTS_H=1 -DHAVE_XSHM=1 -DHAVE_XV=1 
+> -DHAVE_CLOCK_GETTIME=1 -DHAVE_MADVISE=1 -DLIBOGLEAO_NULL= -DLIBOGLEAO_OSS= 
+> -DHAVE_XML=1 -DHAVE_XF86VIDMODE=1 -DHAVE_XINERAMA=1 
+> -DCONFIG_FILE=\"/usr/local/share/ogle/oglerc\" -DHAVE_MMX=1  -I. -I.  -I.. 
+> -I../include -I/usr/local/include -I/usr/local/include -I/usr/include/libxml2  
+> -fomit-frame-pointer -funroll-loops -g -O2 -Wall -g -O2 -Wall -march=i586 
+> -mcpu=pentiumpro -c `test -f 'ac3dec_wrap.c' || echo './'`ac3dec_wrap.c
+> `-mcpu=' is deprecated. Use `-mtune=' or '-march=' instead.
+> ac3dec_wrap.c:51: error: static declaration of ?program_name? follows 
+> non-static declaration
+> ../include/debug_print.h:7: error: previous declaration of ?program_name? was 
+> here
+> ac3dec_wrap.c: In function ?get_q?:
+> ac3dec_wrap.c:278: warning: pointer targets in assignment differ in signedness
+> make[1]: *** [ac3dec_wrap.o] Error 1
+> make[1]: Leaving directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/ac3'
+> make: *** [install-recursive] Error 1
+> [root at localhost ogle-0.9.2]#   
+> 
+> Any suggestions as to what might be the problem is welcome.
+> 
+> Nigel.
+> 
+> _______________________________________________
+> Ogle-user mailing list
+> Ogle-user at lists.berlios.de
+> http://lists.berlios.de/mailman/listinfo/ogle-user
+> 
+> 
+> !DSPAM:6,4477786c124375593218060!
+> 
+
+
+
+From cave.dnb at tiscali.fr  Sat May 27 12:52:01 2006
+From: cave.dnb at tiscali.fr (Nigel Henry)
+Date: Sat May 27 12:52:01 2006
+Subject: [Ogle-user] Install problem on FC5
+In-Reply-To: <44781E33.9040706@arcor.de>
+References: <200605262348.23986.cave.dnb@tiscali.fr> <44781E33.9040706@arcor.de>
+Message-ID: <200605271253.54763.cave.dnb@tiscali.fr>
+
+On Saturday 27 May 2006 11:38, you wrote:
+> Salut,
+>
+> I've no idea about your specific problem but I'd suggest using ogle-cvs as
+> source (I don't know whether that will help).
+>
+> 100% CPU with mplayer: As far as I know the CPU has to do all the work as
+> long as you're using the vesa-driver. Normally a video player uses the
+> xv-extension where your graphics card does most of the work. However this
+> isn't possible with vesa, so the CPU has to do it all. --> you'll have 100%
+> CPU usage with every player, also with ogle if you get it to work at all.
+>
+> I personally recommend xine as video player, the development of mplayer and
+> ogle doesn't seem to be continued very fast. But you'll have to get the
+> r128 driver working, otherwise there will be 100% CPU usage all the time.
+>
+> Bonne chance,
+>
+> Lorenz
+
+Hi Lorenz. Thanks for the info about vesa and the CPU useage. That explains a 
+lot. I'll post a question about it to the Fedora Forum. It may be a bug in 
+FC5, as there are no problems with FC1,2, and 3, with r128 on the same 
+machine.
+
+Nigel.
+>
+> Nigel Henry schrieb:
+> > I have an Mplayer source install on FC1, and FC2 on this machine, and
+> > DVD's play ok. The DVD drive is on an IDE PCI adaptor card. Graphics card
+> > is a Rage 128 PCI card using r128 driver.
+> >
+> > FC5 has proved to be a different kettle of fish. Post install I had to
+> > change the graphics card driver to vesa, otherwise X would not start. The
+> > RPM for Mplayer from the Greysector repo installs, but I get 100% CPU,
+> > with juddery playback, and bursts of sound. The source tarball will not
+> > install, but as the Mplayer folks insist on certain versions of GCC, and
+> > FC5's gcc-4.1.0-3 doesn't equate, this is probably no surprise, and I
+> > havn't bothered to contact them, as they don't want to know if you have
+> > steered away from the parameters they have set.
+> >
+> > Next tried Totem, which is installed on FC5. No joy. Went to their site
+> > and installed libdvdcss RPM for FC5, but still no go. Complaints about
+> > missing plugins, although the DVD I was trying to play was showing on the
+> > menu.
+> >
+> > From a post on Linux Questions, someone suggested Ogle, so here I am
+> > trying to install it.
+> >
+> > libdvdcss is already installed, so I have installed, a52dec-0.7.4,
+> > libdvdread-0.9.6, and libmad-0.15.1b. ogle-0.9.2 has a problem.
+> > ogle_gui-0.9.2 installed ok after I installed libglade, and
+> > libglade-devel.
+> >
+> > This is where the ogle install stops. See below.
+> >
+> > Making install in libogleao
+> > make[1]: Entering directory
+> > `/home/djmons/Downloads/Ogle/ogle-0.9.2/libogleao' make[2]: Entering
+> > directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/libogleao' make[2]:
+> > Nothing to be done for `install-exec-am'.
+> > make[2]: Nothing to be done for `install-data-am'.
+> > make[2]: Leaving directory
+> > `/home/djmons/Downloads/Ogle/ogle-0.9.2/libogleao' make[1]: Leaving
+> > directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/libogleao' Making
+> > install in ac3
+> > make[1]: Entering directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/ac3'
+> > source='ac3dec_wrap.c' object='ac3dec_wrap.o' libtool=no \
+> > depfile='.deps/ac3dec_wrap.Po' tmpdepfile='.deps/ac3dec_wrap.TPo' \
+> > depmode=gcc3 /bin/sh ../depcomp \
+> > gcc -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\"
+> > -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE=\"ogle\"
+> > -DVERSION=\"0.9.2\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1
+> > -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1
+> > -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1
+> > -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -Dinline=__attribute__\
+> > \(\(__always_inline__\)\) -DHAVE_BYTESWAP_H=1 -DHAVE_SYS_PARAM_H=1
+> > -DHAVE_STROPTS_H=1 -DHAVE_XSHM=1 -DHAVE_XV=1 -DHAVE_CLOCK_GETTIME=1
+> > -DHAVE_MADVISE=1 -DLIBOGLEAO_NULL= -DLIBOGLEAO_OSS= -DHAVE_XML=1
+> > -DHAVE_XF86VIDMODE=1 -DHAVE_XINERAMA=1
+> > -DCONFIG_FILE=\"/usr/local/share/ogle/oglerc\" -DHAVE_MMX=1  -I. -I. 
+> > -I.. -I../include -I/usr/local/include -I/usr/local/include
+> > -I/usr/include/libxml2 -fomit-frame-pointer -funroll-loops -g -O2 -Wall
+> > -g -O2 -Wall -march=i586 -mcpu=pentiumpro -c `test -f 'ac3dec_wrap.c' ||
+> > echo './'`ac3dec_wrap.c `-mcpu=' is deprecated. Use `-mtune=' or
+> > '-march=' instead.
+> > ac3dec_wrap.c:51: error: static declaration of ?program_name? follows
+> > non-static declaration
+> > ../include/debug_print.h:7: error: previous declaration of ?program_name?
+> > was here
+> > ac3dec_wrap.c: In function ?get_q?:
+> > ac3dec_wrap.c:278: warning: pointer targets in assignment differ in
+> > signedness make[1]: *** [ac3dec_wrap.o] Error 1
+> > make[1]: Leaving directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/ac3'
+> > make: *** [install-recursive] Error 1
+> > [root at localhost ogle-0.9.2]#
+> >
+> > Any suggestions as to what might be the problem is welcome.
+> >
+> > Nigel.
+> >
+> > _______________________________________________
+> > Ogle-user mailing list
+> > Ogle-user at lists.berlios.de
+> > http://lists.berlios.de/mailman/listinfo/ogle-user
+
+
+From cave.dnb at tiscali.fr  Sat May 27 14:02:01 2006
+From: cave.dnb at tiscali.fr (Nigel Henry)
+Date: Sat May 27 14:02:01 2006
+Subject: [Ogle-user] Install problem on FC5
+In-Reply-To: <44782808.7050107@mediales.net>
+References: <200605262348.23986.cave.dnb@tiscali.fr> <44782808.7050107@mediales.net>
+Message-ID: <200605271403.47432.cave.dnb@tiscali.fr>
+
+On Saturday 27 May 2006 12:20, benni. wrote:
+> Hey,
+>
+> have you tried using the rpms (or better: the yum repo) from freshrpms?
+>
+> RPMs for Fedora Core 5 (Bordeaux)
+> http://bordeaux.freshrpms.net/
+>
+> You can install the yum repository by executing the following command as
+>
+> root:
+>  > rpm -Uvh
+>
+> http://ftp.freshrpms.net/pub/freshrpms/fedora/linux/5/freshrpms-release/fre
+>shrpms-release-1.1-1.fc.noarch.rpm
+>
+> after that, you call a
+>
+>  > yum install ogle
+>
+> and you should be good to go, since it solves all the dependany issues.
+>
+> Enjoy,
+> benni.
+> -SDG-
+
+Hi Benni. Thanks for the link to freshrpms for FC5. I may add the repo for 
+freshrpms manually to Yum, as I have all the baseurls for planetccrma already 
+set up there. I will still have to fix the r128 driver problem, but as you 
+say, at least both Yum, And Apt solve the dependency problems.
+
+I don't like dependency hell. It's not so bad when you know which development 
+packages are required, and have easy access to them. The worst problem is 
+with the compile, and make just stops, giving errors that you have no idea 
+about.
+
+Thanks again for the info. Nigel.
+>
+> Nigel Henry wrote:
+> > I have an Mplayer source install on FC1, and FC2 on this machine, and
+> > DVD's play ok. The DVD drive is on an IDE PCI adaptor card. Graphics card
+> > is a Rage 128 PCI card using r128 driver.
+> >
+> > FC5 has proved to be a different kettle of fish. Post install I had to
+> > change the graphics card driver to vesa, otherwise X would not start. The
+> > RPM for Mplayer from the Greysector repo installs, but I get 100% CPU,
+> > with juddery playback, and bursts of sound. The source tarball will not
+> > install, but as the Mplayer folks insist on certain versions of GCC, and
+> > FC5's gcc-4.1.0-3 doesn't equate, this is probably no surprise, and I
+> > havn't bothered to contact them, as they don't want to know if you have
+> > steered away from the parameters they have set.
+> >
+> > Next tried Totem, which is installed on FC5. No joy. Went to their site
+> > and installed libdvdcss RPM for FC5, but still no go. Complaints about
+> > missing plugins, although the DVD I was trying to play was showing on the
+> > menu.
+> >
+> > From a post on Linux Questions, someone suggested Ogle, so here I am
+> > trying to install it.
+> >
+> > libdvdcss is already installed, so I have installed, a52dec-0.7.4,
+> > libdvdread-0.9.6, and libmad-0.15.1b. ogle-0.9.2 has a problem.
+> > ogle_gui-0.9.2 installed ok after I installed libglade, and
+> > libglade-devel.
+> >
+> > This is where the ogle install stops. See below.
+> >
+> > Making install in libogleao
+> > make[1]: Entering directory
+> > `/home/djmons/Downloads/Ogle/ogle-0.9.2/libogleao' make[2]: Entering
+> > directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/libogleao' make[2]:
+> > Nothing to be done for `install-exec-am'.
+> > make[2]: Nothing to be done for `install-data-am'.
+> > make[2]: Leaving directory
+> > `/home/djmons/Downloads/Ogle/ogle-0.9.2/libogleao' make[1]: Leaving
+> > directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/libogleao' Making
+> > install in ac3
+> > make[1]: Entering directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/ac3'
+> > source='ac3dec_wrap.c' object='ac3dec_wrap.o' libtool=no \
+> > depfile='.deps/ac3dec_wrap.Po' tmpdepfile='.deps/ac3dec_wrap.TPo' \
+> > depmode=gcc3 /bin/sh ../depcomp \
+> > gcc -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\"
+> > -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE=\"ogle\"
+> > -DVERSION=\"0.9.2\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1
+> > -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1
+> > -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1
+> > -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -Dinline=__attribute__\
+> > \(\(__always_inline__\)\) -DHAVE_BYTESWAP_H=1 -DHAVE_SYS_PARAM_H=1
+> > -DHAVE_STROPTS_H=1 -DHAVE_XSHM=1 -DHAVE_XV=1 -DHAVE_CLOCK_GETTIME=1
+> > -DHAVE_MADVISE=1 -DLIBOGLEAO_NULL= -DLIBOGLEAO_OSS= -DHAVE_XML=1
+> > -DHAVE_XF86VIDMODE=1 -DHAVE_XINERAMA=1
+> > -DCONFIG_FILE=\"/usr/local/share/ogle/oglerc\" -DHAVE_MMX=1  -I. -I. 
+> > -I.. -I../include -I/usr/local/include -I/usr/local/include
+> > -I/usr/include/libxml2 -fomit-frame-pointer -funroll-loops -g -O2 -Wall
+> > -g -O2 -Wall -march=i586 -mcpu=pentiumpro -c `test -f 'ac3dec_wrap.c' ||
+> > echo './'`ac3dec_wrap.c `-mcpu=' is deprecated. Use `-mtune=' or
+> > '-march=' instead.
+> > ac3dec_wrap.c:51: error: static declaration of ?program_name? follows
+> > non-static declaration
+> > ../include/debug_print.h:7: error: previous declaration of ?program_name?
+> > was here
+> > ac3dec_wrap.c: In function ?get_q?:
+> > ac3dec_wrap.c:278: warning: pointer targets in assignment differ in
+> > signedness make[1]: *** [ac3dec_wrap.o] Error 1
+> > make[1]: Leaving directory `/home/djmons/Downloads/Ogle/ogle-0.9.2/ac3'
+> > make: *** [install-recursive] Error 1
+> > [root at localhost ogle-0.9.2]#
+> >
+> > Any suggestions as to what might be the problem is welcome.
+> >
+> > Nigel.
+> >
+> > _______________________________________________
+> > Ogle-user mailing list
+> > Ogle-user at lists.berlios.de
+> > http://lists.berlios.de/mailman/listinfo/ogle-user
+> >
+> >
+> > !DSPAM:6,4477786c124375593218060!
+
+

@@ -1,0 +1,260 @@
+From D.H.J.Takken at phys.uu.nl  Thu Mar  9 21:06:01 2006
+From: D.H.J.Takken at phys.uu.nl (Dik Takken)
+Date: Thu Mar  9 21:06:01 2006
+Subject: [Ogle-user] Commercial DVD makes libdvdread go nuts
+Message-ID: <Pine.LNX.4.62.0603091956230.6861@venus.phys.uu.nl>
+
+Hi all,
+
+I own two commercial DVD titles that make libdvdread return nonsense. I 
+know it must be libdvdread, because all DVD player applications have 
+trouble playing only these tho titles.
+
+Running tcprobe on one of the DVD disks clearly shows what goes wrong:
+
+takkie ~ # tcprobe -i /dev/dvd
+libdvdread: Using libdvdcss version 1.2.8 for DVD access
+[tcprobe] DVD image/device
+libdvdread: Using libdvdcss version 1.2.8 for DVD access
+Please send bug report - no VTS_TMAPT ??
+(dvd_reader.c) mpeg2 pal 4:3 U0 720x576 video
+(dvd_reader.c) ac3 en drc 48kHz 6Ch
+(dvd_reader.c) subtitle 00=<en>
+Please send bug report - no VTS_TMAPT ??
+(dvd_reader.c) DVD title 1/1: 8 chapter(s), 1 angle(s), title set 1
+(dvd_reader.c) title playback time: 00:00:05.01  6 sec
+(dvd_reader.c) [Chapter 01] 00:00:00.000 , block from 0 to 196964
+(dvd_reader.c) [Chapter 02] 00:00:00.000 , block from 304780 to 444065
+(dvd_reader.c) [Chapter 03] 00:00:00.000 , block from 0 to 0
+(dvd_reader.c) [Chapter 04] 00:00:00.000 , block from 0 to 0
+(dvd_reader.c) [Chapter 05] 00:00:00.000 , block from 834326 to 900439
+(dvd_reader.c) [Chapter 06] 00:00:00.000 , block from 1805328 to 1967066
+(dvd_reader.c) [Chapter 07] 00:00:00.000 , block from 0 to 0
+(dvd_reader.c) [Chapter 08] 00:00:00.000 , block from 0 to 0
+[tcprobe] summary for /dev/dvd, (*) = not default, 0 = not detected
+import frame size: -g 720x576 [720x576]
+      aspect ratio: 4:3 (*)
+        frame rate: -f 25.000 [25.000] frc=3
+       audio track: -a 0 [0] -e 48000,16,2 [48000,16,2] -n 0x2000 [0x2000]
+[tcprobe] V: 150 frames, 6 sec @ 25.000 fps
+[tcprobe] A: 0.09 MB @ 128 kbps
+[tcprobe] CD:  650 MB | V:  649.9 MB @ 908634.8 kbps
+[tcprobe] CD:  700 MB | V:  699.9 MB @ 978539.9 kbps
+[tcprobe] CD: 1300 MB | V: 1299.9 MB @ 1817400.7 kbps
+[tcprobe] CD: 1400 MB | V: 1399.9 MB @ 1957210.8 kbps
+
+The number of chapters on the title is correct, but the total playing time 
+of 5 seconds is not. The running times and block indices of the chapters 
+is total nonsense.
+
+lsdvd does not show any information about the chapters. It outputs only 
+this:
+
+takkie ~ # lsdvd -x -t 1
+libdvdread: Using libdvdcss version 1.2.8 for DVD access
+Please send bug report - no VTS_TMAPT ??
+Disc Title: UNTITLED1_SCN
+Title: 01, Length: 00:00:05 Chapters: 08, Cells: 01, Audio streams: 01, 
+Subpictures: 01
+         VTS: 01, TTN: 01, FPS: 25.00, Format: PAL, Aspect ratio: 4/3, 
+Width: 720, Height: 576, DF: ?
+         Number of Angles: 1
+         Audio: 1, Language: en - English, Format: ac3, Frequency: 48000, 
+Quantization: drc, Channels: 6, AP: 0, Content: Undefined
+         Chapter: 01, Length: 00:00:05, Start Cell: 01
+         Cell: 01, Length: 00:00:05
+         Subtitle: 01, Language: en - English, Content: Undefined
+
+My version of libdvdread is libdvdread-0.9.4-r1 (Gentoo x86)
+
+Is this a known problem or a new bug?
+
+Cheers!
+
+Dik
+
+
+
+From claudiusmaximus at goto10.org  Mon Mar 13 02:35:01 2006
+From: claudiusmaximus at goto10.org (Claude Heiland-Allen)
+Date: Mon Mar 13 02:35:01 2006
+Subject: [Ogle-user] menu buttons not always displayed when they should be
+Message-ID: <4414BF16.1090603@goto10.org>
+
+Hi,
+
+I've spent several hours lately trying to work out why my dvd.iso file 
+was not playing correctly in ogle, thinking it was a bug in my dvd.xml 
+that I was feeding to dvdauthor.  Now having installed totem, I believe 
+it to be a bug in ogle.
+
+
+In ogle-0.9.2-r1 from Gentoo Portage:
+
+When playing titleset 1 title 2, upon returning to the menu at the end 
+of the video the buttons are completely invisible in ogle, although they 
+work when you click in the appropriate empty space.  Pressing 'r' makes 
+the buttons appear.  Titleset 1 titles 1 and 3 do not exhibit this 
+issue, ie, when returning to the menu at the end of the video everything 
+appears as it should be.
+
+
+In totem-1.2.1 from Gentoo Portage:
+
+Menus work without any problem.
+
+
+Attached is my dvd.xml, in case that sheds any light on the matter, if 
+you need me to debug I'll be happy to help, if you provide instructions.
+
+
+Claude
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: dvd.xml
+Type: text/xml
+Size: 1856 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/ogle-user/attachments/20060313/1391c994/attachment.xml>
+
+From d4bjorn at dtek.chalmers.se  Thu Mar 23 13:12:00 2006
+From: d4bjorn at dtek.chalmers.se (Bj|rn Englund)
+Date: Thu Mar 23 13:12:00 2006
+Subject: [Ogle-user] Commercial DVD makes libdvdread go nuts
+In-Reply-To: <Pine.LNX.4.62.0603091956230.6861@venus.phys.uu.nl>
+References: <Pine.LNX.4.62.0603091956230.6861@venus.phys.uu.nl>
+Message-ID: <20060320181803.GA17561@dtek.chalmers.se>
+
+Thu Mar 09 2006, Dik Takken wrote:
+
+> libdvdread: Using libdvdcss version 1.2.8 for DVD access
+> Please send bug report - no VTS_TMAPT ??
+
+> My version of libdvdread is libdvdread-0.9.4-r1 (Gentoo x86)
+> 
+> Is this a known problem or a new bug?
+> 
+
+What dvd is it (any extra copy protection schemes on it)?
+Could you try with libdvdread-0.9.5 and see if it has been fixed?
+
+/Bj|rn
+
+
+From d4bjorn at dtek.chalmers.se  Thu Mar 23 13:13:43 2006
+From: d4bjorn at dtek.chalmers.se (Bj|rn Englund)
+Date: Thu Mar 23 13:13:43 2006
+Subject: [Ogle-user] menu buttons not always displayed when they should be
+In-Reply-To: <4414BF16.1090603@goto10.org>
+References: <4414BF16.1090603@goto10.org>
+Message-ID: <20060320182114.GB17561@dtek.chalmers.se>
+
+Mon Mar 13 2006, Claude Heiland-Allen wrote:
+
+Could you try it with the cvs version of ogle?
+There are some timing fixes in there that might solve this problem.
+
+/Bj|rn
+
+
+
+
+From D.H.J.Takken at phys.uu.nl  Sun Mar 26 22:31:02 2006
+From: D.H.J.Takken at phys.uu.nl (Dik Takken)
+Date: Sun Mar 26 22:31:02 2006
+Subject: [Ogle-user] Commercial DVD makes libdvdread go nuts
+In-Reply-To: <20060320181803.GA17561@dtek.chalmers.se>
+References: <Pine.LNX.4.62.0603091956230.6861@venus.phys.uu.nl>
+ <20060320181803.GA17561@dtek.chalmers.se>
+Message-ID: <Pine.LNX.4.64.0603262210380.21312@venus.phys.uu.nl>
+
+Hi,
+
+Did you receive my reply to your message? It is not in the archives of the 
+mailing list...
+
+Anyway, there are two commercial DVD titles in my collection that make 
+libdvdread go nuts, both from the same producer. The DVD titles contain 
+archival footage of live performances of a Dutch rock band from the 
+sixties. I guess the producer did not bother to add any special copy 
+protection schemes because it is not a popular title or anything. Is there 
+any way to check for copy protection schemes? Do copy protection schemes 
+really prevent DVD players from properly reading the table of contents? 
+That would sound strange to me.
+
+I also tried upgrading to libdvdread 0.9.5, but I see the problem 
+using that version.
+
+Is there any way that I can extract interesting sections of the DVD and 
+send it to the list for analysis?
+
+Cheers,
+
+Dik
+
+
+
+
+On Mon, 20 Mar 2006, Bj|rn Englund wrote:
+
+> Thu Mar 09 2006, Dik Takken wrote:
+>
+>> libdvdread: Using libdvdcss version 1.2.8 for DVD access
+>> Please send bug report - no VTS_TMAPT ??
+>
+>> My version of libdvdread is libdvdread-0.9.4-r1 (Gentoo x86)
+>>
+>> Is this a known problem or a new bug?
+>>
+>
+> What dvd is it (any extra copy protection schemes on it)?
+> Could you try with libdvdread-0.9.5 and see if it has been fixed?
+>
+> /Bj|rn
+>
+
+
+   -----------------------------------------------------------------
+
+
+From d4bjorn at dtek.chalmers.se  Tue Mar 28 19:52:03 2006
+From: d4bjorn at dtek.chalmers.se (Bj|rn Englund)
+Date: Tue Mar 28 19:52:03 2006
+Subject: [Ogle-user] Commercial DVD makes libdvdread go nuts
+In-Reply-To: <Pine.LNX.4.64.0603262210380.21312@venus.phys.uu.nl>
+References: <Pine.LNX.4.62.0603091956230.6861@venus.phys.uu.nl> <20060320181803.GA17561@dtek.chalmers.se> <Pine.LNX.4.64.0603262210380.21312@venus.phys.uu.nl>
+Message-ID: <20060328175106.GA17626@dtek.chalmers.se>
+
+Sun Mar 26 2006, Dik Takken wrote:
+> 
+> Hi,
+> 
+> Did you receive my reply to your message? It is not in the archives of the 
+> mailing list...
+
+No seems to have been some problems with the mailinglist I had to send the message 2 times before it got through.
+
+
+> protection schemes because it is not a popular title or anything. Is there 
+> any way to check for copy protection schemes? Do copy protection schemes 
+> really prevent DVD players from properly reading the table of contents? 
+> That would sound strange to me.
+
+Sony has some protectoin that adds bogus entries in the ifo files I think.
+But this probably isn't that.
+
+
+> Is there any way that I can extract interesting sections of the DVD and 
+> send it to the list for analysis?
+
+If play the dvd with ogle what problems do you have then?
+
+What output do you get from ifo_dump ?
+
+Could you put the .ifo files somewhere for download or email them?
+
+/Bj|rn
+ 
+
+
+

@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Ogle-user] ogle-gui error reporting
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/ogle-user/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20ogle-gui%20error%20reporting&In-Reply-To=%3CB5F22E76-1C6A-4866-9A10-BB98546220BA%40devnull.cz%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000062.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Ogle-user] ogle-gui error reporting</H1>
+    <B>Vladim&#237;r Kotal</B> 
+    <A HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20ogle-gui%20error%20reporting&In-Reply-To=%3CB5F22E76-1C6A-4866-9A10-BB98546220BA%40devnull.cz%3E"
+       TITLE="[Ogle-user] ogle-gui error reporting">vlada at devnull.cz
+       </A><BR>
+    <I>Mon Jan  1 15:36:58 CET 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000062.html">[Ogle-user] ifoOpenVTSI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#61">[ date ]</a>
+              <a href="thread.html#61">[ thread ]</a>
+              <a href="subject.html#61">[ subject ]</a>
+              <a href="author.html#61">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hello,
+
+In the course of search for a good Linux DVD player I have begun  
+playing with ogle. So far I have been only able to spot one error in  
+ogle-gui: When 'open disc' is selected and it fails it does not  
+report anything in the gui, it's just silent.
+
+When run from a terminal it reports the following:
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/ogle-user">katka at erazim</A> NEW]$ ogle
+WARNING[dvd_gui]: add_keybinding(): '
+
+
+           ' not a valid keysym
+WARNING[dvd_gui]: add_keybinding(): No such action: 'VideoToggle'
+WARNING[dvd_gui]: add_keybinding(): No such action: 'SaveScreenshot'
+WARNING[dvd_gui]: add_keybinding(): No such action:  
+'SaveScreenshotWithSPU'
+WARNING[dvd_gui]: add_keybinding(): No such action: 'AudioStreamChange'
+WARNING[dvd_gui]: add_keybinding(): No such action:  
+'SubtitleStreamChange'
+ERROR[ogle_nav]: failed to open/read the DVD at /dev/dvd: (5) Input/ 
+output error
+callbacks.on_opendvd_activate(): DVDSetDVDRoot: Root not set
+
+Only the last two lines are relevant.
+
+ogle-gui should catch the error and present it to the user via gui.
+
+
+v.
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000062.html">[Ogle-user] ifoOpenVTSI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#61">[ date ]</a>
+              <a href="thread.html#61">[ thread ]</a>
+              <a href="subject.html#61">[ subject ]</a>
+              <a href="author.html#61">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/ogle-user">More information about the Ogle-user
+mailing list</a><br>
+</body></html>

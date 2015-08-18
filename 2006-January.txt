@@ -1,0 +1,225 @@
+From guru at Sisis.de  Mon Jan  2 15:58:01 2006
+From: guru at Sisis.de (guru at Sisis.de)
+Date: Mon Jan  2 15:58:01 2006
+Subject: [Ogle-user] ogle 0.9.2 && ATI Radeon X600
+Message-ID: <20060102145654.GA53993@rebelion.Sisis.de>
+
+Hi,
+
+I've installed ogle 0.9.2 in FreeBSD 6.0-REL on my notebook.
+
+The notebook comes with a ATI "M24 1P Radeon Mobility X600" graphic ship
+and Xorg works fine with a resolution of 1600x1050, also 'mplayer'
+can overlay the picture of the movie just fine;
+
+ogle plays the sound but a black picture; I know that the problem
+is in the FAQ no. 20, but I don't know what to do? updating Xorg (which
+is working fine), or what else?
+
+Thx in advance for any help
+
+	matthias
+-- 
+Matthias Apitz / Sisis Informationssysteme GmbH
+ein Tochterunternehmen der OCLC PICA B.V. Leiden (NL)
+D-82041 Oberhaching, Gruenwalder Weg 28g
+Fon: +49 89 / 61308-351, Fax: -399, Mobile +49 170 4527211
+http://www.sisis.de/~guru/
+
+
+From d4bjorn at dtek.chalmers.se  Tue Jan  3 12:38:01 2006
+From: d4bjorn at dtek.chalmers.se (Bj|rn Englund)
+Date: Tue Jan  3 12:38:01 2006
+Subject: [Ogle-user] ogle 0.9.2 && ATI Radeon X600
+In-Reply-To: <20060102145654.GA53993@rebelion.Sisis.de>
+References: <20060102145654.GA53993@rebelion.Sisis.de>
+Message-ID: <20060103113726.GA29103@dtek.chalmers.se>
+
+Mon Jan 02 2006, guru at sisis.de wrote:
+> 
+> Hi,
+> 
+> I've installed ogle 0.9.2 in FreeBSD 6.0-REL on my notebook.
+> 
+> The notebook comes with a ATI "M24 1P Radeon Mobility X600" graphic ship
+> and Xorg works fine with a resolution of 1600x1050, also 'mplayer'
+> can overlay the picture of the movie just fine;
+> 
+> ogle plays the sound but a black picture; I know that the problem
+> is in the FAQ no. 20, but I don't know what to do? updating Xorg (which
+> is working fine), or what else?
+> 
+
+I think this is fixed in cvs.
+Try the cvs version if you can compile from source:
+http://www.dtek.chalmers.se/~dvd/dist/ogle-0.9.2-cvs.tar.gz
+
+
+/Bj|rn
+
+
+From guru at Sisis.de  Tue Jan  3 13:46:00 2006
+From: guru at Sisis.de (guru at Sisis.de)
+Date: Tue Jan  3 13:46:00 2006
+Subject: [Ogle-user] ogle 0.9.2 && ATI Radeon X600
+In-Reply-To: <20060103113726.GA29103@dtek.chalmers.se>
+References: <20060102145654.GA53993@rebelion.Sisis.de> <20060103113726.GA29103@dtek.chalmers.se>
+Message-ID: <20060103124455.GA16131@rebelion.Sisis.de>
+
+El d?a Tuesday, January 03, 2006 a las 12:37:26PM +0100, Bj|rn Englund escribi?:
+
+> Mon Jan 02 2006, guru at sisis.de wrote:
+> > 
+> > Hi,
+> > 
+> > I've installed ogle 0.9.2 in FreeBSD 6.0-REL on my notebook.
+> > 
+> > The notebook comes with a ATI "M24 1P Radeon Mobility X600" graphic ship
+> > and Xorg works fine with a resolution of 1600x1050, also 'mplayer'
+> > can overlay the picture of the movie just fine;
+> > 
+> > ogle plays the sound but a black picture; I know that the problem
+> > is in the FAQ no. 20, but I don't know what to do? updating Xorg (which
+> > is working fine), or what else?
+> > 
+> 
+> I think this is fixed in cvs.
+> Try the cvs version if you can compile from source:
+> http://www.dtek.chalmers.se/~dvd/dist/ogle-0.9.2-cvs.tar.gz
+
+Yes, thanks! Now it's working fine again as it worked for me in
+FreeBSD 5.4-REL; may I asked you what the problem was?
+
+Thx again
+
+	matthias
+-- 
+Matthias Apitz / Sisis Informationssysteme GmbH
+ein Tochterunternehmen der OCLC PICA B.V. Leiden (NL)
+D-82041 Oberhaching, Gruenwalder Weg 28g
+Fon: +49 89 / 61308-351, Fax: -399, Mobile +49 170 4527211
+http://www.sisis.de/
+
+
+From guru at Sisis.de  Tue Jan  3 15:04:00 2006
+From: guru at Sisis.de (guru at Sisis.de)
+Date: Tue Jan  3 15:04:00 2006
+Subject: [Ogle-user] patch for ogle_gui-0.9.2-cvs/src/my_glade.c
+Message-ID: <20060103140252.GA89209@rebelion.Sisis.de>
+
+Hi,
+
+to get the compiled version of ogle_gui-0.9.2-cvs working on
+FreeBSD the following patch is needed:
+
+$ diff -c src/my_glade.c.orig src/my_glade.c
+*** src/my_glade.c.orig Tue Jan  3 14:56:52 2006
+--- src/my_glade.c      Tue Jan  3 14:58:13 2006
+***************
+*** 38,43 ****
+--- 38,49 ----
+    new_symbol = g_strdup(symbol);
+  #endif
+  
++   /*
++    * Reset dlerror() since it can contain error from previous
++    * call to dlopen()/dlsym().
++    */
++   dlerror();
++ 
+    fun = dlsym(handle, new_symbol);
+    error = dlerror();
+    if(error != NULL) {
+
+HIH
+
+	matthias
+-- 
+Matthias Apitz / Sisis Informationssysteme GmbH
+ein Tochterunternehmen der OCLC PICA B.V. Leiden (NL)
+D-82041 Oberhaching, Gruenwalder Weg 28g
+Fon: +49 89 / 61308-351, Fax: -399, Mobile +49 170 4527211
+http://www.sisis.de/~guru/
+
+
+From mallettaa at netscape.net  Tue Jan  3 22:54:01 2006
+From: mallettaa at netscape.net (mallettaa at netscape.net)
+Date: Tue Jan  3 22:54:01 2006
+Subject: [Ogle-user] ogle 9.2 closes
+Message-ID: <8C7DEC732D32489-1840-947@mblkn-m01.sysops.aol.com>
+
+After I open the dvd and try to start the movie Ogles closes. I am running Fedora Core 4 and Ogle 9.2 rpm for fc4. I had the same problem with fc3. 
+Can anyone help?
+___________________________________________________
+Try the New Netscape Mail Today!
+Virtually Spam-Free | More Storage | Import Your Contact List
+http://mail.netscape.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/ogle-user/attachments/20060103/93cfaa23/attachment.html>
+
+From d4bjorn at dtek.chalmers.se  Wed Jan  4 20:59:01 2006
+From: d4bjorn at dtek.chalmers.se (Bj|rn Englund)
+Date: Wed Jan  4 20:59:01 2006
+Subject: [Ogle-user] ogle 0.9.2 && ATI Radeon X600
+In-Reply-To: <20060103124455.GA16131@rebelion.Sisis.de>
+References: <20060102145654.GA53993@rebelion.Sisis.de> <20060103113726.GA29103@dtek.chalmers.se> <20060103124455.GA16131@rebelion.Sisis.de>
+Message-ID: <20060104195820.GA23173@dtek.chalmers.se>
+
+Tue Jan 03 2006, guru at sisis.de wrote:
+
+> 
+> Yes, thanks! Now it's working fine again as it worked for me in
+> FreeBSD 5.4-REL; may I asked you what the problem was?
+> 
+
+XV_AUTOPAINT_COLORKEY used to be on by default in the xserver before I think.
+But is off by default now, so we needed to add some repaint code.
+This might be the reason for your black window.
+
+
+/Bj?rn
+
+
+From d4bjorn at dtek.chalmers.se  Sat Jan 14 13:21:01 2006
+From: d4bjorn at dtek.chalmers.se (Bj|rn Englund)
+Date: Sat Jan 14 13:21:01 2006
+Subject: [Ogle-user] patch for ogle_gui-0.9.2-cvs/src/my_glade.c
+In-Reply-To: <20060103140252.GA89209@rebelion.Sisis.de>
+References: <20060103140252.GA89209@rebelion.Sisis.de>
+Message-ID: <20060114122042.GA1819@dtek.chalmers.se>
+
+Tue Jan 03 2006, guru at sisis.de wrote:
+
+> +   dlerror();
+> + 
+>     fun = dlsym(handle, new_symbol);
+>     error = dlerror();
+
+Added to cvs
+
+/Bj|rn
+
+
+From d4bjorn at dtek.chalmers.se  Mon Jan 23 01:05:05 2006
+From: d4bjorn at dtek.chalmers.se (Bj|rn Englund)
+Date: Mon Jan 23 01:05:05 2006
+Subject: [Ogle-user] RELEASE libdvdread-0.9.5
+Message-ID: <20060123000407.GB20224@dtek.chalmers.se>
+
+libdvdread-0.9.5 is released
+
+http://www.dtek.chalmers.se/~dvd/dist/libdvdread-0.9.5.tar.gz
+
+(see http://www.dtek.chalmers.se/~dvd for rpms for redhat-8.x)
+For other systems see your distributions or freshrpms.net later on.
+
+Bug fixes.
+Better error handling / error messages.
+Some support for multithreaded apps.
+Potential memory leak fixes.
+...
+
+/Bj|rn
+
+

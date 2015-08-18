@@ -1,0 +1,55 @@
+From asashnov at swsoft.com  Thu Sep  7 04:38:50 2006
+From: asashnov at swsoft.com (Alexander Sashnov)
+Date: Thu, 07 Sep 2006 09:38:50 +0700
+Subject: [Ogle-user] How to play VIDEO_TS.IFO,
+	VIDEO_TS.BUP (ripped DVD) files?
+Message-ID: <87odts5rk5.fsf@sashnov.plesk.ru>
+
+
+
+--------------------------------------------------
+http://www.gromkov.com/faq/faq2004-0056.html
+
+How to play downloaded DVD files VIDEO_TS.IFO and VIDEO_TS.BUP?
+
+To play a copied/ripped DVD with PowerDVD you click on the open button
+and choose Open DVD File from the Hard Disk Drive and open the
+video_ts.ifo.
+--------------------------------------------------
+
+Media Player Classic can play copied DVD by opening video_ts.ifo too
+(with working DVD menu of couse).
+
+Please, add this question in ogle FAQ even if it can't be solved
+becouse this is crucial feature for most users and it need any mention.
+
+-- 
+Alexander Sashnov
+
+
+
+From d4bjorn at dtek.chalmers.se  Fri Sep 22 12:09:08 2006
+From: d4bjorn at dtek.chalmers.se (Bj|rn Englund)
+Date: Fri, 22 Sep 2006 12:09:08 +0200
+Subject: [Ogle-user] How to play VIDEO_TS.IFO,
+	VIDEO_TS.BUP (ripped DVD) files?
+In-Reply-To: <87odts5rk5.fsf@sashnov.plesk.ru>
+References: <87odts5rk5.fsf@sashnov.plesk.ru>
+Message-ID: <20060922100908.GA27832@dtek.chalmers.se>
+
+Thu Sep 07 2006, Alexander Sashnov wrote:
+
+> 
+> Please, add this question in ogle FAQ even if it can't be solved
+> becouse this is crucial feature for most users and it need any mention.
+> 
+Added.
+Just open the directory where the IFO and VOB files are.
+If IFO and VOB files are in /copy/of/disc/:
+ogle /copy/of/disc
+If the files are in a VIDEO_TS directory you can either specify
+the VIDEO_TS directory or the parent.
+
+/Bj|rn
+
+

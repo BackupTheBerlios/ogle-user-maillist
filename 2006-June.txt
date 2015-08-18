@@ -1,0 +1,292 @@
+From iau at ukfsn.org  Fri Jun  9 13:16:02 2006
+From: iau at ukfsn.org (Ivan Uemlianin)
+Date: Fri Jun  9 13:16:02 2006
+Subject: [Ogle-user] errors reading an encrypted dvd
+Message-ID: <44893488.8060803@ukfsn.org>
+
+Dear All
+
+Apologies if this has been dealt with.  I've read the FAQ and the manual.
+
+I running debian etch with libdvdcss.  When I run ogle I get the 
+following output.  The GUI pops up, and when I select Open disc the 
+screen window opens but stays black.  At the end I clicked on Exit.
+
+n.b.: the line-end backslashes were added by me.
+
+Any advice will be gratefully received.
+
+ivan at bemo:~$ ogle
+WARNING[dvd_gui]: add_keybinding(): No such action: 'SaveScreenshot'
+WARNING[dvd_gui]: add_keybinding(): No such action: 'SaveScreenshotWithSPU'
+xscreensaver-command not found.
+WARNING[ogle_mpeg_vs]: B-frame before forward ref frame
+WARNING[ogle_mpeg_vs]: B-frame before forward ref frame
+No accelerated IMDCT transform found
+SNDCTL_DSP_GETCHANNELMASK: Invalid argument
++##!#!####!!#!!!##!!#-+!!!-+ at -+-#!#+-!!#!!+-+-!!+!!-!!+-###      \
+!!+!-+-+-+###!!!!-+-+-+-+-+!!#-!!+-+-+-+#-+-+!!#!!-+-+-+-#+-+    \
+#!#-!!!+-+-+-+-#+-!!+!!-+-+-+-+#!#-!!!!+-+-+-#!#+!!-!+-+-+-+#-   \
++!!#-+!!-+-+-+-#+-+#!-+!!-+-+#!-+-+##-+-+!!#-!!#!!+-+-+-+-+-+    \
+-+-+-+-+-msg close FIX  
+ctrl: ipc_rmid: Invalid argument
+ivan at bemo:~$
+
+Thanks
+
+Ivan
+
+
+
+
+From d4bjorn at dtek.chalmers.se  Fri Jun  9 19:41:11 2006
+From: d4bjorn at dtek.chalmers.se (Bj|rn Englund)
+Date: Fri Jun  9 19:41:11 2006
+Subject: [Ogle-user] Install problem on FC5
+In-Reply-To: <200605271403.47432.cave.dnb@tiscali.fr>
+References: <200605262348.23986.cave.dnb@tiscali.fr> <44782808.7050107@mediales.net> <200605271403.47432.cave.dnb@tiscali.fr>
+Message-ID: <20060609173947.GA11932@dtek.chalmers.se>
+
+Sat May 27 2006, Nigel Henry wrote:
+
+> set up there. I will still have to fix the r128 driver problem, but as you 
+> say, at least both Yum, And Apt solve the dependency problems.
+
+I also had problems with the nvidia driver when upgrading to fc5.
+It seems the xorg in fc5 loads its modules from another place,
+so I had to manually copy the nvidia module from /usr/X11R6/lib64/modules/drivers/nvidia_drv.* to /usr/lib64/xorg/modules/drivers/
+Don't know if this is the correct way but it worked.
+Could be because I upgraded via the unsupported yum...
+
+> > > ac3dec_wrap.c:51: error: static declaration of ?program_name? follows
+> > > non-static declaration
+> > > ../include/debug_print.h:7: error: previous declaration of ?program_name?
+> > > was here
+
+> > > Any suggestions as to what might be the problem is welcome.
+
+Use cvs if you are compiling yourself, it's more up to date.
+Otherwise the above error is because program_name is declared twice with
+different 'static'. This used to be a warning in gcc which is why it
+made it into the release. ac3dec_wrap.c isn't used anyway.
+
+/Bj|rn
+
+
+From d4bjorn at dtek.chalmers.se  Fri Jun  9 19:48:01 2006
+From: d4bjorn at dtek.chalmers.se (Bj|rn Englund)
+Date: Fri Jun  9 19:48:01 2006
+Subject: [Ogle-user] Re: Soundblaster Live problems.
+In-Reply-To: <44829CD1.9080804@gmail.com>
+References: <44829CD1.9080804@gmail.com>
+Message-ID: <20060609174749.GB11932@dtek.chalmers.se>
+
+Sun Jun 04 2006, Per J?rgensen wrote:
+> Hi Guys.
+> I've tried to make ogle work along with Sound blaster live 5.1 SPDIF 
+> output. But I cant...
+> 
+> In the FAQ - there a little part about using SPDIF - but that wont work 
+> for me - I'll get all KDE sound out on the SPDIF - but starting ogle 
+> just give me this error:
+> A lot og clicks and scramble during the start og the DVD and in console -
+> # ogle
+
+> 
+> Please tell me what to do about this problem.
+> 
+
+Hard to say what is wrong.
+Soundblaster live though seems to be one of the most problematic
+cards to get spdif/ac3 output configured on.
+
+Do you want ac3/5.1 output on spdif or just stereo on spdif?
+How did you configure the audio in the oglerc?
+You might want to try the cvs version of ogle which has some alsa
+problems fixed.
+
+/Bj|rn
+
+
+From d4bjorn at dtek.chalmers.se  Fri Jun  9 19:52:02 2006
+From: d4bjorn at dtek.chalmers.se (Bj|rn Englund)
+Date: Fri Jun  9 19:52:02 2006
+Subject: [Ogle-user] errors reading an encrypted dvd
+In-Reply-To: <44893488.8060803@ukfsn.org>
+References: <44893488.8060803@ukfsn.org>
+Message-ID: <20060609175134.GC11932@dtek.chalmers.se>
+
+Fri Jun 09 2006, Ivan Uemlianin wrote:
+
+> I running debian etch with libdvdcss.  When I run ogle I get the 
+> following output.  The GUI pops up, and when I select Open disc the 
+> screen window opens but stays black.  At the end I clicked on Exit.
+> 
+This is probably a thing that is fixed in the cvs version.
+So if you are not running the cvs version you can try to do the following.
+Look for a Xv attribute named XV_AUTOPAINT_COLORKEY which probably is 0
+It needs to be set to 1.
+You can set it with:
+xvattr -a XV_AUTOPAINT_COLORKEY -v 1
+Then you should have picture in ogle.
+
+/Bj|rn
+
+
+From cave.dnb at tiscali.fr  Sat Jun 10 18:22:02 2006
+From: cave.dnb at tiscali.fr (nigel henry)
+Date: Sat Jun 10 18:22:02 2006
+Subject: [Ogle-user] Install problem on FC5
+In-Reply-To: <20060609173947.GA11932@dtek.chalmers.se>
+References: <200605262348.23986.cave.dnb@tiscali.fr> <200605271403.47432.cave.dnb@tiscali.fr> <20060609173947.GA11932@dtek.chalmers.se>
+Message-ID: <200606101821.26123.cave.dnb@tiscali.fr>
+
+On Friday 09 June 2006 19:39, Bj|rn Englund wrote:
+> Sat May 27 2006, Nigel Henry wrote:
+> > set up there. I will still have to fix the r128 driver problem, but as
+> > you say, at least both Yum, And Apt solve the dependency problems.
+>
+> I also had problems with the nvidia driver when upgrading to fc5.
+> It seems the xorg in fc5 loads its modules from another place,
+> so I had to manually copy the nvidia module from
+> /usr/X11R6/lib64/modules/drivers/nvidia_drv.* to
+> /usr/lib64/xorg/modules/drivers/ Don't know if this is the correct way but
+> it worked.
+> Could be because I upgraded via the unsupported yum...
+>
+> > > > ac3dec_wrap.c:51: error: static declaration of ?program_name? follows
+> > > > non-static declaration
+> > > > ../include/debug_print.h:7: error: previous declaration of
+> > > > ?program_name? was here
+> > > >
+> > > > Any suggestions as to what might be the problem is welcome.
+>
+> Use cvs if you are compiling yourself, it's more up to date.
+> Otherwise the above error is because program_name is declared twice with
+> different 'static'. This used to be a warning in gcc which is why it
+> made it into the release. ac3dec_wrap.c isn't used anyway.
+>
+> /Bj|rn
+
+Hi. I did a fresh install for FC5 (32bit), and the drivers are already 
+in /usr/lib/xorg/modules/drivers. I've had the query on Fedoraforum for 2 
+weeks, and the Fedora mailing list for a few days with no replies, but never 
+mind. Hopefully it may get fixed by updates.
+
+I had a similar problem with FC4 on the other machine with a cyberblade i1 
+card using the trident driver. Had to change to the vesa one to get X to 
+start, but after doing all the updates for FC4, was able to change back to 
+the trident driver.
+
+Anyway, Ogle seems to be working ok.
+
+Ogle version 0.9.2-7.fc5  (from freshrpms)
+
+Nigel.
+
+
+From iau at ukfsn.org  Mon Jun 12 14:46:02 2006
+From: iau at ukfsn.org (Ivan Uemlianin)
+Date: Mon Jun 12 14:46:02 2006
+Subject: [Ogle-user] errors reading an encrypted dvd
+In-Reply-To: <20060609175134.GC11932@dtek.chalmers.se>
+References: <44893488.8060803@ukfsn.org> <20060609175134.GC11932@dtek.chalmers.se>
+Message-ID: <448D3DE2.2040806@ukfsn.org>
+
+/Bj|rn
+
+Thanks for your help.  I didn't have xvattr installed! I just installed it (from debian-multimedia.org), and now ogle works fine!
+
+Nice work, by the way.
+
+best
+
+Ivan
+
+
+Bj|rn Englund wrote:
+
+>Fri Jun 09 2006, Ivan Uemlianin wrote:
+>
+>  
+>
+>>I running debian etch with libdvdcss.  When I run ogle I get the 
+>>following output.  The GUI pops up, and when I select Open disc the 
+>>screen window opens but stays black.  At the end I clicked on Exit.
+>>
+>>    
+>>
+>This is probably a thing that is fixed in the cvs version.
+>So if you are not running the cvs version you can try to do the following.
+>Look for a Xv attribute named XV_AUTOPAINT_COLORKEY which probably is 0
+>It needs to be set to 1.
+>You can set it with:
+>xvattr -a XV_AUTOPAINT_COLORKEY -v 1
+>Then you should have picture in ogle.
+>
+>/Bj|rn
+>
+>
+>  
+>
+
+
+
+From thebenke at gmail.com  Thu Jun 22 17:48:26 2006
+From: thebenke at gmail.com (Julien TheBenk3)
+Date: Thu Jun 22 17:48:26 2006
+Subject: [Ogle-user] Invitation from Julien TheBenk3
+Message-ID: <20060622145253.A61A2201F3A1@nb.massmail2.incrowd.be>
+
+
+
+
+
+
+
+
+Julien TheBenk3
+wants to add you as a friend
+
+         ( http://bingbox.com/go/register/referrer=1839608&id=513239342 ) 
+      
+      
+         ( http://bingbox.com/go/register/referrer=1839608&id=513239342 ) 
+        
+    
+  
+  
+    
+      
+        
+			Become a member of BingBox!	
+			And make your own free profile page with:
+			
+				blogs
+				pictures
+				guestbook
+				friends network
+					
+		
+      
+      
+        &nbsp;
+      
+    
+    
+		
+			
+			Julien is building his on line friends network on BingBox and didn't forget you. Click here ( http://bingbox.com/go/register/referrer=1839608&id=513239342 )  to accept this friendship.
+			
+			Don't you know who Julien TheBenk3 is? Visit his profile page on BingBox ( http://bingbox.com/g0tr00ted ) .
+        
+	
+  
+  
+    This e-mail was unsolicited?  Click here ( http://bingbox.com/go/nomails/email=ogle-user at lists.berlios.de&code=001405950 )  to block your e-mailaddress. 
+  
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/ogle-user/attachments/20060622/ad330dc8/attachment.html>
+

@@ -1,0 +1,312 @@
+From jd1008 at gmail.com  Thu Jul 16 21:15:34 2009
+From: jd1008 at gmail.com (JD)
+Date: Thu, 16 Jul 2009 12:15:34 -0700
+Subject: [Ogle-user] ogle-0.9.2
+Message-ID: <4A5F7C56.3020700@gmail.com>
+
+I downloaded the source rpm of ogle-0.9.2 from
+http://www.dtek.chalmers.se/groups/dvd/srpm/ogle-0.9.2-ogle1alsa.src.rpm
+and built it on Fedora 11 after some minor compilation issues I had to fix,
+the compilation finished and the binary rpms were generated. However, when
+I run it, I get this output, and ogle hangs indefinitely and no gui 
+comes up:
+
+# ogle
+WARNING[dvd_gui]: add_keybinding(): No such action: 'SaveScreenshot'
+WARNING[dvd_gui]: add_keybinding(): No such action: 'SaveScreenshotWithSPU'
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-CRITICAL **: g_once_init_leave: assertion 
+`initialization_value != 0' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-GObject-CRITICAL **: g_object_new: assertion 
+`G_TYPE_IS_OBJECT (object_type)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_new: assertion 
+`ATK_IS_REGISTRY (object)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_set_factory_type: 
+assertion `ATK_IS_REGISTRY (registry)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-CRITICAL **: g_once_init_leave: assertion 
+`initialization_value != 0' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-GObject-CRITICAL **: g_object_new: assertion 
+`G_TYPE_IS_OBJECT (object_type)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_new: assertion 
+`ATK_IS_REGISTRY (object)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_set_factory_type: 
+assertion `ATK_IS_REGISTRY (registry)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-CRITICAL **: g_once_init_leave: assertion 
+`initialization_value != 0' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-GObject-CRITICAL **: g_object_new: assertion 
+`G_TYPE_IS_OBJECT (object_type)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_new: assertion 
+`ATK_IS_REGISTRY (object)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_set_factory_type: 
+assertion `ATK_IS_REGISTRY (registry)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-CRITICAL **: g_once_init_leave: assertion 
+`initialization_value != 0' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-GObject-CRITICAL **: g_object_new: assertion 
+`G_TYPE_IS_OBJECT (object_type)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_new: assertion 
+`ATK_IS_REGISTRY (object)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_set_factory_type: 
+assertion `ATK_IS_REGISTRY (registry)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-CRITICAL **: g_once_init_leave: assertion 
+`initialization_value != 0' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-GObject-CRITICAL **: g_object_new: assertion 
+`G_TYPE_IS_OBJECT (object_type)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_new: assertion 
+`ATK_IS_REGISTRY (object)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_set_factory_type: 
+assertion `ATK_IS_REGISTRY (registry)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-CRITICAL **: g_once_init_leave: assertion 
+`initialization_value != 0' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-GObject-CRITICAL **: g_object_new: assertion 
+`G_TYPE_IS_OBJECT (object_type)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_new: assertion 
+`ATK_IS_REGISTRY (object)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_set_factory_type: 
+assertion `ATK_IS_REGISTRY (registry)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-CRITICAL **: g_once_init_leave: assertion 
+`initialization_value != 0' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-GObject-CRITICAL **: g_object_new: assertion 
+`G_TYPE_IS_OBJECT (object_type)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_new: assertion 
+`ATK_IS_REGISTRY (object)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_set_factory_type: 
+assertion `ATK_IS_REGISTRY (registry)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-CRITICAL **: g_once_init_leave: assertion 
+`initialization_value != 0' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-CRITICAL **: g_once_init_leave: assertion 
+`initialization_value != 0' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-GObject-CRITICAL **: g_type_add_interface_static: 
+assertion `G_TYPE_IS_INSTANTIATABLE (instance_type)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-GObject-CRITICAL **: g_type_add_interface_static: 
+assertion `G_TYPE_IS_INSTANTIATABLE (instance_type)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-GObject-CRITICAL **: g_type_add_interface_static: 
+assertion `G_TYPE_IS_INSTANTIATABLE (instance_type)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-CRITICAL **: g_once_init_leave: assertion 
+`initialization_value != 0' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-GObject-CRITICAL **: g_object_new: assertion 
+`G_TYPE_IS_OBJECT (object_type)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_new: assertion 
+`ATK_IS_REGISTRY (object)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_set_factory_type: 
+assertion `ATK_IS_REGISTRY (registry)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-CRITICAL **: g_once_init_leave: assertion 
+`initialization_value != 0' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-GObject-CRITICAL **: g_object_new: assertion 
+`G_TYPE_IS_OBJECT (object_type)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_new: assertion 
+`ATK_IS_REGISTRY (object)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+** (process:18973): CRITICAL **: atk_registry_set_factory_type: 
+assertion `ATK_IS_REGISTRY (registry)' failed
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+GLib-GObject-CRITICAL **: gtype.c:2458: initialization assertion failed, 
+use IA__g_type_init() prior to this function
+
+(process:18973): GLib-CRITICAL **: g_once_init_leave: assertion 
+`initialization_value != 0' failed
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/ogle-user/attachments/20090716/d3cd6650/attachment.html>
+

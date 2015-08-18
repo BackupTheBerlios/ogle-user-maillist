@@ -1,0 +1,262 @@
+From A00883259 at itesm.mx  Thu Feb  2 03:25:01 2006
+From: A00883259 at itesm.mx (A00883259 at itesm.mx)
+Date: Thu Feb  2 03:25:01 2006
+Subject: [Ogle-user] Problems with ogle_ctrl
+Message-ID: <438FE73200037321@mailserver1.itesm.mx>
+
+-version of Ogle: 0.9.2
+-graphics card: nVIDIA GeForce 4 440
+-distribution: Slackware 10.2 with kernel 2.6.15
+-copy of the ogle debug output:
+
+Build: Linux 2.6.14-rc4 #27 PREEMPT Tue Oct 11 15:20:08 UTC 2005 x86_64 AMD
+Athlon(tm) 64 Processor 3000+ Mon Oct 17 12:15:55 UTC 2005 Xv oss alsa
+Runtime: Linux 2.6.15.1 #1 PREEMPT Sun Jan 22 00:06:01 CST 2006 i686 unknown
+cpuinfo:
+processor : 0, vendor_id : AuthenticAMD, cpu family : 15, model : 4, model
+name : AMD Athlon(tm) 64 Processor 3400+, stepping : 10, cpu MHz : 798.041,
+cache size : 1024 KB, fdiv_bug : no, hlt_bug : no, f00f_bug : no, coma_bug
+: no, fpu : yes, fpu_exception : yes, cpuid level : 1, wp : yes, flags :
+fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush
+mmx fxsr sse sse2 syscall nx mmxext lm 3dnowext 3dnow, bogomips : 1597.90,
+,
+
+/dev/dvd -> /dev/hdc
+Valid DVD devices: /dev/hdc
+hdparm v6.1
+
+WARNING: DMA is OFF for /dev/hdc
+
+
+/dev/hdc:
+ IO_support   =  0 (default 16-bit)
+ unmaskirq    =  0 (off)
+ using_dma    =  0 (off)
+ keepsettings =  0 (off)
+ readonly     =  0 (off)
+ readahead    = 256 (on)
+/usr/bin/ogle: line 358: /usr/lib64/ogle/ogle_ctrl: cannot execute binary
+file
+
+-relevant info:
+
+I can't run ogle, when I run it in command line, the next line is output
+
+/usr/bin/ogle: line 358: /usr/lib64/ogle/ogle_ctrl: cannot execute binary
+file
+
+I installed:
+
+--libdvdcss-1.2.9-i486-1kjz
+--libdvdread-0.9.5-i486-1kjz
+--a52dec-0.7.4-i486-2kjz
+--libxml2-2.6.21-i486-1
+--libmad-0.15.1b-i486-1
+--ogle-0.9.2-x86_64-1ces
+--ogle_gui-0.9.2-x86_64-1ces
+
+all the package was installed with KPackage
+
+I checked the faq and mailing list, but I can't find answer.
+
+Please help me.
+
+
+
+From d4bjorn at dtek.chalmers.se  Thu Feb  2 11:15:02 2006
+From: d4bjorn at dtek.chalmers.se (Bj|rn Englund)
+Date: Thu Feb  2 11:15:02 2006
+Subject: [Ogle-user] Problems with ogle_ctrl
+In-Reply-To: <438FE73200037321@mailserver1.itesm.mx>
+References: <438FE73200037321@mailserver1.itesm.mx>
+Message-ID: <20060202101432.GA22208@dtek.chalmers.se>
+
+Wed Feb 01 2006, A00883259 at itesm.mx wrote:
+
+> Build: Linux 2.6.14-rc4 #27 PREEMPT Tue Oct 11 15:20:08 UTC 2005 x86_64 AMD
+> Athlon(tm) 64 Processor 3000+ Mon Oct 17 12:15:55 UTC 2005 Xv oss alsa
+> Runtime: Linux 2.6.15.1 #1 PREEMPT Sun Jan 22 00:06:01 CST 2006 i686 unknown
+> cpuinfo:
+> processor : 0, vendor_id : AuthenticAMD, cpu family : 15, model : 4, model
+> name : AMD Athlon(tm) 64 Processor 3400+, stepping : 10, cpu MHz : 798.041,
+
+> /usr/bin/ogle: line 358: /usr/lib64/ogle/ogle_ctrl: cannot execute binary
+> file
+> 
+
+> --libdvdcss-1.2.9-i486-1kjz
+> --libdvdread-0.9.5-i486-1kjz
+> --a52dec-0.7.4-i486-2kjz
+> --libxml2-2.6.21-i486-1
+> --libmad-0.15.1b-i486-1
+> --ogle-0.9.2-x86_64-1ces
+> --ogle_gui-0.9.2-x86_64-1ces
+
+You have installed 64bit versions of ogle and ogle_gui but
+32bit(i486) versions of the other libraries that ogle uses.
+If you install the 64bit versions of the libraries too, it should work.
+
+/Bj|rn
+
+
+From firmani at istat.it  Fri Feb  3 11:33:01 2006
+From: firmani at istat.it (maurizio)
+Date: Fri Feb  3 11:33:01 2006
+Subject: [Ogle-user] libdvdread
+Message-ID: <43E32FE0.80200@istat.it>
+
+Hi all,
+sorry if I'm off topic. I have a few scratched DVD which I'd like to 
+copy but I cannot because libdvdread exit when reach a bad sector.
+Is there a way to tell libdvdread to ignore read error?
+I know this option is supported in DVDdecrypter but I would like to stay 
+on Linux (and avoid to use wine).
+If my question is off topic could you please tell me where I can I post it?
+
+TIA
+
+Maurizio
+
+
+From d4bjorn at dtek.chalmers.se  Fri Feb  3 13:40:46 2006
+From: d4bjorn at dtek.chalmers.se (Bj|rn Englund)
+Date: Fri Feb  3 13:40:46 2006
+Subject: [Ogle-user] libdvdread
+In-Reply-To: <43E32FE0.80200@istat.it>
+References: <43E32FE0.80200@istat.it>
+Message-ID: <20060203123413.GA17370@dtek.chalmers.se>
+
+Fri Feb 03 2006, maurizio wrote:
+
+> sorry if I'm off topic. I have a few scratched DVD which I'd like to 
+> copy but I cannot because libdvdread exit when reach a bad sector.
+> Is there a way to tell libdvdread to ignore read error?
+> I know this option is supported in DVDdecrypter but I would like to stay 
+> on Linux (and avoid to use wine).
+
+What program are you using that is using libdvdread?
+What function in libdvdread (v0.9.5 ?) is failing and with what return value
+(and/or error message)?
+
+Libdvdread should not exit() when encountering a read error, just return
+a short read. The program that is calling libdvdread should catch this short
+read and retry reading or skip the unreadable blocks.
+
+I guess we could implement this read retry in libdvdread, but there
+would be no way to tell the calling program if a block has errors or not
+with the current interface I think. 
+
+/Bj|rn
+
+
+From firmani at istat.it  Fri Feb  3 13:55:01 2006
+From: firmani at istat.it (maurizio)
+Date: Fri Feb  3 13:55:01 2006
+Subject: [Ogle-user] libdvdread
+In-Reply-To: <20060203123413.GA17370@dtek.chalmers.se>
+References: <43E32FE0.80200@istat.it> <20060203123413.GA17370@dtek.chalmers.se>
+Message-ID: <43E3512A.5070803@istat.it>
+
+Bj|rn Englund ha scritto:
+
+>Fri Feb 03 2006, maurizio wrote:
+>
+>  
+>
+>>sorry if I'm off topic. I have a few scratched DVD which I'd like to 
+>>copy but I cannot because libdvdread exit when reach a bad sector.
+>>Is there a way to tell libdvdread to ignore read error?
+>>I know this option is supported in DVDdecrypter but I would like to stay 
+>>on Linux (and avoid to use wine).
+>>    
+>>
+>
+>What program are you using that is using libdvdread?
+>  
+>
+I am using qvamps with libdvdread 0.9.4.
+As you said, it should be the program that call the library to manage 
+such a message and ask the user what to do or silently ignore the block 
+error. In fact, I sent an email to the author of vamps, already.
+Actually, I had the same problem with dvdbackup, too. It seems that 
+these programs which make use of libdvdread assume that a dvd copy 
+should have not any block error but, while this assumption is correct 
+for a data dvd is not correct for a movie dvd, in my opinion, because 
+most of the time users will not see the lack of few photograms.
+
+Thanks for the quick answer.
+
+Maurizio
+
+>What function in libdvdread (v0.9.5 ?) is failing and with what return value
+>(and/or error message)?
+>
+>Libdvdread should not exit() when encountering a read error, just return
+>a short read. The program that is calling libdvdread should catch this short
+>read and retry reading or skip the unreadable blocks.
+>
+>I guess we could implement this read retry in libdvdread, but there
+>would be no way to tell the calling program if a block has errors or not
+>with the current interface I think. 
+>
+>/Bj|rn
+>
+>  
+>
+
+
+
+From thebenke at gmail.com  Sat Feb  4 00:18:01 2006
+From: thebenke at gmail.com (Julien Landry)
+Date: Sat Feb  4 00:18:01 2006
+Subject: [Ogle-user] Problem while make
+Message-ID: <832686450602031517r6248f04fs@mail.gmail.com>
+
+Hi,
+
+When I try to do make, I get this error:
+
+[...]
+ac3dec_wrap.c:51: error: static declaration of 'program_name' follows
+non-static declaration
+../include/debug_print.h:7: error: previous declaration of 'program_name'
+was here
+ac3dec_wrap.c: In function 'get_q':
+ac3dec_wrap.c:278: warning: pointer targets in assignment differ in
+signedness
+make[1]: *** [ac3dec_wrap.o] Error 1
+make[1]: Leaving directory `/home/julien/ogle-0.9.2/ac3'
+make: *** [all-recursive] Error 1
+[julien at thebenke ogle-0.9.2]$
+
+If you know how to fix that, reply-me.
+Thanks.
+
+--
+Julien F. Landry
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/ogle-user/attachments/20060204/252e0cc1/attachment.html>
+
+From d4bjorn at dtek.chalmers.se  Sat Feb  4 11:56:00 2006
+From: d4bjorn at dtek.chalmers.se (Bj|rn Englund)
+Date: Sat Feb  4 11:56:00 2006
+Subject: [Ogle-user] Problem while make
+In-Reply-To: <832686450602031517r6248f04fs@mail.gmail.com>
+References: <832686450602031517r6248f04fs@mail.gmail.com>
+Message-ID: <20060204105530.GA20939@dtek.chalmers.se>
+
+Fri Feb 03 2006, Julien Landry wrote:
+
+> ac3dec_wrap.c:51: error: static declaration of 'program_name' follows
+> non-static declaration
+> ../include/debug_print.h:7: error: previous declaration of 'program_name'
+> was here
+
+remove the 'static' on line 51 in ac3dec_wrap.c
+or
+use http://www.dtek.chalmers.se/~dvd/dist/ogle-0.9.2-cvs.tar.gz
+
+/Bj|rn
+
+

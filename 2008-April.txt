@@ -1,0 +1,28 @@
+From richard at armchair.mb.ca  Mon Apr 28 00:04:54 2008
+From: richard at armchair.mb.ca (Richard Whidden)
+Date: Sun, 27 Apr 2008 17:04:54 -0500
+Subject: [Ogle-user] Ogle is stuck in windowed mode
+Message-ID: <4814F886.6040407@armchair.mb.ca>
+
+I can't seem to get ogle to go to fullscreen mode.  I have fullscreen 
+set in oglerc and I've tried the 'f' key repeatedly.
+
+The only messages I receive when playing a show is:
+"
+xscreensaver-command not found.
+No accelerated IMDCT transform found
++msg close FIX
+ctrl: ipc_rmid: Invalid argument
+"
+
+I'm using fluxbox on Gentoo using the proprietary Nvidia driver for an 
+old GeForce2.  I'm using the composite out on the card.
+
+I've been using mplayer for some time and it works in fullscreen just fine.
+
+If you need more information, please let me know.
+
+Thank you,
+Richard
+
+

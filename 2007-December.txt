@@ -1,0 +1,205 @@
+From leegold at operamail.com  Mon Dec 10 05:23:16 2007
+From: leegold at operamail.com (Lee Gold)
+Date: Mon, 10 Dec 2007 00:23:16 -0400
+Subject: [Ogle-user] can not play DVD movie - please help
+Message-ID: <20071210042316.218067B8FA@ws5-10.us4.outblaze.com>
+
+Xbuntu 7.10
+
+I can not play DVD movie on any multimedia aplication.
+
+Any help greatly appreciated.
+
+
+goldtech at goldtech:~$ sudo /usr/share/doc/libdvdread3/install-css.sh
+--23:12:22--  http://www.dtek.chalmers.se/groups/dvd/deb/libdvdcss2_1.2.5-1_i386.deb
+           => `/tmp/dvdcss-Qk6314/libdvdcss.deb'
+Resolving www.dtek.chalmers.se... 129.16.30.198
+Connecting to www.dtek.chalmers.se|129.16.30.198|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 25,178 (25K) [text/plain]
+
+100%[=====================================================>] 25,178        70.22K/s             
+
+23:12:23 (70.10 KB/s) - `/tmp/dvdcss-Qk6314/libdvdcss.deb' saved [25178/25178]
+
+(Reading database ... 86510 files and directories currently installed.)
+Preparing to replace libdvdcss2 1.2.5-1 (using .../dvdcss-Qk6314/libdvdcss.deb) ...
+Unpacking replacement libdvdcss2 ...
+Setting up libdvdcss2 (1.2.5-1) ...
+
+Processing triggers for libc6 ...
+ldconfig deferred processing now taking place
+goldtech at goldtech:~$ ogle
+xscreensaver-command not found.
+No accelerated IMDCT transform found
+SNDCTL_DSP_GETCHANNELMASK: Invalid argument
+!WARNING[ogle_vout]: req_code: 141
+WARNING[ogle_vout]: minor_code: 14
+WARNING[ogle_vout]: error_code: 8
+WARNING[ogle_vout]: XV_COLORKEY not available
+ERROR[ogle_vout]: Couldn't get attribute: XV_COLORKEY
+#display: frame rate: 0.000 fps
+FATAL[ogle_mpeg_ps]: dvdreadblocks failed
+ctrl: ipc_rmid: Invalid argument
+goldtech at goldtech:~$ 
+
+
+
+-- 
+_______________________________________________
+Surf the Web in a faster, safer and easier way:
+Download Opera 9 at http://www.opera.com
+
+Powered by Outblaze
+
+
+From leegold at operamail.com  Tue Dec 11 00:56:49 2007
+From: leegold at operamail.com (Lee Gold)
+Date: Mon, 10 Dec 2007 19:56:49 -0400
+Subject: [Ogle-user] Ogle-user Digest, Vol 6, Issue 1
+Message-ID: <20071210235649.5131A440F8@ws5-1.us4.outblaze.com>
+
+Hi,
+
+Rebooted and now it works! Very nice!
+
+goldtech at goldtech:~$ ogle
+xscreensaver-command not found.
+WARNING[ogle_vout]: req_code: 141
+WARNING[ogle_vout]: minor_code: 14
+WARNING[ogle_vout]: error_code: 8
+WARNING[ogle_vout]: XV_COLORKEY not available
+ERROR[ogle_vout]: Couldn't get attribute: XV_COLORKEY
+No accelerated IMDCT transform found
+SNDCTL_DSP_GETCHANNELMASK: Invalid argument
++display: frame rate: 0.000 fps
+!!!!##!!#!!!display: frame rate: 28.752 fps
+display: frame rate: 29.970 fps
+display: frame rate: 29.970 fps
++display: frame rate: 29.874 fps
+display: frame rate: 29.970 fps
+display: frame rate: 29.970 fps
+display: frame rate: 29.970 fps
+display: frame rate: 29.988 fps
+display: frame rate: 29.970 fps
+display: frame rate: 29.968 fps
+
+
+
+
+
+
+
+> ----- Original Message -----
+> From: ogle-user-request at lists.berlios.de
+> To: ogle-user at lists.berlios.de
+> Subject: Ogle-user Digest, Vol 6, Issue 1
+> Date: Mon, 10 Dec 2007 12:01:46 +0100
+> 
+> 
+> Send Ogle-user mailing list submissions to
+> 	ogle-user at lists.berlios.de
+> 
+> To subscribe or unsubscribe via the World Wide Web, visit
+> 	https://lists.berlios.de/mailman/listinfo/ogle-user
+> or, via email, send a message with subject or body 'help' to
+> 	ogle-user-request at lists.berlios.de
+> 
+> You can reach the person managing the list at
+> 	ogle-user-owner at lists.berlios.de
+> 
+> When replying, please edit your Subject line so it is more specific
+> than "Re: Contents of Ogle-user digest..."
+> 
+> 
+> Today's Topics:
+> 
+>     1. can not play DVD movie - please help (Lee Gold)
+> 
+> 
+> ----------------------------------------------------------------------
+> 
+> Message: 1
+> Date: Mon, 10 Dec 2007 00:23:16 -0400
+> From: "Lee Gold" <leegold at operamail.com>
+> Subject: [Ogle-user] can not play DVD movie - please help
+> To: ogle-user at lists.berlios.de
+> Message-ID: <20071210042316.218067B8FA at ws5-10.us4.outblaze.com>
+> Content-Type: text/plain; charset="iso-8859-1"
+> 
+> Xbuntu 7.10
+> 
+> I can not play DVD movie on any multimedia aplication.
+> 
+> Any help greatly appreciated.
+> 
+> 
+> goldtech at goldtech:~$ sudo /usr/share/doc/libdvdread3/install-css.sh
+> --23:12:22--  
+> http://www.dtek.chalmers.se/groups/dvd/deb/libdvdcss2_1.2.5-1_i386.deb
+>             => `/tmp/dvdcss-Qk6314/libdvdcss.deb'
+> Resolving www.dtek.chalmers.se... 129.16.30.198
+> Connecting to www.dtek.chalmers.se|129.16.30.198|:80... connected.
+> HTTP request sent, awaiting response... 200 OK
+> Length: 25,178 (25K) [text/plain]
+> 
+> 100%[=====================================================>] 25,178 
+>         70.22K/s
+> 
+> 23:12:23 (70.10 KB/s) - `/tmp/dvdcss-Qk6314/libdvdcss.deb' saved [25178/25178]
+> 
+> (Reading database ... 86510 files and directories currently installed.)
+> Preparing to replace libdvdcss2 1.2.5-1 (using 
+> .../dvdcss-Qk6314/libdvdcss.deb) ...
+> Unpacking replacement libdvdcss2 ...
+> Setting up libdvdcss2 (1.2.5-1) ...
+> 
+> Processing triggers for libc6 ...
+> ldconfig deferred processing now taking place
+> goldtech at goldtech:~$ ogle
+> xscreensaver-command not found.
+> No accelerated IMDCT transform found
+> SNDCTL_DSP_GETCHANNELMASK: Invalid argument
+> !WARNING[ogle_vout]: req_code: 141
+> WARNING[ogle_vout]: minor_code: 14
+> WARNING[ogle_vout]: error_code: 8
+> WARNING[ogle_vout]: XV_COLORKEY not available
+> ERROR[ogle_vout]: Couldn't get attribute: XV_COLORKEY
+> #display: frame rate: 0.000 fps
+> FATAL[ogle_mpeg_ps]: dvdreadblocks failed
+> ctrl: ipc_rmid: Invalid argument
+> goldtech at goldtech:~$
+> 
+> 
+> 
+> --
+> _______________________________________________
+> Surf the Web in a faster, safer and easier way:
+> Download Opera 9 at http://www.opera.com
+> 
+> Powered by Outblaze
+> 
+> 
+> ------------------------------
+> 
+> _______________________________________________
+> Ogle-user mailing list
+> Ogle-user at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/ogle-user
+> 
+> 
+> End of Ogle-user Digest, Vol 6, Issue 1
+> ***************************************
+
+>
+
+
+-- 
+_______________________________________________
+Surf the Web in a faster, safer and easier way:
+Download Opera 9 at http://www.opera.com
+
+Powered by Outblaze
+
+

@@ -1,0 +1,290 @@
+From billl at users.sf.net  Thu Oct  5 21:56:11 2006
+From: billl at users.sf.net (Olivier Rolland)
+Date: Thu, 5 Oct 2006 21:56:11 +0200
+Subject: [Ogle-user] libdvdread bug
+Message-ID: <3cef3090610051256y3dc2a947qa1deaf9d3a6d2a6e@mail.gmail.com>
+
+Hi,
+
+libdvdread 0.9.6 segfaults when a device is opened 2 (or more) times,
+the second reader being closed before the first one (see example
+below). This used to work perfectly with 0.9.4.
+
+Cheers,
+
+-- 
+Olivier
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+#include <dvdread/ifo_read.h>
+
+int
+main (int argc, char *argv[])
+{
+  dvd_reader_t *reader1, *reader2;
+
+  if (argc < 2)
+  {
+    fprintf (stderr, "usage: argv[0] <device>\n");
+    return EXIT_FAILURE;
+  }
+
+  printf ("Opening %s (reader1)...", argv[1]);
+  reader1 = DVDOpen (argv[1]);
+  if (!reader1)
+  {
+    printf ("ko\n");
+    return EXIT_FAILURE;
+  }
+  printf ("ok\n");
+
+  printf ("Reopening %s (reader2)...", argv[1]);
+  reader2 = DVDOpen (argv[1]);
+  if (!reader2)
+  {
+    printf ("ko\n");
+    DVDClose (reader1);
+    return EXIT_FAILURE;
+  }
+  printf ("ok\n");
+
+  printf ("Closing %s (reader2)...", argv[1]);
+  DVDClose (reader2);
+  printf ("ok\n");
+
+  printf ("Closing %s (reader1)...", argv[1]);
+  DVDClose (reader1);
+  printf ("ok\n");
+
+  return EXIT_SUCCESS;
+}
+
+
+From d4bjorn at dtek.chalmers.se  Fri Oct  6 11:11:49 2006
+From: d4bjorn at dtek.chalmers.se (Bj|rn Englund)
+Date: Fri, 6 Oct 2006 11:11:49 +0200
+Subject: [Ogle-user] libdvdread bug
+In-Reply-To: <3cef3090610051256y3dc2a947qa1deaf9d3a6d2a6e@mail.gmail.com>
+References: <3cef3090610051256y3dc2a947qa1deaf9d3a6d2a6e@mail.gmail.com>
+Message-ID: <20061006091149.GA16619@dtek.chalmers.se>
+
+Thu Oct 05 2006, Olivier Rolland wrote:
+
+> libdvdread 0.9.6 segfaults when a device is opened 2 (or more) times,
+> the second reader being closed before the first one (see example
+> below). This used to work perfectly with 0.9.4.
+
+Thanks for the report, I have fixed it now.
+There was an erroneous extra free in the DVDClose function.
+
+/Bj|rn
+
+
+From d4bjorn at dtek.chalmers.se  Fri Oct  6 11:19:58 2006
+From: d4bjorn at dtek.chalmers.se (Bj|rn Englund)
+Date: Fri, 6 Oct 2006 11:19:58 +0200
+Subject: [Ogle-user] libdvdread-0.9.7 released (bugfix only)
+Message-ID: <20061006091958.GA17087@dtek.chalmers.se>
+
+There was an erroneous free in the DVDClose function that
+triggered a segfault in case more than one DVDClose was called (after
+calling more than one DVDOpen.
+This is fixed in the new 0.9.7 release of libdvdread.
+tarball at:
+www.dtek.chalmers.se/~dvd/dist/libdvdread-0.9.7.tar.gz
+rpms:
+www.dtek.chalmers.se/~dvd/redhat.shtml
+
+
+/Bj|rn
+
+
+From arromdee at azure.rahul.net  Thu Oct 26 01:00:48 2006
+From: arromdee at azure.rahul.net (Ken Arromdee)
+Date: Wed, 25 Oct 2006 16:00:48 -0700 (PDT)
+Subject: [Ogle-user] This DVD doesn't play
+Message-ID: <20061025230048.DAAD7B8705@azure.rahul.net>
+
+The DVD is Phantom of Inferno, which is an interactive DVD game that plays
+on DVD players, using menus in strange ways.  It plays video clips and still
+scenes along with subtitles; occasionally the user can choose an option and
+it will branch to one of several results.
+
+I've tried it on Xine and it actually lost sync between the still images and
+the audio.  Ogle works better, but I get subtitles that appear on top of
+other subtitles.  The DVD plays fine on a Playstation 2 (as a DVD, not as a
+PS2 game).
+
+Note that my picture and sound are fine, and I'm not having any decryption
+trouble.  The problem is with the subtitles.
+
+Also, when I start the DVD I get a warning that the game might not play on my
+DVD player--and another screen overlaid top of it.  It looks to me as if the
+other screen is made of subtitles and the game is expecting that on a working
+DVD player it should cover up the warning.
+
+Versions are new: Ogle 0.9.2, libdvdread 0.9.7.  OS is Mandrake 10.1.
+
+
+From tim-ogle at baverstock.org.uk  Sun Oct 29 04:27:16 2006
+From: tim-ogle at baverstock.org.uk (Tim)
+Date: Sun, 29 Oct 2006 03:27:16 +0000
+Subject: [Ogle-user] Compile issues and failure to display on Mac Mini
+Message-ID: <E1Ge1KO-0000bB-3f@tuschin.blackcatnetworks.co.uk>
+
+Hi. 
+
+version of Ogle: 0.9.2
+graphics card: Mac Mini (GMA 950, 64M shared)
+distribution: Mac OS X 10.4.8/Darwin 8.8.1
+complete copy of the ogle output (ogle --debug >& ogle.log) (for versions 
+prior to 0.9.0 don't use --debug) 
+
+root-users-computer:~/Desktop/ogle/ogle-0.9.2 admin$ ../usr/bin/ogle --debug 
+ -u cli /Volumes/ANI_11
+Build: Darwin 8.8.1 Darwin Kernel Version 8.8.1: Mon Sep 25 19:42:00 PDT 
+2006; root:xnu-792.13.8.obj~1/RELEASE_I386 i386 i386 Sun Oct 29 02:47:51 GMT 
+2006 Xv
+Runtime: Darwin 8.8.1 Darwin Kernel Version 8.8.1: Mon Sep 25 19:42:00 PDT 
+2006; root:xnu-792.13.8.obj~1/RELEASE_I386 i386 i386
+Note[ogle_ctrl]: ogle 0.9.2
+Debug[ogle_ctrl]: Started /Users/admin/Desktop/ogle/usr/lib/ogle/ogle_cli 
+with pid 4215
+Debug[ogle_ctrl]: Started /Users/admin/Desktop/ogle/usr/lib/ogle/ogle_nav 
+with pid 4216
+Debug[ogle_ctrl]: Started 
+/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_mpeg_ps with pid 4217
+Debug[ogle_ctrl]: Started /Users/admin/Desktop/ogle/usr/lib/ogle/ogle_vout 
+with pid 4218
+Debug[ogle_vout]: CLK_TCK: 100
+Debug[ogle_nav]: Opening DVD at "/Volumes/ANI_11"
+Debug[ogle_nav]: play_PGC: first_play_pgc
+Note[ogle_nav]: Language 'en' not found, using '??' instead
+Note[ogle_nav]: Language 'en' not found, using '??' instead
+Note[ogle_nav]: Language 'en' not found, using '??' instead
+Debug[ogle_nav]: play_PGC: state.pgcN (1)
+Note[ogle_nav]: Language 'en' not found, using '??' instead
+Note[ogle_nav]: Language 'en' not found, using '??' instead
+Debug[ogle_nav]: play_PGC: state.pgcN (2)
+Debug[ogle_nav]: play_PG: state.pgN (1)
+Debug[ogle_nav]: play_Cell: state.cellN (1)
+Debug[ogle_nav]: sending audio demuxstream 0
+Debug[ogle_nav]: oid: bd, ost: 80, nid: bd, nst: a0
+Debug[ogle_nav]: sending subp demuxstream 0
+Debug[ogle_mpeg_ps]: newid private:
+Debug[ogle_mpeg_ps]: oldid private
+*ctrl: get_buffer, shmget failed: Invalid argument
+*demux: fill_buffer, no buffer
+Debug[ogle_ctrl]: child: 4217 exited with 256 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_mpeg_ps)
+Debug[ogle_ctrl]: pid: 4217 exited with status: 1 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_mpeg_ps)
+Debug[ogle_ctrl]: child: 4218 killed 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_vout)
+Debug[ogle_ctrl]: pid: 4218 terminated on signal: 2 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_vout)
+Debug[ogle_ctrl]: child: 4216 killed 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_nav)
+Debug[ogle_ctrl]: pid: 4216 terminated on signal: 2 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_nav)
+Debug[ogle_ctrl]: slaying child: 4215 
+/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_cli
+Debug[ogle_ctrl]: removing shmid: 458752
+Note[ogle_ctrl]: exiting 
+
+
+anything else you think could be relevant of use. 
+
+OK. from the the start. 
+
+I installed the X11 app and the GCC compiler from the Mac install discs. I 
+downloaded all the things specified on the Ogle download page. 
+
+1, libjpeg needed me to copy the config.guess and config.sub files from the 
+Ogle directory before it would let me compile it with --enable-shared. I'm 
+not suprised that libjpeg didn't know about Intel Macs, but it would have 
+been nice if the download page had mentioned needing --enable-shared. 
+
+2. Compiling Ogle first failed because -mcpu=pentiumpro isn't supported by 
+the compiler supplied by Apple: I removed it from the scripts that generated 
+the makefiles. 
+
+3. I now had problems where most of the symbols defined in yuv2rgb_mmx.c 
+were undefined, despute -DHAVE_MMX=1 appearing on the compile line. I 
+reconfigured with --disable-mmx to work around that. 
+
+4. Now ac3dec_wrap.c and ifo_dump.c complained about having program_name 
+declared static, which contradicted some debug header. I removed the 
+'static' keywords from the declarations. 
+
+5. Now it all compiles and links, but I see this from an X11 Xterm (with 
+DISPLAY defined): 
+
+root-users-computer:~/Desktop/ogle/ogle-0.9.2 admin$ ../usr/bin/ogle --debug 
+ -u cli /Volumes/ANI_11
+Build: Darwin 8.8.1 Darwin Kernel Version 8.8.1: Mon Sep 25 19:42:00 PDT 
+2006; root:xnu-792.13.8.obj~1/RELEASE_I386 i386 i386 Sun Oct 29 02:47:51 GMT 
+2006 Xv
+Runtime: Darwin 8.8.1 Darwin Kernel Version 8.8.1: Mon Sep 25 19:42:00 PDT 
+2006; root:xnu-792.13.8.obj~1/RELEASE_I386 i386 i386
+Note[ogle_ctrl]: ogle 0.9.2
+Debug[ogle_ctrl]: Started /Users/admin/Desktop/ogle/usr/lib/ogle/ogle_cli 
+with pid 4215
+Debug[ogle_ctrl]: Started /Users/admin/Desktop/ogle/usr/lib/ogle/ogle_nav 
+with pid 4216
+Debug[ogle_ctrl]: Started 
+/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_mpeg_ps with pid 4217
+Debug[ogle_ctrl]: Started /Users/admin/Desktop/ogle/usr/lib/ogle/ogle_vout 
+with pid 4218
+Debug[ogle_vout]: CLK_TCK: 100
+Debug[ogle_nav]: Opening DVD at "/Volumes/ANI_11"
+Debug[ogle_nav]: play_PGC: first_play_pgc
+Note[ogle_nav]: Language 'en' not found, using '??' instead
+Note[ogle_nav]: Language 'en' not found, using '??' instead
+Note[ogle_nav]: Language 'en' not found, using '??' instead
+Debug[ogle_nav]: play_PGC: state.pgcN (1)
+Note[ogle_nav]: Language 'en' not found, using '??' instead
+Note[ogle_nav]: Language 'en' not found, using '??' instead
+Debug[ogle_nav]: play_PGC: state.pgcN (2)
+Debug[ogle_nav]: play_PG: state.pgN (1)
+Debug[ogle_nav]: play_Cell: state.cellN (1)
+Debug[ogle_nav]: sending audio demuxstream 0
+Debug[ogle_nav]: oid: bd, ost: 80, nid: bd, nst: a0
+Debug[ogle_nav]: sending subp demuxstream 0
+Debug[ogle_mpeg_ps]: newid private:
+Debug[ogle_mpeg_ps]: oldid private
+*ctrl: get_buffer, shmget failed: Invalid argument
+*demux: fill_buffer, no buffer
+Debug[ogle_ctrl]: child: 4217 exited with 256 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_mpeg_ps)
+Debug[ogle_ctrl]: pid: 4217 exited with status: 1 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_mpeg_ps)
+Debug[ogle_ctrl]: child: 4218 killed 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_vout)
+Debug[ogle_ctrl]: pid: 4218 terminated on signal: 2 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_vout)
+Debug[ogle_ctrl]: child: 4216 killed 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_nav)
+Debug[ogle_ctrl]: pid: 4216 terminated on signal: 2 
+(/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_nav)
+Debug[ogle_ctrl]: slaying child: 4215 
+/Users/admin/Desktop/ogle/usr/lib/ogle/ogle_cli
+Debug[ogle_ctrl]: removing shmid: 458752
+Note[ogle_ctrl]: exiting 
+
+6. Finally, I don't see any audio channels appearing in the configuration 
+summary. 
+
+Any ideas? 
+
+Thanks, 
+
+TIm 
+
+
+
+

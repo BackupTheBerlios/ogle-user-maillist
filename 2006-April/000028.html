@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Ogle-user] Commercial DVD makes libdvdread go nuts
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/ogle-user/2006-April/index.html" >
+   <LINK REL="made" HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20Commercial%20DVD%20makes%20libdvdread%20go%20nuts&In-Reply-To=%3CPine.LNX.4.64.0604111403190.18401%40venus.phys.uu.nl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000024.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Ogle-user] Commercial DVD makes libdvdread go nuts</H1>
+    <B>Dik Takken</B> 
+    <A HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20Commercial%20DVD%20makes%20libdvdread%20go%20nuts&In-Reply-To=%3CPine.LNX.4.64.0604111403190.18401%40venus.phys.uu.nl%3E"
+       TITLE="[Ogle-user] Commercial DVD makes libdvdread go nuts">D.H.J.Takken at phys.uu.nl
+       </A><BR>
+    <I>Tue Apr 11 14:19:01 CEST 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000024.html">[Ogle-user] Commercial DVD makes libdvdread go nuts
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#28">[ date ]</a>
+              <a href="thread.html#28">[ thread ]</a>
+              <a href="subject.html#28">[ subject ]</a>
+              <a href="author.html#28">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sun, 9 Apr 2006, Bj|rn Englund wrote:
+
+&gt;&gt;<i> All in all, it seems like some applications do not understand anything
+</I>&gt;&gt;<i> about what libdvdread tells them about the DVD, while others (Xine) do.
+</I>&gt;&gt;<i> Could this DVD trigger libdvdread to produce any unusual output? Maybe the
+</I>&gt;&gt;<i> problem is that the libdvdread output is correct, but so unusual that it
+</I>&gt;&gt;<i> triggers bugs in applications that try to interpret it?
+</I>&gt;<i>
+</I>&gt;<i> Yes I think the applications don't process the information correctly.
+</I>
+Ok, so I should file bugs with MPlayer, Transcode and lsdvd... I have 
+one question regarding submitting these bug resports: Should it be 
+possible for the developers of these projects to find the bug when they 
+only have the IFO files? I know *nothing* about the libdvdread API, so 
+maybe you can guess what will be needed to find the bugs.
+
+&gt;<i> I don't know if you got my email explaining the ifo_dump result of your dvd,
+</I>&gt;<i> (I'll post it here in case you didn't).
+</I>
+Yes, I got that one.
+
+&gt;<i> But from ifo_dump everything seems ok.
+</I>&gt;<i> Problem with dvds is that the &quot;chapter structure&quot; isn't hardwired in
+</I>&gt;<i> the format but can be 'defined' through the dvd vm/navigation commands,
+</I>&gt;<i> so programs that only want to get chapter data,
+</I>&gt;<i> and do not run the dvd commands,
+</I>&gt;<i> might not find the 'correct' chapter structure.
+</I>
+Ah, so an application needs to implement a DVD command interpreter in 
+order to correctly determine the correct chapter positions?
+
+Is there any way to see if a certain DVD uses dvd vm/navigation commands 
+to define its structure?
+
+So, If the problem is caused by MPlayer, Transcode and lsdvd not looking 
+at the DVD commands, then I guess DVD titles that use dvd vm/navigation 
+commands to define their structure are quite rare, because virtually any 
+DVD 'works' prefectly with MPlayer, Transcode and lsdvd. Is that correct?
+
+&gt;<i> Though they should still be able to list all the parts
+</I>&gt;<i> (which they obviously do not do correctly in this case).
+</I>
+I am a bit confused here. I know about 'titles' and 'chapters', but I 
+never heard about 'parts' before. What is a 'part' exactly?
+
+Thanks,
+
+Dik
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000024.html">[Ogle-user] Commercial DVD makes libdvdread go nuts
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#28">[ date ]</a>
+              <a href="thread.html#28">[ thread ]</a>
+              <a href="subject.html#28">[ subject ]</a>
+              <a href="author.html#28">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/ogle-user">More information about the Ogle-user
+mailing list</a><br>
+</body></html>

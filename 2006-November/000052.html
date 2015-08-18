@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Ogle-user] Compile issues and failure to display on Mac Mini
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/ogle-user/2006-November/index.html" >
+   <LINK REL="made" HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20Compile%20issues%20and%20failure%20to%20display%20on%20Mac%20Mini&In-Reply-To=%3C20061104170812.GB1704%40dtek.chalmers.se%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000051.html">
+   <LINK REL="Next"  HREF="000053.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Ogle-user] Compile issues and failure to display on Mac Mini</H1>
+    <B>Bj|rn Englund</B> 
+    <A HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20Compile%20issues%20and%20failure%20to%20display%20on%20Mac%20Mini&In-Reply-To=%3C20061104170812.GB1704%40dtek.chalmers.se%3E"
+       TITLE="[Ogle-user] Compile issues and failure to display on Mac Mini">d4bjorn at dtek.chalmers.se
+       </A><BR>
+    <I>Sat Nov  4 18:08:12 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000051.html">[Ogle-user] This DVD doesn't play
+</A></li>
+        <LI>Next message: <A HREF="000053.html">[Ogle-user] [BUG-REPORT] Ogle 0.9.2 - Pressing main menu navigation	key crashes ogle when playing &quot;Hostel&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#52">[ date ]</a>
+              <a href="thread.html#52">[ thread ]</a>
+              <a href="subject.html#52">[ subject ]</a>
+              <a href="author.html#52">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Sun Oct 29 2006, Tim wrote:
+&gt;<i> Hi. 
+</I>&gt;<i> 
+</I>&gt;<i> version of Ogle: 0.9.2
+</I>&gt;<i> graphics card: Mac Mini (GMA 950, 64M shared)
+</I>&gt;<i> distribution: Mac OS X 10.4.8/Darwin 8.8.1
+</I>&gt;<i> complete copy of the ogle output (ogle --debug &gt;&amp; ogle.log) (for versions 
+</I>&gt;<i> prior to 0.9.0 don't use --debug) 
+</I>&gt;<i> 
+</I>
+Hello.
+First of all, please try the latest cvs-version:
+<A HREF="http://www.dtek.chalmers.se/~dvd/dist/ogle-0.9.2-cvs.tar.gz">http://www.dtek.chalmers.se/~dvd/dist/ogle-0.9.2-cvs.tar.gz</A>
+
+&gt;<i> Build: Darwin 8.8.1 Darwin Kernel Version 8.8.1: Mon Sep 25 19:42:00 PDT 
+</I>&gt;<i> 2006; root:xnu-792.13.8.obj~1/RELEASE_I386 i386 i386 Sun Oct 29 02:47:51 GMT 
+</I>&gt;<i> 2006 Xv
+</I>&gt;<i> Runtime: Darwin 8.8.1 Darwin Kernel Version 8.8.1: Mon Sep 25 19:42:00 PDT 
+</I>&gt;<i> 2006; root:xnu-792.13.8.obj~1/RELEASE_I386 i386 i386
+</I>&gt;<i> Note[ogle_ctrl]: ogle 0.9.2
+</I>[...]
+&gt;<i> *ctrl: get_buffer, shmget failed: Invalid argument
+</I>
+This is bad does it happen with the cvs version too?
+
+
+&gt;<i> anything else you think could be relevant of use. 
+</I>&gt;<i> 
+</I>&gt;<i> OK. from the the start. 
+</I>&gt;<i> 
+</I>&gt;<i> I installed the X11 app and the GCC compiler from the Mac install discs. I 
+</I>&gt;<i> downloaded all the things specified on the Ogle download page. 
+</I>
+What version of gcc? (gcc -v)
+
+&gt;<i> 1, libjpeg needed me to copy the config.guess and config.sub files from the 
+</I>&gt;<i> Ogle directory before it would let me compile it with --enable-shared. I'm 
+</I>&gt;<i> not suprised that libjpeg didn't know about Intel Macs, but it would have 
+</I>&gt;<i> been nice if the download page had mentioned needing --enable-shared. 
+</I>
+I'll try to change so static libs will get used when no shared are available.
+
+&gt;<i> 
+</I>&gt;<i> 2. Compiling Ogle first failed because -mcpu=pentiumpro isn't supported by 
+</I>&gt;<i> the compiler supplied by Apple: I removed it from the scripts that generated 
+</I>&gt;<i> the makefiles. 
+</I>
+This should work with the cvs version.
+
+&gt;<i> 
+</I>&gt;<i> 3. I now had problems where most of the symbols defined in yuv2rgb_mmx.c 
+</I>&gt;<i> were undefined, despute -DHAVE_MMX=1 appearing on the compile line. I 
+</I>&gt;<i> reconfigured with --disable-mmx to work around that. 
+</I>
+If still broken in cvs, please supply the output from the compile.
+
+&gt;<i> 4. Now ac3dec_wrap.c and ifo_dump.c complained about having program_name 
+</I>&gt;<i> declared static, which contradicted some debug header. I removed the 
+</I>&gt;<i> 'static' keywords from the declarations. 
+</I>
+Fixed in cvs.
+
+
+&gt;<i> 5. Now it all compiles and links, but I see this from an X11 Xterm (with 
+</I>&gt;<i> DISPLAY defined): 
+</I>
+&gt;<i> 6. Finally, I don't see any audio channels appearing in the configuration 
+</I>&gt;<i> summary. 
+</I>
+You won't see any if ogle crashes before getting to a part with audio.
+
+
+&gt;<i> Any ideas? 
+</I>&gt;<i> 
+</I>
+Try the latest cvs and see if it is any better first.
+
+/Bj|rn
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000051.html">[Ogle-user] This DVD doesn't play
+</A></li>
+	<LI>Next message: <A HREF="000053.html">[Ogle-user] [BUG-REPORT] Ogle 0.9.2 - Pressing main menu navigation	key crashes ogle when playing &quot;Hostel&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#52">[ date ]</a>
+              <a href="thread.html#52">[ thread ]</a>
+              <a href="subject.html#52">[ subject ]</a>
+              <a href="author.html#52">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/ogle-user">More information about the Ogle-user
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,201 @@
+From mferguson at digitalalias.net  Tue May 20 20:46:38 2008
+From: mferguson at digitalalias.net (Marc Ferguson)
+Date: Tue, 20 May 2008 14:46:38 -0400
+Subject: [Ogle-user] Any Fedora Users?
+Message-ID: <e3f73e670805201146u46895f75ifb8c914363214d9f@mail.gmail.com>
+
+Hi,
+
+My LUG told me about this program.  I'm not home to install it yet, but I
+wanted to know if there were any other Fedora users out there that have this
+application running?  I'm new to linux and I've been using Totem, but it's a
+hit or miss if it'll play DVDs.  I forgot about the different encryptions
+these DVDs come with now-a-days.
+
+Based on the download page and FAQs it seems super easy to install and all
+the packages you need are available.  Thanks for your comments.
+
+-- 
+Marc F.
+Fedora 8, AMD-64
+
+"..Grace to you and peace from Him who is and who was and who is to come.."
+-Rev1:4
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/ogle-user/attachments/20080520/86ded632/attachment.html>
+
+From andreas at kostyrka.org  Tue May 20 21:00:04 2008
+From: andreas at kostyrka.org (Andreas Kostyrka)
+Date: Tue, 20 May 2008 21:00:04 +0200
+Subject: [Ogle-user] Any Fedora Users?
+In-Reply-To: <e3f73e670805201146u46895f75ifb8c914363214d9f@mail.gmail.com>
+References: <e3f73e670805201146u46895f75ifb8c914363214d9f@mail.gmail.com>
+Message-ID: <1211310004.10244.27.camel@andi-lap.lan>
+
+yum install ogle
+
+*scratch-head* That's only a guess, I'm stuck quite solidly in deb-world
+the last years.
+
+Andreas
+
+Am Dienstag, den 20.05.2008, 14:46 -0400 schrieb Marc Ferguson:
+> Hi,
+>  
+> My LUG told me about this program.  I'm not home to install it yet,
+> but I wanted to know if there were any other Fedora users out there
+> that have this application running?  I'm new to linux and I've been
+> using Totem, but it's a hit or miss if it'll play DVDs.  I forgot
+> about the different encryptions these DVDs come with now-a-days.
+>  
+> Based on the download page and FAQs it seems super easy to install and
+> all the packages you need are available.  Thanks for your comments.
+> 
+> -- 
+> Marc F.
+> Fedora 8, AMD-64
+> 
+> "..Grace to you and peace from Him who is and who was and who is to
+> come.." -Rev1:4 
+> _______________________________________________
+> Ogle-user mailing list
+> Ogle-user at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/ogle-user
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Dies ist ein digital signierter Nachrichtenteil
+URL: <https://lists.berlios.de/pipermail/ogle-user/attachments/20080520/53f37e25/attachment.pgp>
+
+From andreas at kostyrka.org  Tue May 20 20:58:00 2008
+From: andreas at kostyrka.org (Andreas Kostyrka)
+Date: Tue, 20 May 2008 20:58:00 +0200
+Subject: [Ogle-user] ogle stream
+Message-ID: <1211309880.10244.25.camel@andi-lap.lan>
+
+I just wondered, if it's possible to capture the PS stream that ogle is
+playing somehow?
+
+Andreas
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Dies ist ein digital signierter Nachrichtenteil
+URL: <https://lists.berlios.de/pipermail/ogle-user/attachments/20080520/ecb1a3ca/attachment.pgp>
+
+From the-junk at bluebottle.com  Tue May 20 22:44:29 2008
+From: the-junk at bluebottle.com (the-junk at bluebottle.com)
+Date: Tue, 20 May 2008 16:44:29 -0400
+Subject: [Ogle-user] Any Fedora Users?
+In-Reply-To: <1211310004.10244.27.camel@andi-lap.lan>
+References: <e3f73e670805201146u46895f75ifb8c914363214d9f@mail.gmail.com>
+	<1211310004.10244.27.camel@andi-lap.lan>
+Message-ID: <200805202043.m4KKhb5o030086@mi1.bluebottle.com>
+
+I had some issues with it playing some of the more recent dvd's until I 
+installed a lib that I didn't have (can't recall the name).  After that it 
+has played everything I have thrown at it.
+
+The symptons were shortly after accessing the dvd the program dies with no 
+indication why.  I wish i could recall what the lib? was because it was not 
+brought in by the dependencies in deb-lenny.
+
+On Tuesday 20 May 2008, Andreas Kostyrka wrote:
+> yum install ogle
+>
+> *scratch-head* That's only a guess, I'm stuck quite solidly in deb-world
+> the last years.
+>
+> Andreas
+>
+> Am Dienstag, den 20.05.2008, 14:46 -0400 schrieb Marc Ferguson:
+> > Hi,
+> >
+> > My LUG told me about this program.  I'm not home to install it yet,
+> > but I wanted to know if there were any other Fedora users out there
+> > that have this application running?  I'm new to linux and I've been
+> > using Totem, but it's a hit or miss if it'll play DVDs.  I forgot
+> > about the different encryptions these DVDs come with now-a-days.
+> >
+> > Based on the download page and FAQs it seems super easy to install and
+> > all the packages you need are available.  Thanks for your comments.
+> >
+> > --
+> > Marc F.
+> > Fedora 8, AMD-64
+> >
+> > "..Grace to you and peace from Him who is and who was and who is to
+> > come.." -Rev1:4
+> > _______________________________________________
+> > Ogle-user mailing list
+> > Ogle-user at lists.berlios.de
+> > https://lists.berlios.de/mailman/listinfo/ogle-user
+
+
+
+-- 
+Torah!! what a trip
+
+----------------------------------------------------------------------
+Free pop3 email with a spam filter.
+http://www.bluebottle.com/tag/5
+
+
+
+From cave.dnb2m97pp at aliceadsl.fr  Tue May 20 23:24:31 2008
+From: cave.dnb2m97pp at aliceadsl.fr (Nigel Henry)
+Date: Tue, 20 May 2008 23:24:31 +0200
+Subject: [Ogle-user] Any Fedora Users?
+In-Reply-To: <200805202043.m4KKhb5o030086@mi1.bluebottle.com>
+References: <e3f73e670805201146u46895f75ifb8c914363214d9f@mail.gmail.com>
+	<1211310004.10244.27.camel@andi-lap.lan>
+	<200805202043.m4KKhb5o030086@mi1.bluebottle.com>
+Message-ID: <200805202324.31938.cave.dnb2m97pp@aliceadsl.fr>
+
+On Tuesday 20 May 2008 22:44, the-junk at bluebottle.com wrote:
+> I had some issues with it playing some of the more recent dvd's until I
+> installed a lib that I didn't have (can't recall the name).  After that it
+> has played everything I have thrown at it.
+>
+> The symptons were shortly after accessing the dvd the program dies with no
+> indication why.  I wish i could recall what the lib? was because it was not
+> brought in by the dependencies in deb-lenny.
+
+It may have been libdvdcss, or libdvdcss2, which handles decrypting encrypted 
+DVD's.
+
+Nigel.
+
+
+From liz at billiau.net  Tue May 20 23:11:29 2008
+From: liz at billiau.net (Elizabeth Dodd)
+Date: Wed, 21 May 2008 07:11:29 +1000
+Subject: [Ogle-user] Any Fedora Users?
+In-Reply-To: <200805202043.m4KKhb5o030086@mi1.bluebottle.com>
+References: <e3f73e670805201146u46895f75ifb8c914363214d9f@mail.gmail.com>
+	<1211310004.10244.27.camel@andi-lap.lan>
+	<200805202043.m4KKhb5o030086@mi1.bluebottle.com>
+Message-ID: <200805210711.29072.liz@billiau.net>
+
+On Wed, 21 May 2008, the-junk at bluebottle.com wrote:
+> I had some issues with it playing some of the more recent dvd's until I
+> installed a lib that I didn't have (can't recall the name).  After that it
+> has played everything I have thrown at it.
+>
+> The symptons were shortly after accessing the dvd the program dies with no
+> indication why.  I wish i could recall what the lib? was because it was not
+> brought in by the dependencies in deb-lenny.
+>
+
+probably libdvdcss2
+
+-- 
+You know, Callahan's is a peaceable bar, but if you ask that dog what his
+favorite formatter is, and he says "roff! roff!", well, I'll just have to...
+
+

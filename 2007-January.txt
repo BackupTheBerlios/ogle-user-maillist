@@ -1,0 +1,160 @@
+From vlada at devnull.cz  Mon Jan  1 15:36:58 2007
+From: vlada at devnull.cz (=?ISO-8859-1?Q?Vladim=EDr_Kotal?=)
+Date: Mon, 1 Jan 2007 15:36:58 +0100
+Subject: [Ogle-user] ogle-gui error reporting
+Message-ID: <B5F22E76-1C6A-4866-9A10-BB98546220BA@devnull.cz>
+
+
+Hello,
+
+In the course of search for a good Linux DVD player I have begun  
+playing with ogle. So far I have been only able to spot one error in  
+ogle-gui: When 'open disc' is selected and it fails it does not  
+report anything in the gui, it's just silent.
+
+When run from a terminal it reports the following:
+
+[katka at erazim NEW]$ ogle
+WARNING[dvd_gui]: add_keybinding(): '
+
+
+           ' not a valid keysym
+WARNING[dvd_gui]: add_keybinding(): No such action: 'VideoToggle'
+WARNING[dvd_gui]: add_keybinding(): No such action: 'SaveScreenshot'
+WARNING[dvd_gui]: add_keybinding(): No such action:  
+'SaveScreenshotWithSPU'
+WARNING[dvd_gui]: add_keybinding(): No such action: 'AudioStreamChange'
+WARNING[dvd_gui]: add_keybinding(): No such action:  
+'SubtitleStreamChange'
+ERROR[ogle_nav]: failed to open/read the DVD at /dev/dvd: (5) Input/ 
+output error
+callbacks.on_opendvd_activate(): DVDSetDVDRoot: Root not set
+
+Only the last two lines are relevant.
+
+ogle-gui should catch the error and present it to the user via gui.
+
+
+v.
+
+
+
+From nathan at nmichaels.org  Thu Jan  4 05:23:19 2007
+From: nathan at nmichaels.org (Nathan Michaels)
+Date: Wed, 3 Jan 2007 23:23:19 -0500
+Subject: [Ogle-user] ifoOpenVTSI
+Message-ID: <6d2b030b0701032023q45d5def6l84b48b4e35773d49@mail.gmail.com>
+
+Hi, I'm running ogle on a stock Debian install on an athlon system
+with an nVidia 5600FX dual head setup (fixed the aspect ratio thing).
+I've been able to play several DVDs, but one crashes it. Here's the
+error output when running with --debug:
+
+Note[ogle_ctrl]: ogle 0.9.2
+Debug[ogle_ctrl]: Started /usr/lib/ogle/ogle_gui with pid 31820
+WARNING[dvd_gui]: add_keybinding(): No such action: 'SaveScreenshot'
+WARNING[dvd_gui]: add_keybinding(): No such action: 'SaveScreenshotWithSPU'
+Debug[ogle_ctrl]: Started /usr/lib/ogle/ogle_nav with pid 31821
+Debug[ogle_ctrl]: Started /usr/lib/ogle/ogle_mpeg_ps with pid 31822
+Debug[ogle_vout]: CLK_TCK: 100
+Debug[ogle_ctrl]: Started /usr/lib/ogle/ogle_vout with pid 31823
+Debug[ogle_nav]: Opening DVD at "/dvd"
+libdvdcss debug: opening target `/dev/hdc'
+libdvdcss debug: using libc for access
+libdvdcss debug: disc is scrambled
+libdvdcss debug: requesting AGID
+libdvdcss debug: drive authenticated, using variant 0
+libdvdcss debug: authentication established
+libdvdcss debug: GetASF authenticated, ASF=1
+libdvdcss debug: decrypting disc key be:23:71:a7:91
+libdvdcss debug: trying player key 01:af:e3:12:80
+libdvdcss debug: decrypted disc key is 2e:97:32:1f:4b
+libdvdcss debug: using CSS key cache dir:
+/home/nathan/.dvdcss/ALIAS_SEASON_1-2003070309462500-2e97321f4b/
+libdvdcss error: seek error
+Debug[ogle_nav]: play_PGC: first_play_pgc
+Debug[ogle_nav]: play_PGC: state.pgcN (2)
+Debug[ogle_nav]: play_PG: state.pgN (1)
+Debug[ogle_nav]: play_Cell: state.cellN (1)
+Debug[ogle_nav]: sending subp demuxstream 0
+libdvdcss debug: opening target `/dev/hdc'
+libdvdcss debug: using libc for access
+libdvdcss debug: disc is scrambled
+libdvdcss debug: requesting AGID
+libdvdcss debug: drive authenticated, using variant 0
+libdvdcss debug: authentication established
+libdvdcss debug: GetASF authenticated, ASF=1
+libdvdcss debug: decrypting disc key be:23:71:a7:91
+libdvdcss debug: trying player key 01:af:e3:12:80
+libdvdcss debug: decrypted disc key is 2e:97:32:1f:4b
+libdvdcss debug: using CSS key cache dir:
+/home/nathan/.dvdcss/ALIAS_SEASON_1-2003070309462500-2e97321f4b/
+libdvdcss debug: title key found in cache c0:00:00:00:01
+libdvdcss debug: title key found in cache c0:00:00:00:01
+libdvdcss debug: title key found in cache c0:00:00:00:01
+libdvdcss debug: title key found in cache c0:00:00:00:02
+libdvdcss debug: title key found in cache c0:00:00:00:02
+libdvdcss debug: title key found in cache c0:00:00:00:03
+libdvdcss debug: title key found in cache c0:00:00:00:04
+Debug[ogle_ctrl]: _new stream bf, 0
+Debug[ogle_ctrl]: _new stream e0, 0
+Debug[ogle_ctrl]: Started /usr/lib/ogle/ogle_mpeg_vs with pid 31826
+Debug[ogle_mpeg_vs]: ## req cap
+Debug[ogle_mpeg_vs]: got cap and stream
+Debug[ogle_mpeg_vs]: get ouput buffer
+Debug[ogle_ctrl]: got capability video_out
+Debug[ogle_mpeg_vs]: horizontal_size: 720, vertical_size: 480
+Debug[ogle_mpeg_vs]: padded_width: 720, padded_height: 480
+Debug[ogle_mpeg_vs]: frame rate: 30000/1001 (29.97)
+Xscreensaver not running.
+Debug[ogle_mpeg_vs]: time offset not valid yet
+Note[ogle_vout]: using default config for ':0.0'
+Note[ogle_vout]: Using 'user' as source for geometry
+Note[ogle_vout]: Using 'Xinerama' as source for resolution
+Note[ogle_vout]: Display w: 328, h: 242, hp: 1280, vp: 960
+Note[ogle_vout]: Display sar: 309760/314880 = 0.983740
+Note[ogle_vout]: Found 40 matching visuals, using visual id: 21
+Note[ogle_vout]: Found Xv extension 2.2, checking for suitable adaptors
+Note[ogle_vout]: Xv adaptor "NV17 Video Texture" port 244 image format
+0x32315659 (YV12)
+WARNING[ogle_vout]: req_code: 140
+WARNING[ogle_vout]: minor_code: 14
+WARNING[ogle_vout]: error_code: 8
+WARNING[ogle_vout]: XV_COLORKEY not available
+ERROR[ogle_vout]: Couldn't get attribute: XV_COLORKEY
+Debug[ogle_vout]: resize: 839, 480
+Debug[ogle_vout]: resize: 720, 411
+Debug[ogle_mpeg_vs]: time offset not valid yet
+Debug[ogle_vout]: resize: 839, 480
+WARNING[ogle_mpeg_vs]: B-frame before forward ref frame
+Debug[ogle_vout]: set_sync_point()
+Debug[ogle_nav]: play_Cell_post: state.cellN (1)
+Debug[ogle_nav]: last cell in this PGC
+Debug[ogle_nav]: play_PGC_post:
+libdvdcss error: seek error
+libdvdread: Invalid IFO for title 2 (VTS_02_0.IFO).
+libdvdcss error: seek error
+libdvdread: Invalid IFO for title 2 (VTS_02_0.BUP).
+FATAL[ogle_nav]: ifoOpenVTSI failed
+Debug[ogle_ctrl]: child: 31821 exited with 1 (/usr/lib/ogle/ogle_nav)
+Debug[ogle_ctrl]: pid: 31821 exited with status: 1 (/usr/lib/ogle/ogle_nav)
+Debug[ogle_ctrl]: child: 31822 killed (/usr/lib/ogle/ogle_mpeg_ps)
+Debug[ogle_ctrl]: pid: 31822 terminated on signal: 2
+(/usr/lib/ogle/ogle_mpeg_ps)
+Debug[ogle_ctrl]: child: 31823 exited with 0 (/usr/lib/ogle/ogle_vout)
+Debug[ogle_ctrl]: pid: 31823 exited with status: 0 (/usr/lib/ogle/ogle_vout)
+Debug[ogle_ctrl]: child: 31820 killed (/usr/lib/ogle/ogle_gui)
+Debug[ogle_ctrl]: pid: 31820 terminated on signal: 2 (/usr/lib/ogle/ogle_gui)
+Debug[ogle_ctrl]: slaying child: 31826 /usr/lib/ogle/ogle_mpeg_vs
+Debug[ogle_ctrl]: removing shmid: 63995924
+Debug[ogle_ctrl]: removing shmid: 64061463
+Debug[ogle_ctrl]: removing shmid: 64094232
+Debug[ogle_ctrl]: removing shmid: 64127001
+Debug[ogle_ctrl]: removing shmid: 64159770
+ctrl: ipc_rmid: Invalid argument
+Debug[ogle_ctrl]: removing shmid: 64192539
+Note[ogle_ctrl]: exiting
+
+Any ideas?
+
+

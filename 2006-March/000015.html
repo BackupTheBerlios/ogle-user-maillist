@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Ogle-user] Commercial DVD makes libdvdread go nuts
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/ogle-user/2006-March/index.html" >
+   <LINK REL="made" HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20Commercial%20DVD%20makes%20libdvdread%20go%20nuts&In-Reply-To=%3CPine.LNX.4.62.0603091956230.6861%40venus.phys.uu.nl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000017.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Ogle-user] Commercial DVD makes libdvdread go nuts</H1>
+    <B>Dik Takken</B> 
+    <A HREF="mailto:ogle-user%40lists.berlios.de?Subject=Re%3A%20%5BOgle-user%5D%20Commercial%20DVD%20makes%20libdvdread%20go%20nuts&In-Reply-To=%3CPine.LNX.4.62.0603091956230.6861%40venus.phys.uu.nl%3E"
+       TITLE="[Ogle-user] Commercial DVD makes libdvdread go nuts">D.H.J.Takken at phys.uu.nl
+       </A><BR>
+    <I>Thu Mar  9 21:06:01 CET 2006</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000017.html">[Ogle-user] Commercial DVD makes libdvdread go nuts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+I own two commercial DVD titles that make libdvdread return nonsense. I 
+know it must be libdvdread, because all DVD player applications have 
+trouble playing only these tho titles.
+
+Running tcprobe on one of the DVD disks clearly shows what goes wrong:
+
+takkie ~ # tcprobe -i /dev/dvd
+libdvdread: Using libdvdcss version 1.2.8 for DVD access
+[tcprobe] DVD image/device
+libdvdread: Using libdvdcss version 1.2.8 for DVD access
+Please send bug report - no VTS_TMAPT ??
+(dvd_reader.c) mpeg2 pal 4:3 U0 720x576 video
+(dvd_reader.c) ac3 en drc 48kHz 6Ch
+(dvd_reader.c) subtitle 00=&lt;en&gt;
+Please send bug report - no VTS_TMAPT ??
+(dvd_reader.c) DVD title 1/1: 8 chapter(s), 1 angle(s), title set 1
+(dvd_reader.c) title playback time: 00:00:05.01  6 sec
+(dvd_reader.c) [Chapter 01] 00:00:00.000 , block from 0 to 196964
+(dvd_reader.c) [Chapter 02] 00:00:00.000 , block from 304780 to 444065
+(dvd_reader.c) [Chapter 03] 00:00:00.000 , block from 0 to 0
+(dvd_reader.c) [Chapter 04] 00:00:00.000 , block from 0 to 0
+(dvd_reader.c) [Chapter 05] 00:00:00.000 , block from 834326 to 900439
+(dvd_reader.c) [Chapter 06] 00:00:00.000 , block from 1805328 to 1967066
+(dvd_reader.c) [Chapter 07] 00:00:00.000 , block from 0 to 0
+(dvd_reader.c) [Chapter 08] 00:00:00.000 , block from 0 to 0
+[tcprobe] summary for /dev/dvd, (*) = not default, 0 = not detected
+import frame size: -g 720x576 [720x576]
+      aspect ratio: 4:3 (*)
+        frame rate: -f 25.000 [25.000] frc=3
+       audio track: -a 0 [0] -e 48000,16,2 [48000,16,2] -n 0x2000 [0x2000]
+[tcprobe] V: 150 frames, 6 sec @ 25.000 fps
+[tcprobe] A: 0.09 MB @ 128 kbps
+[tcprobe] CD:  650 MB | V:  649.9 MB @ 908634.8 kbps
+[tcprobe] CD:  700 MB | V:  699.9 MB @ 978539.9 kbps
+[tcprobe] CD: 1300 MB | V: 1299.9 MB @ 1817400.7 kbps
+[tcprobe] CD: 1400 MB | V: 1399.9 MB @ 1957210.8 kbps
+
+The number of chapters on the title is correct, but the total playing time 
+of 5 seconds is not. The running times and block indices of the chapters 
+is total nonsense.
+
+lsdvd does not show any information about the chapters. It outputs only 
+this:
+
+takkie ~ # lsdvd -x -t 1
+libdvdread: Using libdvdcss version 1.2.8 for DVD access
+Please send bug report - no VTS_TMAPT ??
+Disc Title: UNTITLED1_SCN
+Title: 01, Length: 00:00:05 Chapters: 08, Cells: 01, Audio streams: 01, 
+Subpictures: 01
+         VTS: 01, TTN: 01, FPS: 25.00, Format: PAL, Aspect ratio: 4/3, 
+Width: 720, Height: 576, DF: ?
+         Number of Angles: 1
+         Audio: 1, Language: en - English, Format: ac3, Frequency: 48000, 
+Quantization: drc, Channels: 6, AP: 0, Content: Undefined
+         Chapter: 01, Length: 00:00:05, Start Cell: 01
+         Cell: 01, Length: 00:00:05
+         Subtitle: 01, Language: en - English, Content: Undefined
+
+My version of libdvdread is libdvdread-0.9.4-r1 (Gentoo x86)
+
+Is this a known problem or a new bug?
+
+Cheers!
+
+Dik
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000017.html">[Ogle-user] Commercial DVD makes libdvdread go nuts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/ogle-user">More information about the Ogle-user
+mailing list</a><br>
+</body></html>

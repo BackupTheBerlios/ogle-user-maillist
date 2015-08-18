@@ -1,0 +1,212 @@
+From the-junk at bluebottle.com  Wed Mar 26 20:28:15 2008
+From: the-junk at bluebottle.com (the-junk at bluebottle.com)
+Date: Wed, 26 Mar 2008 15:28:15 -0400
+Subject: [Ogle-user] can't play some dvds
+Message-ID: <200803261528.15256.the-junk@bluebottle.com>
+
+Kind Sirs,
+
+Thanks for a wonderful program.  I really enjoy it and it works well.  At 
+least it did when I installed it.
+
+Since then I have updated my system twice and when I went to use it last night 
+it failed.  What happens is:
+
+1. insert cd.
+2. launch Ogle via the dvd button (controlled by lineak).
+3. open the 'file' menu and click on 'open disk'.
+4. disk is accessed and starts by displaying the copy warning.
+5. plays through to the end of the warning and dies taking ogle with it.
+
+I have also tried by launching Ogle from the menu and get the same results.  
+The command that launches Ogle form the menu is 'ogle -u gui'.  The command 
+that is executed by the 'dvd' key is 'ogle -U'.  Not sure if the change in 
+case of the 'u' is important, but it was working that way when I first set it 
+up.
+
+OK it seams not to be an issue with the player but an issue with the dvd I try 
+to play.  I just inserted a different disk (old Lone Ranger episodes) and it 
+ran just fine.  Other disks whose manufacture either can't or are not 
+concerned with anti-copy measures seam to run fine.  The one that failed is 
+of a newer show called 'The Pretender' and the disks are double sided and 
+part of a complete season 2 set from 20th Century Fox (www.Foxtvdvd.com).
+
+When trying a "Chronicles of Narnia (Disney dvd)" and others it crashed as 
+soon as disk access started. Sony/Columbia dvd. Universal Studio dvd.  Big 
+name companies that can afford anti-copy measures.
+
+Is there a work around for this?
+
+I am running Debian Lenny (testing) on 2.6.22-3-amd64 fully up to date.
+Xorg 1:7.3+10
+KDE 4:3.5.8.dfsg.1-7
+Ogle-mmx 0.9.2-5.1 /with/ogle-gui 0.9.2-4
+the laptop is an HP Pavillion dv9317cl
+the graphics is nvidia geforce go 6150 running on the nvidia driver 
+(NVIDIA-Linux-x86_64-100.14.11-pkp1.run) not the latest because it would 
+corupt the display when comming out of power saving mode.
+
+The only things I have installed out of the sid repositories are the 2.6.24 
+kernel which I am not using and ogle which was not avalible in testing at the 
+time I did a reinstall of my system some 3 weeks ago.  I remember that there 
+is something else but I can't recall what it is at the moment.  I think it 
+had something to do with my built in video camera.
+
+I hope this helps you to improve an already great program.  Thanks again for 
+it.
+
+The output from   ogle --debug >& ogle.log   on the 'Pretender' dvd
+
+Build: Linux 2.6.22-3-vserver-amd64 #1 SMP Sun Nov 4 18:41:00 UTC 2007 x86_64 
+unknown Sat Mar  8 23:36:56 UTC 2008 Xv oss alsa
+Runtime: Linux 2.6.22-3-amd64 #1 SMP Tue Feb 12 09:22:35 UTC 2008 x86_64 
+unknown
+cpuinfo:
+processor : 0, vendor_id : AuthenticAMD, cpu family : 15, model : 72, model 
+name : AMD Turion(tm) 64 X2 Mobile Technology TL-52, stepping : 2, cpu MHz : 
+1600.000, cache size : 512 KB, physical id : 0, siblings : 2, core id : 0, 
+cpu cores : 2, fpu : yes, fpu_exception : yes, cpuid level : 1, wp : yes, 
+flags : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat 
+pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt rdtscp lm 
+3dnowext 3dnow pni cx16 lahf_lm cmp_legacy svm extapic cr8_legacy, bogomips : 
+3217.46, TLB size : 1024 4K pages, clflush size : 64, cache_alignment : 64, 
+address sizes : 40 bits physical, 48 bits virtual, power management: ts fid 
+vid ttp tm stc, , processor : 1, vendor_id : AuthenticAMD, cpu family : 15, 
+model : 72, model name : AMD Turion(tm) 64 X2 Mobile Technology TL-52, 
+stepping : 2, cpu MHz : 1600.000, cache size : 512 KB, physical id : 0, 
+siblings : 2, core id : 1, cpu cores : 2, fpu : yes, fpu_exception : yes, 
+cpuid level : 1, wp : yes, flags : fpu vme de pse tsc msr pae mce cx8 apic 
+sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx 
+mmxext fxsr_opt rdtscp lm 3dnowext 3dnow pni cx16 lahf_lm cmp_legacy svm 
+extapic cr8_legacy, bogomips : 3217.46, TLB size : 1024 4K pages, clflush 
+size : 64, cache_alignment : 64, address sizes : 40 bits physical, 48 bits 
+virtual, power management: ts fid vid ttp tm stc, ,
+
+/dev/dvd -> hda
+Valid DVD devices: /dev/hda
+hdparm v8.3
+DMA is on for /dev/hda
+
+/dev/hda:
+ IO_support    =  1 (32-bit)
+ unmaskirq     =  1 (on)
+ using_dma     =  1 (on)
+ keepsettings  =  0 (off)
+ readonly      =  0 (off)
+ readahead     = 256 (on)
+Note[ogle_ctrl]: ogle 0.9.2
+Debug[ogle_ctrl]: Started /usr/lib/ogle/ogle_gui with pid 4383
+WARNING[dvd_gui]: add_keybinding(): No such action: 'SaveScreenshot'
+WARNING[dvd_gui]: add_keybinding(): No such action: 'SaveScreenshotWithSPU'
+Debug[ogle_ctrl]: Started /usr/lib/ogle/ogle_nav with pid 4384
+Debug[ogle_ctrl]: Started /usr/lib/ogle/ogle_mpeg_ps with pid 4385
+Debug[ogle_ctrl]: Started /usr/lib/ogle/ogle_vout with pid 4386
+Debug[ogle_vout]: CLK_TCK: 100
+Debug[ogle_nav]: Opening DVD at "/dev/dvd"
+Debug[ogle_nav]: play_PGC: first_play_pgc
+Debug[ogle_nav]: play_PGC: state.pgcN (2)
+Debug[ogle_nav]: play_PGC: state.pgcN (7)
+Debug[ogle_nav]: play_PGC: state.pgcN (3)
+Debug[ogle_nav]: play_PGC: state.pgcN (8)
+Debug[ogle_nav]: play_PG: state.pgN (1)
+Debug[ogle_nav]: play_Cell: state.cellN (1)
+Debug[ogle_nav]: sending subp demuxstream 0
+Debug[ogle_ctrl]: _new stream bf, 0
+Note[ogle_nav]: Pause for 7 seconds,
+Debug[ogle_ctrl]: _new stream e0, 0
+Debug[ogle_ctrl]: Started /usr/lib/ogle/ogle_mpeg_vs with pid 4388
+Debug[ogle_mpeg_vs]: ## req cap
+Debug[ogle_mpeg_vs]: got cap and stream
+Debug[ogle_mpeg_vs]: get ouput buffer
+Debug[ogle_ctrl]: got capability video_out
+Debug[ogle_mpeg_vs]: horizontal_size: 720, vertical_size: 480
+Debug[ogle_mpeg_vs]: padded_width: 720, padded_height: 480
+Debug[ogle_mpeg_vs]: frame rate: 30000/1001 (29.97)
+xscreensaver-command not found.
+Debug[ogle_vout]: set_sync_point()
+Note[ogle_vout]: using default config for ':0.0'
+Note[ogle_vout]: Using 'X11' as source for geometry
+Note[ogle_vout]: Using 'Xinerama' as source for resolution
+Note[ogle_vout]: Display w: 373, h: 231, hp: 1440, vp: 900
+Note[ogle_vout]: Display sar: 332640/335700 = 0.990885
+Note[ogle_vout]: Found 20 matching visuals, using visual id: 21
+Note[ogle_vout]: Found Xv extension 2.2, checking for suitable adaptors
+Note[ogle_vout]: Xv adaptor "NV17 Video Texture" port 203 image format 
+0x32315659 (YV12)
+WARNING[ogle_vout]: req_code: 141
+WARNING[ogle_vout]: minor_code: 14
+WARNING[ogle_vout]: error_code: 8
+WARNING[ogle_vout]: XV_COLORKEY not available
+ERROR[ogle_vout]: Couldn't get attribute: XV_COLORKEY
+Debug[ogle_vout]: resize: 845, 480
+Debug[ogle_vout]: resize: 845, 480
+Debug[ogle_nav]: play_Cell_post: state.cellN (1)
+Debug[ogle_nav]: last cell in this PGC
+Debug[ogle_nav]: play_PGC_post:
+Debug[ogle_nav]: play_PGC: state.pgcN (9)
+Debug[ogle_nav]: play_PG: state.pgN (1)
+Debug[ogle_nav]: play_Cell: state.cellN (1)
+Debug[ogle_mpeg_ps]: Backward scr discontinuity
+Debug[ogle_mpeg_ps]: system_clock_reference: [0.000000 s]
+Debug[ogle_mpeg_ps]: prev system_clock_reference: [0.182046 s]
+Debug[ogle_mpeg_ps]: demux: changed to scr_nr: 1
+Note[ogle_nav]: Pause for 7 seconds,
+Debug[ogle_vout]: set_sync_point()
+Debug[ogle_nav]: play_Cell_post: state.cellN (1)
+Debug[ogle_nav]: last cell in this PGC
+Debug[ogle_nav]: play_PGC_post:
+Debug[ogle_nav]: play_PGC: state.pgcN (12)
+Debug[ogle_nav]: play_PG: state.pgN (1)
+Debug[ogle_nav]: play_Cell: state.cellN (1)
+Debug[ogle_mpeg_ps]: Backward scr discontinuity
+Debug[ogle_mpeg_ps]: system_clock_reference: [0.000000 s]
+Debug[ogle_mpeg_ps]: prev system_clock_reference: [0.180420 s]
+Debug[ogle_mpeg_ps]: demux: changed to scr_nr: 2
+Note[ogle_nav]: Pause for 7 seconds,
+Debug[ogle_vout]: set_sync_point()
+Debug[ogle_nav]: play_Cell_post: state.cellN (1)
+Debug[ogle_nav]: last cell in this PGC
+Debug[ogle_nav]: play_PGC_post:
+Debug[ogle_nav]: play_PGC: state.pgcN (1)
+Debug[ogle_nav]: PGC pre commands didn't do a Jump, Link or Call
+Debug[ogle_nav]: play_PG: state.pgN (1)
+Debug[ogle_nav]: play_Cell: state.cellN (1)
+Debug[ogle_nav]: sending audio demuxstream 7
+Debug[ogle_nav]: oid: bd, ost: 80, nid: bd, nst: 87
+Debug[ogle_nav]: sending subp demuxstream 31
+Debug[ogle_mpeg_ps]: newid private:
+Debug[ogle_mpeg_ps]: oldid private
+Debug[ogle_mpeg_ps]: Backward scr discontinuity
+Debug[ogle_mpeg_ps]: system_clock_reference: [0.000000 s]
+Debug[ogle_mpeg_ps]: prev system_clock_reference: [0.065016 s]
+Debug[ogle_mpeg_ps]: demux: changed to scr_nr: 3
+Debug[ogle_vout]: resize: 720, 544
+Debug[ogle_vout]: resize: 720, 544
+FATAL[ogle_mpeg_ps]: dvdreadblocks failed
+Debug[ogle_ctrl]: child: 4385 exited with 1 (/usr/lib/ogle/ogle_mpeg_ps)
+Debug[ogle_ctrl]: pid: 4385 exited with status: 1 (/usr/lib/ogle/ogle_mpeg_ps)
+Debug[ogle_ctrl]: child: 4388 exited with 0 (/usr/lib/ogle/ogle_mpeg_vs)
+Debug[ogle_ctrl]: pid: 4388 exited with status: 0 (/usr/lib/ogle/ogle_mpeg_vs)
+Debug[ogle_ctrl]: child: 4386 exited with 0 (/usr/lib/ogle/ogle_vout)
+Debug[ogle_ctrl]: pid: 4386 exited with status: 0 (/usr/lib/ogle/ogle_vout)
+Debug[ogle_ctrl]: child: 4383 killed (/usr/lib/ogle/ogle_gui)
+Debug[ogle_ctrl]: pid: 4383 terminated on signal: 2 (/usr/lib/ogle/ogle_gui)
+Debug[ogle_ctrl]: slaying child: 4384 /usr/lib/ogle/ogle_nav
+Debug[ogle_ctrl]: removing shmid: 2424839
+Debug[ogle_ctrl]: removing shmid: 2490377
+Debug[ogle_ctrl]: removing shmid: 2523146
+Debug[ogle_ctrl]: removing shmid: 2555915
+Debug[ogle_ctrl]: removing shmid: 2588684
+ctrl: ipc_rmid: Invalid argument
+Debug[ogle_ctrl]: removing shmid: 2621453
+Note[ogle_ctrl]: exiting
+
+-- 
+Torah!! what a trip
+
+----------------------------------------------------------------------
+Free pop3 email with a spam filter.
+http://www.bluebottle.com/tag/5
+
+
+

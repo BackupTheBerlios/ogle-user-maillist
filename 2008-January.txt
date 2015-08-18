@@ -1,0 +1,81 @@
+From dasari.manu at gmail.com  Tue Jan 29 06:51:27 2008
+From: dasari.manu at gmail.com (Manu)
+Date: Tue, 29 Jan 2008 11:21:27 +0530
+Subject: [Ogle-user] Ogle Player exits without DVD playback
+Message-ID: <c3ee6af80801282151w51daf7a8n85048ddf4c05dddb@mail.gmail.com>
+
+Hi,
+I m facing a problem using the player...
+the player exits as soon as i try to select any option from the menu...
+I have included logs for further reference..
+can u please help me at the earliest
+
+regards,
+manu
+
+/**************************************LOGS************************************************/
+Sending 'MsgEventQNotify' from: 5 to: 7
+Sending 'MsgEventQNotify' from: 7 to: 6
+Debug[ogle_vout]: set_sync_point()
+Note[ogle_vout]: using default config for '127.0.0.1:0.0'
+Note[ogle_vout]: Using 'X11' as source for geometry
+Note[ogle_vout]: Using 'X11' as source for resolution
+Note[ogle_vout]: Display w: 347, h: 260, hp: 1024, vp: 768
+Note[ogle_vout]: Display sar: 266240/266496 = 0.999039
+Note[ogle_vout]: Found 4 matching visuals, using visual id: 22
+No accelerated colorspace coversion found
+Debug[ogle_vout]: vo: sar: 2160/1920, dpy_sar 266240/266496, scale:
+511180800, 575631360
+Debug[ogle_vout]: resize: 720, 540
+Debug[ogle_vout]: vo: sar: 2160/1920, dpy_sar 266240/266496, scale:
+511180800, 575631360
+Debug[ogle_vout]: resize: 640, 480
+Sending 'MsgEventQInputKeyPress' from: 6 to: 3
+MsgNextEvent: No error
+FATAL[ogle_vout]: waiting for notification
+MsgNextEvent: No error
+Sending 'MsgEventQDVDCtrl' from: 3 to: 4
+Debug[ogle_ctrl]: pid 5596, unknown sigchld si_code: 28
+(/usr/local/lib/ogle/ogle_vout)
+Debug[ogle_ctrl]: pid: 5596 exited with status: 0
+(/usr/local/lib/ogle/ogle_vout)
+Debug[ogle_ctrl]: pid 1204, unknown sigchld si_code: 29
+(/usr/local/lib/ogle/ogle_cli)
+Debug[ogle_ctrl]: pid: 1204 terminated on signal: 2
+(/usr/local/lib/ogle/ogle_cli)
+Debug[ogle_ctrl]: pid 5492, unknown sigchld si_code: 29
+(/usr/local/lib/ogle/ogle_mpeg_ps)
+Debug[ogle_ctrl]: pid: 5492 terminated on signal: 2
+(/usr/local/lib/ogle/ogle_mpeg_ps)
+MsgNextEvent: No such process
+Debug[ogle_ctrl]: _new stream bd, 20
+Debug[ogle_ctrl]: searching cap: 1024
+Debug[ogle_ctrl]: found capclient: 0
+Debug[ogle_ctrl]: state cap: 1
+Debug[ogle_ctrl]: found capclient: 6
+Debug[ogle_ctrl]: state cap: 2
+Debug[ogle_ctrl]: searching cap: 1024
+Debug[ogle_ctrl]: found capclient: 0
+Debug[ogle_ctrl]: state cap: 1
+Debug[ogle_ctrl]: found capclient: 6
+Debug[ogle_ctrl]: state cap: 2
+Debug[ogle_ctrl]: sending ctrldata
+Sending 'MsgEventQCtrlData' from: 1 to: 6
+Sending 'MsgEventQGntStreamBuf' from: 1 to: 5
+Sending 'MsgEventQDecodeStreamBuf' from: 1 to: 6
+Debug[ogle_ctrl]: searching cap: 16384
+Debug[ogle_ctrl]: found capclient: 0
+Debug[ogle_ctrl]: state cap: 1
+Debug[ogle_ctrl]: slaying child: 4804 /usr/local/lib/ogle/ogle_nav
+Debug[ogle_ctrl]: slaying child: 4120 /usr/local/lib/ogle/ogle_mpeg_vs
+Debug[ogle_ctrl]: removing shmid: 1572864
+Debug[ogle_ctrl]: removing shmid: 1441793
+Debug[ogle_ctrl]: removing shmid: 1441794
+Debug[ogle_ctrl]: removing shmid: 1441795
+Debug[ogle_ctrl]: removing shmid: 1441796
+Debug[ogle_ctrl]: removing shmid: 1441797
+Debug[ogle_ctrl]: removing shmid: 1507334
+Debug[ogle_ctrl]: removing shmid: 1638407
+Note[ogle_ctrl]: exiting
+
+
